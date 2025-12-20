@@ -1,15 +1,17 @@
 
 
-// import { HEADER_MANUS } from "../../api-data/heade-data/heade-data"
 import TopHeader from "./header-component/top-header"
+import MediumHeader from "./header-component/medium-header"
 
 const Header = () => {
   return (
     <>
 
-        <header>
-            <TopHeader />
-        </header>
+      <header className="">
+          <TopHeader />
+          <MediumHeader />
+          
+      </header>
     
     </>
   )

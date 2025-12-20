@@ -1,19 +1,23 @@
 import { MdOutlineMail } from "react-icons/md";
 import { MdCall } from "react-icons/md";
+import { FaFacebookF } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { FaInstagramSquare } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { Container, Row, ListGroup, Col } from "react-bootstrap";
+import { Container, Row, ListGroup, Col,} from "react-bootstrap";
 
 const TopHeader = () => {
   return (
     <>
-      <div className="box-top-header">
+      <div className="bx-top-header">
         <Container>
           <Row>
-            <Col xs={6} sm={6} md={6}>
-              <ListGroup  as="ul"  className="email-numbers-box  box-navbar-nav">
+            <Col xs={6} sm={6} md={8}>
+              <ListGroup  as="ul"  className="email-numbers-box  bx-navbar-nav">
                 <ListGroup.Item  as="li" className="tab-item">
                   <Link href="tel:+6123456" target="_blank">
-                    <MdCall /> <span> +6123456</span>
+                    <MdCall /> <span> +911234567890</span>
                   </Link>
                 </ListGroup.Item>
                 <ListGroup.Item  as="li" className="tab-item">
@@ -25,30 +29,30 @@ const TopHeader = () => {
               </ListGroup>
             </Col>
 
-            <Col xs={6} sm={6} md={6}>
-              <ul className="ulclearfix fnavbar-nav ">
-                <li>
-                  <a href="#" target="_blank">
-                    <i className="fab fa-facebook-f"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="# " target="_blank">
-                    <i className="fab fa-twitter "></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_blank">
+            <Col xs={6} sm={6} md={4}>
+              <ListGroup  as="ul"  className="ulclearfix bx-navbar-nav bx-socialr-nav ">
+                <ListGroup.Item as="li">
+                  <Link href="#" target="_blank">
+                    <FaFacebookF />
+                  </Link>
+                </ListGroup.Item>
+                <ListGroup.Item as="li">
+                  <Link href="# " target="_blank">
+                    <FaTwitter />
+                  </Link>
+                </ListGroup.Item>
+                <ListGroup.Item as="li">
+                  <Link href="#" target="_blank">
                     {" "}
-                    <i className="fab fa-instagram"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_blank">
-                    <i className="fab fa-youtube "></i>
-                  </a>
-                </li>
-              </ul>
+                    <FaInstagramSquare />
+                  </Link>
+                </ListGroup.Item>
+                <ListGroup.Item as="li">
+                  <Link href="#" target="_blank">
+                    <FaYoutube />
+                  </Link>
+                </ListGroup.Item>
+              </ListGroup  >
             </Col>
           </Row>
         </Container>

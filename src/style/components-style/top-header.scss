@@ -1,36 +1,59 @@
-.box-top-header {
+.bx-top-header {
     background: $color-orange;
     padding: 0.5rem 0;
 
     ul {
         @include important-ulFlex;
-        li{
-            background-color: transparent;
-            @extend li;
-        }
+
         a {
             color: #fff;
-font-family: "Quicksand", sans-serif;
+            font-weight: 500;
             &:hover {
                 color: #000;
             }
         }
     }
-    ul.email-numbers-box {
-        li.tab-item {
+    ul {
+        li {
             margin-right: 12px;
-
-            a i {
+            background-color: transparent;
+            @extend li;
+            padding: 0;
+            margin-right: 8px;
+            &:last-child {
+                margin-right: 0;
+            }
+            a {
                 margin-right: 12px;
+                text-decoration: none;
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                svg {
+                    margin-right: 5px;
+                }
             }
         }
     }
 
-    ul.ulclearfix {
+    .bx-socialr-nav {
         justify-content: right;
-
         li {
-            margin-left: 12px;
+            margin-left: 0;
+            a {
+            }
+        }
+    }
+}
+
+// Responsive styles
+
+@media (max-width: 576px) {
+    
+    .email-numbers-box {
+        span {
+            display: none;
         }
     }
 }
