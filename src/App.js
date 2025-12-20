@@ -1,9 +1,13 @@
-import "./style/style.css";
+
 import "./style/global.scss";
+import "./style/style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "animate.css/animate.min.css";
 
 import { Routes, Route } from "react-router-dom";
+
+
+import Header from "./components/header/header";
 
 import HomeIndex from "./home";
 import AboutIndex from "./about";
@@ -16,7 +20,9 @@ import AboutIndex from "./about";
 function App() {
   return (
     <>
+    <Header />
       <div className="App">
+        
         <Routes>
            <Route path="/" element={ <HomeIndex /> } />
          <Route path="about" element={ <AboutIndex/> } />

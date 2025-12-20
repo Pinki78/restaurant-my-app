@@ -1,0 +1,70 @@
+
+// src/style/_fonts.scss
+
+$poppins-fonts: (
+  Thin: (file: '../../assets/fonts/poppins/Poppins-Thin.ttf', weight: 100, style: normal),
+  ExtraLight: (file: '../../assets/fonts/poppins/Poppins-ExtraLight.ttf', weight: 200, style: normal),
+  Light: (file: '../../assets/fonts/poppins/Poppins-Light.ttf', weight: 300, style: normal),
+  Regular: (file: '../../assets/fonts/poppins/Poppins-Regular.ttf', weight: 400, style: normal),
+  Medium: (file: '../../assets/fonts/poppins/Poppins-Medium.ttf', weight: 500, style: normal),
+  SemiBold: (file: '../../assets/fonts/poppins/Poppins-SemiBold.ttf', weight: 600, style: normal),
+  Bold: (file: '../../assets/fonts/poppins/Poppins-Bold.ttf', weight: 700, style: normal),
+  ExtraBold: (file: '../../assets/fonts/poppins/Poppins-ExtraBold.ttf', weight: 800, style: normal),
+  Black: (file: '../../assets/fonts/poppins/Poppins-Black.ttf', weight: 900, style: normal),
+  Italic: (file: '../../assets/fonts/poppins/Poppins-Italic.ttf', weight: 400, style: italic)
+);
+
+
+
+
+@each $name, $props in $poppins-fonts {
+  @font-face {
+   font-family: 'Poppins';
+    src: url(map-get($props, file)) format('truetype');
+    font-weight: map-get($props, weight);
+    font-style: map-get($props, style);
+  }
+}
+
+
+
+// src/style/_quicksand.scss
+
+$quicksand-fonts: (
+  Light: (
+    file: '../../assets/fonts/quicksand/Quicksand-Light.ttf',
+    weight: 300,
+    style: normal
+  ),
+  Regular: (
+    file: '../../assets/fonts/quicksand/Quicksand-Regular.ttf',
+    weight: 400,
+    style: normal
+  ),
+  Medium: (
+    file: '../../assets/fonts/quicksand/Quicksand-Medium.ttf',
+    weight: 500,
+    style: normal
+  ),
+  SemiBold: (
+    file: '../../assets/fonts/quicksand/Quicksand-SemiBold.ttf',
+    weight: 600,
+    style: normal
+  ),
+  Bold: (
+    file: '../../assets/fonts/quicksand/Quicksand-Bold.ttf',
+    weight: 700,
+    style: normal
+  )
+);
+
+
+@each $name, $props in $quicksand-fonts {
+  @font-face {
+   font-family: 'Quicksand';
+    src: url(map-get($props, file)) format('truetype');
+    font-weight: map-get($props, weight);
+    font-style: map-get($props, style);
+    font-display: swap;
+  }
+}

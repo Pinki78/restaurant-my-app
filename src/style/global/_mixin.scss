@@ -1,0 +1,65 @@
+
+@mixin important-card-wishlist
+{
+    font-weight: 600;
+    border-radius: 100%;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    text-align: center;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--brand-color-orange);
+    padding: 12px;
+    color: #fff;
+    font-size: 12px;
+}
+
+@mixin important-ulFlex
+{
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+@mixin  imporp-o {
+    overflow: hidden;
+    position: relative;
+}
+
+@mixin imporp-absolute {
+
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    transform: translate(-50% , -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transition: all 0.5s ease;
+    
+}
+
+@mixin imporp-overlaye
+{
+    content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        background:rgba(0, 0, 0, 0.359);
+
+}
+

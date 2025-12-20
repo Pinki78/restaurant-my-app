@@ -1,0 +1,36 @@
+.box-top-header {
+    background: $color-orange;
+    padding: 0.5rem 0;
+
+    ul {
+        @include important-ulFlex;
+        li{
+            background-color: transparent;
+            @extend li;
+        }
+        a {
+            color: #fff;
+font-family: "Quicksand", sans-serif;
+            &:hover {
+                color: #000;
+            }
+        }
+    }
+    ul.email-numbers-box {
+        li.tab-item {
+            margin-right: 12px;
+
+            a i {
+                margin-right: 12px;
+            }
+        }
+    }
+
+    ul.ulclearfix {
+        justify-content: right;
+
+        li {
+            margin-left: 12px;
+        }
+    }
+}
