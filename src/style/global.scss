@@ -27,6 +27,7 @@
 // @import "global/.scss";
 // @import "global/.scss";
 
+// 
 // @import "components-style/.scss";
 // @import "components-style/.scss";
 // @import "components-style/.scss";
@@ -47,10 +48,11 @@
 // @import "components-style/.scss";
 // @import "components-style/.scss";
 // @import "components-style/.scss";
-// @import "components-style/.scss";
-// @import "components-style/.scss";
+//
 
 
 @import "components-style/top-header.scss";
+@import "components-style/header.scss";
+ @import "components-style/service.scss";
+@import "components-style/home.scss";
 
-@import "components-style/header.scss"

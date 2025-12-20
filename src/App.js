@@ -2,8 +2,12 @@
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "animate.css/animate.min.css";
-import "./style/global.scss";
+
 import "./style/style.css";
+import "./style/global.scss";
+// import { useEffect } from "react";
+// import { useSelector } from "react-redux";
+
 import { Provider } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 import PageTitle from "./components/PageTitle";
@@ -20,6 +24,22 @@ import AboutIndex from "./about";
 // import RegisterIndex from "./register";
 
 function App() {
+
+//   const title = useSelector((state) => state.pageTitle.title);
+// //   const bodyTitle = useSelector((state) => state.pageTitle.bodyClassName);
+
+//   useEffect(() => {
+//     document.title = `${title} | Food App`;
+//   }, [title]);
+
+//     useEffect(() => {
+//     document.body.classList.add(`bx-${title}-layout-root`);
+//     return () => {
+//       document.body.classList.remove(`bx-${title}-layout-root`);
+//     };
+//   }, []);
+
+
   return (
     <>
     <Header />

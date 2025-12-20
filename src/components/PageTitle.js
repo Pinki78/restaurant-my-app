@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
-const PageTitle = () => {
+const PageTitle = ({ children }) => {
   const title = useSelector((state) => state.pageTitle.title);
 //   const bodyTitle = useSelector((state) => state.pageTitle.bodyClassName);
 
@@ -16,7 +16,7 @@ const PageTitle = () => {
     };
   }, []);
 
-  return null;
+ return children; 
 };
 
 export default PageTitle;

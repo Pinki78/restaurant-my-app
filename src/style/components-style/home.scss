@@ -1,0 +1,111 @@
+.bx-hero-page-section
+{
+    position: relative;
+    background-color: $color-orange;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0.44;
+        background-image: url('../../../public/images/home/banner/cartographer.png');
+        z-index: 1;
+      }
+
+    &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        height: 92%;
+        width: 43%;
+        background: rgb(255 255 255);
+        transform: skew(0deg, 0deg);
+        bottom: 4%;
+        border-radius: 23px 0px 0px 35px;
+       
+      }
+
+      .bx-hero-info-content {
+            padding-left: 6rem;
+            padding-right: 4rem;
+            position: relative;
+            padding-top: 3rem;
+            padding-bottom: 7rem;
+            z-index: 1;
+            h2
+            {
+                font-size: 40px;
+    line-height: 1.5;
+                font-weight: 800;
+                color: #fff;
+                margin-bottom: 1.5rem;
+            }
+
+            p
+            {
+                font-size: 14px;
+                line-height: 30px;
+                color: #fff;
+            }
+        }
+
+        .bx-info-service {
+            position: absolute;
+            left: 0;
+            transform:translateY(78px);
+            z-index: 9;
+            padding-right: 3rem;
+
+          
+    
+        }
+
+    .bx-carousel-root {
+        transform: translateY(4rem);
+        position: relative;
+        padding: 2rem;
+        z-index: 2;
+            padding-right: 0;
+
+        &::before
+        {
+            content: "";
+            position: absolute;
+            border: 4px solid #000;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 86%;
+            border-style: double;
+        }
+
+        .carousel-item 
+        {
+
+            height: 650px;
+                display: block;
+
+            .view{
+                height: 100%;
+                border-radius: 13px;
+                display: block;
+                overflow: hidden;
+                
+                img
+                {
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }       
+
+
+
+    }
+
+}

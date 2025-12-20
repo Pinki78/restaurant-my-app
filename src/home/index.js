@@ -1,12 +1,36 @@
+
+import {  Container, Row, Col, } from "react-bootstrap";
 import CarouselFadeExample from "./home-component/home-carousel/carousel-example"
+import HeroInfo from "./home-component/home-carousel/hero-info";
 
 const HomeIndex = () => {
   return (
     <>
-      <section className="bx-list-carousel-banner" id="home-page-section">
+      <section className="bx-list-carousel-banner bx-hero-page-section" id="hero-page-section">
 
-        <CarouselFadeExample />
+        <Container>
+          <Row>
+
+            <Col xs={5} sm={5} md={7} lg={7}  xxl={7}>
+             <HeroInfo />
+            </Col>
+            <Col xs={12} sm={12} md={5} lg={5}  xxl={5} className="pe-0 p-xxl-0">
+              <CarouselFadeExample />
+            </Col>
+          </Row>
+        </Container>
+
+       
       </section>
+
+      <section className="bx-service-root">
+        <Container>
+          
+        </Container>
+      </section>
+
+
+
     </>
   )
 }

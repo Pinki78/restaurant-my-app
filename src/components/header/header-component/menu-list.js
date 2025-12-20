@@ -2,8 +2,8 @@ import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { HEADER_MANUS } from "../../../api-data/heade-data/heade-data";
 // import { NavLink } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-const MenuList = () => {
+import { useLocation, NavLink } from "react-router-dom";
+const MenuList = ({isMobileOrTablet}) => {
   const location = useLocation();
 
   return (
@@ -20,27 +20,45 @@ const MenuList = () => {
                   key={item.id}
                   className={isActive ? "bx-active" : "bx-itemlike"}
                 >
-                  <Link href={item.pathUrl}> 
-                    <span>{item.pathName}</span>
-                  </Link>
+                  {item.SubMenuDate?.length > 0 ? (
+                    <NavDropdown
+                      as="ul"
+                       title={<span>{item.pathName}</span>}
+                      id={`dropdown-${item.id}`}
+                      
+                      className={`p-0 ${isMobileOrTablet ? "w" : "show"}`}
+                    >
+                      {item.SubMenuDate.map((subitem) => {
+                        const isSubActive =
+                          location.pathname === subitem.pathUrlSub;
+
+                        return (
+                          <NavDropdown.Item
+                            as="li"
+                            key={subitem.id}
+                          className={`
+  ${isSubActive ? "bx-active" : "bx-itemlike"}
+ 
+`}
+                          >
+                            <Link to={subitem.pathUrlSub}>
+                              <span>{subitem.pathNameSub}</span>
+                            </Link>
+                          </NavDropdown.Item>
+                        );
+                      })}
+                    </NavDropdown>
+                  ) : (
+                    <Link to={item.pathUrl}>
+                      <span>{item.pathName}</span>
+                    </Link>
+                  )}
                 </Nav>
               </>
             );
           })}
 
-          {/* <Nav.Link as="li" href="#home">Home</Nav.Link>
-            <Nav.Link as="li"  href="#link">Link</Nav.Link>
-            <NavDropdown as="ul"  title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item as="li"  href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item as="li"  href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item as="li"  href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item as="li"  href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown> */}
+        
         </Nav>
       </Navbar>
     </>

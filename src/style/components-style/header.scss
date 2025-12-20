@@ -46,6 +46,7 @@
         .bx-nav-ul-item {
             width: 100%;
             justify-content: right;
+
             li {
                 a {
                 }
@@ -53,11 +54,13 @@
         }
 
         .navbar-nav {
+            align-items: center;
             li.nav-item {
                 height: 100%;
             }
 
-            li.navbar-nav > a {
+            li.navbar-nav > a,
+            li ul a {
                 font-family: "Quicksand", sans-serif;
                 color: $color-black1;
                 text-decoration: none;
@@ -90,6 +93,15 @@
                 &:hover::before {
                     bottom: 0;
                     height: 100%;
+                }
+
+                li {
+                    a {
+                        &::after {
+                            z-index: 99;
+                            position: inherit;
+                        }
+                    }
                 }
             }
         }

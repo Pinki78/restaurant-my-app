@@ -50,12 +50,12 @@ const MediumHeader = (props) => {
                         <Offcanvas.Title>Offcanvas</Offcanvas.Title>
                       </Offcanvas.Header>
                       <Offcanvas.Body>
-                        <MenuList />
+                        <MenuList  />
                       </Offcanvas.Body>
                     </Offcanvas>
                   </>
                 ) : (
-                  <MenuList />
+                  <MenuList isMobileOrTablet={isMobileOrTablet} />
                 )}
                 <SearchBar />
               </div>
