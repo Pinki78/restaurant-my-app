@@ -1,9 +1,9 @@
 
-import "./style/global.scss";
-import "./style/style.css";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "animate.css/animate.min.css";
-
+import "./style/global.scss";
+import "./style/style.css";
 import { Routes, Route } from "react-router-dom";
 
 

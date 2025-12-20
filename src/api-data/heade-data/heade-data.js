@@ -12,7 +12,12 @@ const getIdMenu = (type=" MainMenu", suffix = '') => {
 
 
 export const  HEADER_MANUS =[
-
+ {
+        id: getIdMenu ("MainMenu", "main"),
+        pathName:"Home",
+        pathUrl:"/",
+    
+    },
     {
         id: getIdMenu ("MainMenu", "main"),
         pathName:"About Us",

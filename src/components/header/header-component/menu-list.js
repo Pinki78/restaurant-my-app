@@ -1,17 +1,34 @@
-import {  Navbar,Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { HEADER_MANUS } from "../../../api-data/heade-data/heade-data";
-
-
+// import { NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 const MenuList = () => {
+  const location = useLocation();
+
   return (
     <>
-    <Navbar expand="lg" className="">
-   
-        
+      <Navbar expand="lg" className="">
         {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
-        <Nav as="ul" className="me-auto">
-            <Nav.Link as="li" href="#home">Home</Nav.Link>
+        <Nav as="ul" className="me-auto bx-nav-ul-item">
+          {HEADER_MANUS.map((item) => {
+            const isActive = location.pathname === item.pathUrl;
+            return (
+              <>
+                <Nav
+                  as="li"
+                  key={item.id}
+                  className={isActive ? "bx-active" : "bx-itemlike"}
+                >
+                  <Link href={item.pathUrl}> 
+                    <span>{item.pathName}</span>
+                  </Link>
+                </Nav>
+              </>
+            );
+          })}
+
+          {/* <Nav.Link as="li" href="#home">Home</Nav.Link>
             <Nav.Link as="li"  href="#link">Link</Nav.Link>
             <NavDropdown as="ul"  title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item as="li"  href="#action/3.1">Action</NavDropdown.Item>
@@ -23,15 +40,11 @@ const MenuList = () => {
               <NavDropdown.Item as="li"  href="#action/3.4">
                 Separated link
               </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-    
-    </Navbar>
-    
-    
-    
+            </NavDropdown> */}
+        </Nav>
+      </Navbar>
     </>
-  )
-}
+  );
+};
 
-export default MenuList
+export default MenuList;
