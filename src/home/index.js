@@ -1,8 +1,13 @@
-import React from 'react'
+import CarouselFadeExample from "./home-component/home-carousel/carousel-example"
 
 const HomeIndex = () => {
   return (
-    <>HomeIndex</>
+    <>
+      <section className="bx-list-carousel-banner" id="home-page-section">
+
+        <CarouselFadeExample />
+      </section>
+    </>
   )
 }
 
