@@ -1,5 +1,4 @@
-.bx-hero-page-section
-{
+.bx-hero-page-section {
     position: relative;
     background-color: $color-orange;
 
@@ -13,9 +12,9 @@
         height: 100%;
         width: 100%;
         opacity: 0.44;
-        background-image: url('../../../public/images/home/banner/cartographer.png');
+        background-image: url("../../../public/images/home/banner/cartographer.png");
         z-index: 1;
-      }
+    }
 
     &::after {
         content: "";
@@ -27,54 +26,47 @@
         transform: skew(0deg, 0deg);
         bottom: 4%;
         border-radius: 23px 0px 0px 35px;
-       
-      }
+    }
 
-      .bx-hero-info-content {
-            padding-left: 6rem;
-            padding-right: 4rem;
-            position: relative;
-            padding-top: 3rem;
-            padding-bottom: 7rem;
-            z-index: 1;
-            h2
-            {
-                font-size: font-size(xxl);
-                line-height: 1.5;
-                font-weight: 800;
-                color: #fff;
-                margin-bottom: 1.5rem;
-            }
-
-            p
-            {
-                font-size: 14px;
-                line-height: 30px;
-                color: #fff;
-            }
+    .bx-hero-info-content {
+        padding-left: 6rem;
+        padding-right: 4rem;
+        position: relative;
+        padding-top: 3rem;
+        padding-bottom: 7rem;
+        z-index: 1;
+        h2 {
+            font-size: font-size(xxl);
+            line-height: 1.5;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 1.5rem;
         }
 
-        .bx-info-service {
-            position: absolute;
-                left: 37px;
-            width: 54%;
-            transform:translateY(30px);
-            z-index: 9;
-            padding-right: 3rem;
-
-          
-    
+        p {
+            font-size: 14px;
+            line-height: 30px;
+            color: #fff;
         }
+    }
+
+    .bx-info-service {
+        position: absolute;
+        left: 37px;
+        width: 54%;
+        transform: translateY(30px);
+        z-index: 9;
+        padding-right: 3rem;
+    }
 
     .bx-carousel-root {
         transform: translateY(4rem);
         position: relative;
         padding: 2rem;
         z-index: 2;
-            padding-right: 0;
+        padding-right: 0;
 
-        &::before
-        {
+        &::before {
             content: "";
             position: absolute;
             border: 4px solid #000;
@@ -85,32 +77,43 @@
             border-style: double;
         }
 
-        .carousel-item 
-        {
-
+        .carousel-item {
             height: 650px;
-                display: block;
+            display: block;
 
-            .view{
+            .view {
                 height: 100%;
                 border-radius: 13px;
                 display: block;
                 overflow: hidden;
-                
-                img
-                {
+
+                img {
                     height: 100%;
                     object-fit: cover;
                 }
             }
-        }       
-
-
-
+        }
     }
-
 }
 
-.bx-about-section{
+.bx-about-section {
     margin-top: 12%;
+    padding-top: 5rem;
+    position: relative;
+    margin-bottom: 6rem;
+    padding-bottom: 4rem;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        height: 100%;
+        width: 84%;
+        background: #fff url(../../../public/images/about/abotBg.jpg);
+        opacity: 0.3;
+        background-attachment: fixed;
+    }
 }

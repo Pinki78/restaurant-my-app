@@ -1,8 +1,19 @@
-import React from 'react'
+import { Container } from "react-bootstrap";
+import PageTitleArea from "../components/page-title-area/page-title-area"
+import Menuwrapper from "./menu-componebts/menu-wrapper"
 
-const MenusIndex = () => {
+
+
+const MenusIndex = ({PageName}) => {
   return (
-    <>MenusIndex</>
+    <>
+     <PageTitleArea PageName={PageName} />
+     <section>
+      < Container>
+      <Menuwrapper />
+      </Container>
+     </section>
+    </>
   )
 }
 

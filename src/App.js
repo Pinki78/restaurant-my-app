@@ -17,7 +17,7 @@ import Header from "./components/header/header";
 
 import HomeIndex from "./home";
 import AboutIndex from "./about";
-// import MenusIndex from "./menus";
+import MenusIndex from "./menus";
 // import OffersIndex from "./offers";
 // import ContactIndex from "./contact";
 // import LoginIndex from "./login";
@@ -60,6 +60,15 @@ function App() {
             element={
               <PageTitle title="About Us | Food App" >
                 <AboutIndex />
+              </PageTitle>
+            }
+          />
+
+          <Route
+            path="menus"
+            element={
+              <PageTitle title="Menu | Food App" >
+                <MenusIndex />
               </PageTitle>
             }
           />

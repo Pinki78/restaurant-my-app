@@ -23,8 +23,9 @@ const getIdCategoryMenu = (categoryName, suffix = "", ) => {
 export const createFoodMenu = (title, imageName, info, price, rating, categoryName,offer ) => {
   // Normalize category to an array if a single string is provided
   const categories = Array.isArray(categoryName) ? categoryName : [categoryName];
-  const imagePath = `/images/menu/${categories[0].toLowerCase().replace(/\s+/g, "")}/${imageName}`;
-
+const imagePath = `/images/menu/${categories[0]
+  .toLowerCase()
+  .replace(/\s+/g, "")}/${imageName}`;
   return {
     id: getIdFoodMenu(title),
     foodImage: imagePath,

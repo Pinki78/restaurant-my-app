@@ -21,6 +21,9 @@
 }
 
 .bx-about-info-wrapper {
+    opacity: 1;
+    clear: both;
+    position: relative;
     .bx-call {
         a {
             display: flex;
@@ -113,6 +116,7 @@
 }
 
 .bx-about-image-wrapper {
+    opacity: 1;
     min-height: 500px;
     align-items: center;
     border-style: solid;
@@ -149,12 +153,12 @@
         }
     }
 
-    img{
-            height:568px;
-    object-fit: cover;
-    width: 97%;
-    border-radius: 163px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 115px;
+    img {
+        height: 568px;
+        object-fit: cover;
+        width: 97%;
+        border-radius: 163px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 115px;
     }
 }

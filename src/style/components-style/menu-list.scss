@@ -1,0 +1,55 @@
+.dish-wrap {
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+.dish-wrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.359);
+  background: rgba(0, 0, 0, 0.52);
+  z-index: 1;
+}
+.dish-wrap .dish-img {
+  overflow: hidden;
+  position: relative;
+}
+.dish-wrap .dish-img img {
+  width: 100%;
+  height: 650px;
+  transform: translateX(18px) scale(1.15);
+  transition: all 0.5s ease;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.dish-wrap:hover .dish-img img {
+  opacity: 0.3;
+  transform: translateX(-18px) scale(1.15);
+}
+.dish-wrap .dish-desc {
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  transition: all 0.5s ease;
+}
+.dish-wrap .dish-desc i {
+  font-size: 56px;
+}
+.dish-wrap .dish-desc p {
+  color: #fff;
+}
+.dish-wrap .dish-desc h3 {
+  color: #fff;
+  margin: 1rem 0;
+}

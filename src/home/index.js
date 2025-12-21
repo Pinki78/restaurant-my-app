@@ -30,6 +30,18 @@ const HomeIndex = () => {
       </section>
  {/* --About End-- */}
 
+  {/* --Manu-- */}
+
+        <section className="bx-category-men-section overflow-hidden" id="category-menu-section">
+
+          <Container>
+            
+          </Container>
+
+        </section>
+
+      {/* --Manu2-- */}
+
 
     </>
   )
