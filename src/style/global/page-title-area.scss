@@ -1,0 +1,57 @@
+// .wave {
+//  background-image: url("../../../public/images/squiggle.svg");
+//       background-position: bottom;
+//       background-repeat: repeat-x;
+//     background-size: 25%;
+//     border-bottom: 0;
+//     padding-bottom: 0.3em;
+//     text-decoration: none;
+//     width: 21%;
+//     // stroke: #1e2b8f;
+//  stroke-dashoffset: 100;
+//   stroke-width: 10;
+//   stroke-linecap: round;
+//   stroke-dasharray: 60 40;
+//   animation: waveStroke 2s linear infinite;
+//     //  animation: waveMove 6s linear infinite;
+//     //   animation: moveWave 2s linear infinite;
+  
+// }
+.wave {
+//   background: url("../../../public/images/squiggle.svg");
+
+  background: url("../../../public/images/squiggle.svg");
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-size: 25%;
+  width: 21%;
+  padding-bottom: 0.3em;
+   animation: moveWave 3s linear infinite;
+       background-blend-mode: soft-light;
+}
+
+// @keyframes waveStroke {
+//   from {
+//     stroke-dashoffset: 0;
+//   }
+//   to {
+//     stroke-dashoffset: -10;
+//   }
+// }
+@keyframes moveWave {
+  from { background-position-x: 0; }
+  to   { background-position-x: -200px; }
+}
+
+// @keyframes moveWave {
+//   from { background-position-x: 0; }
+//   to { background-position-x: -60px; }
+// }
+// @keyframes waveMove {
+//   from {
+//     transform: translateX(0);
+//   }
+//   to {
+//     transform: translateX(-50%);
+//   }
+// }

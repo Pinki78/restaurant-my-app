@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import ServiceList from "../../../service/service-component/list-service";
+import {ButtonLink} from "../../../components/button-box/button-link";
 const HeroInfo = () => {
   return (
     <>
@@ -22,13 +23,15 @@ const HeroInfo = () => {
           pariatur.
         </p>
 
-        <Link to="/" className="bx-btn bx-btn-1">
-          <span>See our Menus</span>
-        </Link>
+        <ButtonLink
+          PathUrl={"/"}
+          ButtonName={"See our Menus"}
+          ClassBtn={"bx-btn-1 "}
+        />
       </div>
 
       <div className="bx-info-service">
-        <ServiceList limit={3}  Max_Length= {50} />
+        <ServiceList limit={3} Max_Length={50} />
       </div>
     </>
   );

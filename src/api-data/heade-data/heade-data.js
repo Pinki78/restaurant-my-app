@@ -21,7 +21,7 @@ export const  HEADER_MANUS =[
     {
         id: getIdMenu ("MainMenu", "main"),
         pathName:"About Us",
-        pathUrl:"/about",
+        pathUrl:"/about-us",
     
     },
      {

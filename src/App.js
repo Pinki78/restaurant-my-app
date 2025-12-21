@@ -10,7 +10,7 @@ import "./style/global.scss";
 
 import { Provider } from "react-redux";
 import { Routes, Route } from "react-router-dom";
-import PageTitle from "./components/PageTitle";
+import PageTitle from "./components/page-title-area/PageTitle";
 import { store } from "./redux-store/store";
 
 import Header from "./components/header/header";
@@ -56,7 +56,7 @@ function App() {
           />
 
           <Route
-            path="about"
+            path="about-us"
             element={
               <PageTitle title="About Us | Food App" >
                 <AboutIndex />

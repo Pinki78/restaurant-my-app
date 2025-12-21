@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -14,7 +15,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Quicksand", sans-serif;
+font-family: "ZCOOL XiaoWei", sans-serif;
+  text-transform: capitalize;
 }
 
 a,
@@ -26,6 +28,21 @@ span {
 
 p {
   font-size: 14px;
+color: #3f3f3f;
 
+}
 
+ul{
+  margin: 0;
+  padding: 0;
+}
+
+li{
+  border: 0;
+  border-radius: 0;
+}
+
+.bx-info-line
+{
+  font-size: 18px;
 }

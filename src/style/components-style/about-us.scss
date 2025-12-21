@@ -1,0 +1,160 @@
+.bx-border-inline-double {
+    border-style: inset;
+    border-inline: double;
+    border-width: 2px;
+    border-color: $color-orange;
+    border-radius: 50px 50px 50px 50px;
+}
+
+.bx-icon-bolle {
+    position: inherit;
+    display: inline-block;
+    font-size: 50px;
+    line-height: 1;
+    text-align: center;
+    transition: all 0.3s;
+    background: $color-orange;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    right: 0;
+}
+
+.bx-about-info-wrapper {
+    .bx-call {
+        a {
+            display: flex;
+            align-items: center;
+            svg {
+                font-size: 50px;
+                margin-right: 18px;
+                color: $color-orange;
+            }
+            h5 {
+                color: $color-black1;
+                font-size: 18px;
+                font-weight: 600;
+                span {
+                    display: block;
+                    font-size: 15px;
+                    font-weight: 500;
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+
+    .bx-restaurant {
+        @extend .bx-border-inline-double;
+        padding: 9px 18px;
+        width: 240px;
+        svg {
+            font-size: 25px;
+            margin-right: 5px;
+            color: $color-orange2;
+        }
+        span {
+            font-weight: 500;
+            font-size: 15px;
+        }
+    }
+
+    h2 {
+        font-size: font-size(xxl);
+        margin: 19px 0;
+    }
+    ul {
+        li {
+            border: 0;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .bx-listcheck-missvision {
+        ul {
+            li {
+                padding: 0;
+                padding: 0;
+                text-align: left;
+                justify-content: left;
+                margin-bottom: 15px;
+
+                svg {
+                    font-size: 17px;
+                    margin-right: 5px;
+                    color: $color-orange2;
+                }
+            }
+        }
+
+        .bx-our-mission-vision {
+            li {
+                @extend .bx-border-inline-double;
+                width: 100%;
+                display: block;
+                padding: 14px 18px;
+                border-radius: 20px;
+                span.bx-icon-list-icon,
+                .bx-icon-list-text {
+                    font-size: 23px;
+                }
+
+                svg {
+                    font-size: 36px;
+
+                    margin-left: 8px;
+                }
+            }
+        }
+    }
+}
+
+.bx-about-image-wrapper {
+    min-height: 500px;
+    align-items: center;
+    border-style: solid;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-color: $color-orange;
+    border-color: $color-orange;
+    border-radius: 200px 200px 0px 0px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    position: relative;
+    width: calc((1) * 100%);
+    .bx-bolle {
+        position: absolute;
+        background: #fff;
+        width: 20px;
+        min-height: 150px;
+        bottom: 180px;
+        right: -9px;
+        &::before {
+            content: "";
+            @extend .bx-icon-bolle;
+        }
+        &::after {
+            content: "";
+            @extend .bx-icon-bolle;
+            bottom: 0;
+        }
+    }
+
+    img{
+            height:568px;
+    object-fit: cover;
+    width: 97%;
+    border-radius: 163px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 115px;
+    }
+}

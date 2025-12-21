@@ -2,7 +2,7 @@
 import {  Container, Row, Col, } from "react-bootstrap";
 import CarouselFadeExample from "./home-component/home-carousel/carousel-example"
 import HeroInfo from "./home-component/home-carousel/hero-info";
-
+import AboutInfo from "../about/about-component/about-info";
 const HomeIndex = () => {
   return (
     <>
@@ -22,13 +22,13 @@ const HomeIndex = () => {
 
        
       </section>
-
-      <section className="bx-service-root">
+ {/* --About-- */}
+      <section className="bx-about-section overflow-hidden" id="about-page-section">
         <Container>
-          
+            <AboutInfo  />
         </Container>
       </section>
-
+ {/* --About End-- */}
 
 
     </>

@@ -1,9 +1,21 @@
-import React from 'react'
+import { Container } from "react-bootstrap";
 
-const AboutIndex = () => {
+
+
+import AboutInfo from "./about-component/about-info";
+import PageTitleArea from "../components/page-title-area/page-title-area";
+
+const AboutIndex = ({ PageName }) => {
   return (
-    <>AboutIndex</>
-  )
-}
+    <>
+    <PageTitleArea PageName={PageName} />
+      <section className="bx-about-us-root overflow-hidden">
+        <Container>
+          <AboutInfo  />
+        </Container>
+      </section>
+    </>
+  );
+};
 
-export default AboutIndex
+export default AboutIndex;

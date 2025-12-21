@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { pageTitleReducer } from "./pageTitleSlice"; // ✅ named import
+import { pageTitleReducer } from "./store-redux-componets/pageTitleSlice"; // ✅ named import
 
 export const store = configureStore({
   reducer: {
