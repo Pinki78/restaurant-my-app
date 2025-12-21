@@ -25,11 +25,11 @@ const ProductSearchComponent = createSlice({
   },
 });
 
-const [filterMenuSearch, setFilterMenuSearch] = useState("");
-const allJobs = useSelector((state) => state.jobs);
-const filteredJobs = useMemo(() =>
-  allJobs.filter((job) => job.startsWith(filter), [filter])
-);
+// const [filterMenuSearch, setFilterMenuSearch] = useState("");
+// const allJobs = useSelector((state) => state.jobs);
+// const filteredJobs = useMemo(() =>
+//   allJobs.filter((job) => job.startsWith(filter), [filter])
+// );
 
 
 export const { setFilter, clearFilter } = ProductSearchComponent.actions;
