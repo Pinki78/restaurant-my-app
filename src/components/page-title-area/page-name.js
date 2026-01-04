@@ -8,7 +8,7 @@ const PageNameRoot = ( props) => {
             <div className="bx-page-overlay">
                  <Row>
                     <Col  xxl={12}>
-                    {PageName}
+                      <h2>{PageName}</h2>
                     </Col>
                 </Row>
             </div>

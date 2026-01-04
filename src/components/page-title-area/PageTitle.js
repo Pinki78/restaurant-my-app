@@ -8,34 +8,34 @@ import React from "react";
 const PageTitle = ({ children }) => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
-  const title = useSelector((state) => state.pageTitle.title);
+  const titleUrlName = useSelector((state) => state.pageTitle.title);
 
-  // 🔥 Update title on route change
+  // Update Redux title on route change
   useEffect(() => {
     const pageName = pageTitleMap[pathname] || "Page";
     dispatch(setPageTitle(pageName));
   }, [pathname, dispatch]);
 
-  // 🔥 Update document title
+  // Update browser document title
   useEffect(() => {
-    document.title = `${title} | Food App`;
-  }, [title]);
+    document.title = `${titleUrlName} | Food App`; // ✅ fix here
+  }, [titleUrlName]);
 
-  // 🔥 Update body class dynamically
+  // Update body class dynamically
   useEffect(() => {
-    if (!title) return;
+    if (!titleUrlName) return;
 
-    const bodyClass = `bx-${title.toLowerCase().replace(/\s+/g, "-")}-layout-root`;
+    const bodyClass = `bx-${titleUrlName.toLowerCase().replace(/\s+/g, "-")}-layout-root`;
     document.body.classList.add(bodyClass);
 
     return () => {
       document.body.classList.remove(bodyClass);
     };
-  }, [title]); // ⚡ dependency is title
+  }, [titleUrlName]);
 
-  // 🔥 Inject PageName into children dynamically
+  // Inject PageName into children dynamically
   return React.isValidElement(children)
-    ? React.cloneElement(children, { PageName: title })
+    ? React.cloneElement(children, { PageName: titleUrlName })
     : children;
 };
 

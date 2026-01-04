@@ -10,9 +10,8 @@ import { fetchMenuList } from "../../redux-store/menuListItmes";
 const Menuwrapper = (props) => {
 
   const { limit, Max_Length } = props;
-
   const dispatch = useDispatch();
-  const {itemsMenuList, loading} = useSelector((state) => state.ListReducermenu);
+  const {itemsMenuList, loading} = useSelector((state) => state.menu);
 
   const filterSearchData = useSelector(
     (state) => state.menuSearch.filterSearch
@@ -22,14 +21,19 @@ const Menuwrapper = (props) => {
     dispatch(fetchMenuList());
   }, [dispatch]);
 
+ // ✅ Search logic (memoized & clean)
+  const filteredData = useMemo(() => {
+    if (!filterSearchData) return itemsMenuList;
 
-  const filteredData = filterSearchData
-  ? itemsMenuList.filter((item) =>
+    return itemsMenuList.filter((item) =>
       item.title.toLowerCase().includes(filterSearchData.toLowerCase())
-    )
-  : itemsMenuList;
+    );
+  }, [itemsMenuList, filterSearchData]);
+
 
   if (loading) return <p>Loading...</p>;
+
+
 
 // const MenuDataDispaly = limit ? FOOD_MENU_DATA.slice(0, limit) : FOOD_MENU_DATA
 const MenuDataDispaly = limit ? filteredData.slice(0, limit) : filteredData;

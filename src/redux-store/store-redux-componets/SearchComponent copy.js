@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { useSelector } from "react-redux";
 
-import { FOOD_MENU_DATA } from "../../api-data/ManulistData/manu-list-data";
+import { FOOD_MENU_DATA } from "../../api-data/manulist-data/manu-list-data";
 
 import { createSlice, fetchBaseQuery } from "@reduxjs/toolkit";
 
@@ -9,18 +9,18 @@ import { createSlice, fetchBaseQuery } from "@reduxjs/toolkit";
 //       const [filter, setFilter] = useState('');
 // }
 
-const ProductSearchComponent = createSlice({
+const SearchComponent = createSlice({
   name: "menuSearch",
   initialState: {
-    filter: "",
+    filterSearch: "",
   },
 
   reducers: {
-    setFilter: (state, action) => {
-        state.filter = action.payload;
+    setFilterSearch: (state, action) => {
+        state.filterSearch = action.payload;
     },
-    clearFilter: (state) => {
-      state.filter = "";
+    clearFilterSearch: (state) => {
+      state.filterSearch = "";
     },
   },
 });
@@ -31,6 +31,5 @@ const ProductSearchComponent = createSlice({
 //   allJobs.filter((job) => job.startsWith(filter), [filter])
 // );
 
-
-export const { setFilter, clearFilter } = ProductSearchComponent.actions;
-export default ProductSearchComponent.reducer;
+export const { setFilterSearch, clearFilterSearch } = SearchComponent.actions;
+export default SearchComponent.reducer;

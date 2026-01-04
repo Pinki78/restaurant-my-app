@@ -42,7 +42,15 @@ const AboutInfo = () => {
 
             <div className="bx-listcheck-missvision ">
               <Row className="m-0 p-0">
-                <Col xs={12} sm={12} md={7} lg={7} xl={7} xxl={7} className="p-0">
+                <Col
+                  xs={12}
+                  sm={12}
+                  md={7}
+                  lg={7}
+                  xl={7}
+                  xxl={7}
+                  className="p-0"
+                >
                   <div className="bx-list-info-check ">
                     <ListGroup as="ul" className="bx-icon-list-items">
                       <ListGroup.Item as="li" className="bx-icon-list-item">
@@ -83,24 +91,34 @@ const AboutInfo = () => {
                     </ListGroup>
                   </div>
 
-<div className="bx-call-us mt-3 d-xxl-flex d-block align-items-center">
-              <ButtonLink PathUrl={"/about"} ButtonName={"About Us"} ClassBtn={"bx-btn-2"} />
-              <div className="bx-call mt-4 ms-xxl-3 ms-0">
-                <Link to="tel:+91123456790" aria-label="Call us">
-                  <span className="">
-                    <BiSolidPhoneCall />
-                  </span>
-                  <h5>
-                    Phone
-                    <span>+91 123456790</span>
-                  </h5>
-                </Link>
-              </div>
-            </div>
-
-
+                  <div className="bx-call-us mt-3 d-xxl-flex d-block align-items-center">
+                    <ButtonLink
+                      PathUrl={"/about"}
+                      ButtonName={"About Us"}
+                      ClassBtn={"bx-btn-2"}
+                    />
+                    <div className="bx-call mt-4 ms-xxl-3 ms-0">
+                      <Link to="tel:+91123456790" aria-label="Call us">
+                        <span className="">
+                          <BiSolidPhoneCall />
+                        </span>
+                        <h5>
+                          Phone
+                          <span>+91 123456790</span>
+                        </h5>
+                      </Link>
+                    </div>
+                  </div>
                 </Col>
-                <Col xs={12} sm={12} md={5} lg={5} xl={5} xxl={5} className="p-0">
+                <Col
+                  xs={12}
+                  sm={12}
+                  md={5}
+                  lg={5}
+                  xl={5}
+                  xxl={5}
+                  className="p-0"
+                >
                   <div className="bx-our-mission-vision">
                     <ListGroup as="ul" className="bx-icon-list-items ">
                       <ListGroup.Item
@@ -111,7 +129,7 @@ const AboutInfo = () => {
                           <TbTargetArrow />
                           <span className="bx-icon-list-text">Our Mission</span>
                         </span>
-                        
+
                         <p>
                           We serve fresh, healthy and delicious meals daily.
                         </p>
@@ -125,17 +143,14 @@ const AboutInfo = () => {
                           <FaEye />
                           <span className="bx-icon-list-text">Our Vision</span>
                         </span>
-                        
+
                         <p>Our goal is to be nation’s top fusion restaurant.</p>
                       </ListGroup.Item>
                     </ListGroup>
-                    
                   </div>
                 </Col>
               </Row>
             </div>
-
-            
           </div>
         </Col>
 
@@ -146,8 +161,6 @@ const AboutInfo = () => {
               alt="about"
             />
             <div className="bx-bolle"> </div>
-
-           
           </div>
         </Col>
       </Row>

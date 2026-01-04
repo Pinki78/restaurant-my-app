@@ -1,8 +1,12 @@
+import PageTitleArea from "../components/page-title-area/page-title-area"
 
 
-const Index404 = () => {
+const Index404 = ({ PageName }) => {
   return (
-    <>404Index</>
+    <>
+    
+    <PageTitleArea PageName={PageName} />
+    </>
   )
 }
 

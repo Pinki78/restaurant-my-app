@@ -4,7 +4,7 @@
 @import "global/color.scss";
 @import "global/button.scss";
  @import "global/search-bar.scss";
- @import "global/page-title-area.scss";
+
 
 //
 // @import "global/.scss";
@@ -29,7 +29,7 @@
 
 // 
 // 
-// @import "components-style/.scss";
+// 
 // @import "components-style/.scss";
 // @import "components-style/.scss";
 // @import "components-style/.scss";
@@ -50,7 +50,7 @@
 // @import "components-style/.scss";
 //
 
-
+ @import "components-style/page-title-area.scss";
 @import "components-style/top-header.scss";
 @import "components-style/header.scss";
  @import "components-style/service.scss";

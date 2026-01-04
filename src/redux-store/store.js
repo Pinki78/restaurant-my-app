@@ -1,10 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { pageTitleReducer } from "./store-redux-componets/pageTitleSlice"; // ✅ named import
-import menuSearchReducer from "./store-redux-componets/menuSearch";
+import searchReducer from "./store-redux-componets/searchSlice";
+import  menuListReducer   from "./menuListItmes"
+
 
 export const store = configureStore({
   reducer: {
     pageTitle: pageTitleReducer,
-     menuSearch: menuSearchReducer,
+     menuSearch: searchReducer,
+     ListReducermenu: menuListReducer ,
   },
 });

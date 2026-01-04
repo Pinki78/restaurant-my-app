@@ -1,6 +1,6 @@
 import { Carousel, Image } from "react-bootstrap";
 
-import { CAROUSEL_LIST } from "../../../api-data/home-data/carousel-lists-data";
+import { CAROUSEL_LIST }   from "../../../api-data/home-data/carousel-lists-data";
 
 const CarouselFadeExample = () => {
   return (

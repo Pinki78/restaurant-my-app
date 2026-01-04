@@ -70,7 +70,7 @@ export const  HEADER_MANUS =[
         {
           id:getIdMenu("SubMenu" , "sub"),
           pathNameSub:"404 Page",
-          pathUrlSub:"/404",
+          pathUrlSub:"/404-page",
         },
 
         {
