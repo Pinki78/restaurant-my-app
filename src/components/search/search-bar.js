@@ -26,6 +26,7 @@ const SearchBar = () => {
   const searchQuery = useSelector((state) => state.menuSearch.filterSearch);
 
   const menuItems = useSelector((state) => state.ListReducermenu.itemsMenuList);
+  
   const filteredFoodData = searchQuery
     ? menuItems.filter((item) =>
         item.title?.toLowerCase().includes(searchQuery.toLowerCase())
@@ -35,49 +36,52 @@ const SearchBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Navigate to the search/results page if not already there
-    if (filteredFoodData) {
-       navigateToDetailPage("food");
+    console.log("1");
+    if (filteredFoodData.length > 0) {
+      navigateToDetailPage("food");
+      console.log("1");
+      
     } else {
-      navigateToDetailPage("/404"); // no results, go to 404 page
+      navigateToDetailPage("404");
+      console.log("2");
     }
 
     handleCloseSearch();
   };
 
-
   const handleQueryChange = (e) => {
     // const value = e.target.value;
     dispatch(setFilterSearch(e.target.value));
-    if (filteredFoodData) {
-       navigateToDetailPage("food");
+     if (filteredFoodData.length > 0) {
+      navigateToDetailPage("food");
+      console.log("1");
+      
     } else {
-      navigateToDetailPage("404"); // no results, go to 404 page
+      navigateToDetailPage("404");
+      console.log("2");
     }
+
     // handleCloseSearch();
   };
 
-   const navigateToDetailPage = (type, id) => {
+  const navigateToDetailPage = (type) => {
   let url = "";
 
- switch (type) {
+  switch (type) {
     case "food":
-      url = `/menus`;
+      url = "/menus";
       break;
     case "404":
-      url = `/404`;
+      url = "/404";
       break;
     default:
       return;
   }
 
-  // ✅ Only navigate if not already on the page
   if (location.pathname !== url) {
     navigate(url);
   }
 };
-
 
 
   return (
@@ -105,7 +109,7 @@ const SearchBar = () => {
                 value={searchQuery}
                 onChange={handleQueryChange}
               />
-              <Button variant="outline-success">
+              <Button type="submit" variant="outline-success">
                 <FiSearch />
               </Button>
             </Form>

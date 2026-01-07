@@ -1,8 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { FOOD_MENU_DATA } from "../api-data/ManulistData/manu-list-data";
-
-
 const api = axios.create({
   baseURL: "FOOD_MENU_DATA",
   headers: {
