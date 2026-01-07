@@ -16,73 +16,109 @@ const SearchBar = () => {
 
   const [showSearch, setShowSearch] = useState(false);
 
-  const handleCloseSearch = () => setShowSearch(false);
+  // Redux state
+  const searchQuery = useSelector((state) => state.menuSearch.filterSearch);
+
+  const menuItems = useSelector((state) => state.ListReducermenu.itemsMenuList);
+
+  const handleCloseSearch = () => {
+    setShowSearch(false);
+    // dispatch(clearFilterSearch());
+  };
   const handleShowSearch = () => {
     setShowSearch(true);
     dispatch(clearFilterSearch());
   };
 
-  // Redux state
-  const searchQuery = useSelector((state) => state.menuSearch.filterSearch);
+  // const filteredFoodData = menuItems.filter((item) =>
+  //   item.title.toLowerCase().includes(searchQuery.toLowerCase())
+  // );
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   handleCloseSearch();
+  //   console.log("1");
 
-  const menuItems = useSelector((state) => state.ListReducermenu.itemsMenuList);
-  
-  const filteredFoodData = searchQuery
-    ? menuItems.filter((item) =>
-        item.title?.toLowerCase().includes(searchQuery.toLowerCase())
-      )
-    : [];
-
+  //   // Exit if no results
+  //   if (filteredFoodData.length === 0) {
+  //     handleCloseSearch();
+  //     return;
+  //   }
+  //   // Navigate to the first result
+  //   if (filteredFoodData.length > 0) {
+  //     // navigateToDetailPage("food", filteredFoodData[0].id);
+  //     navigateToDetailPage("food");
+  //     console.log("155");
+  //   }
+  //   dispatch(clearFilterSearch());
+  // };
+  const filteredFoodData = menuItems.filter((item) =>
+    item.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     console.log("1");
-    if (filteredFoodData.length > 0) {
-      navigateToDetailPage("food");
-      console.log("1");
-      
-    } else {
-      navigateToDetailPage("404");
-      console.log("2");
+
+    if (filteredFoodData.length === 0) {
+      console.log("15");
+      handleCloseSearch();
+      return;
     }
 
+    // if (filteredFoodData.length > 0) {
+
+    //     navigateToDetailPage("food");
+    //     console.log("155");
+    //   }
+
+    console.log("155");
+    // navigateToDetailPage("food");
+    if (value.trim()) {
+      navigateToDetailPage("food");
+    }
     handleCloseSearch();
   };
 
-  const handleQueryChange = (e) => {
-    // const value = e.target.value;
-    dispatch(setFilterSearch(e.target.value));
-     if (filteredFoodData.length > 0) {
-      navigateToDetailPage("food");
-      console.log("1");
-      
-    } else {
-      navigateToDetailPage("404");
-      console.log("2");
-    }
+  // const handleQueryChange = (e) => {
+  //   // const value = e.target.value;
+  //   dispatch(setFilterSearch(e.target.value));
+  //    if (filteredFoodData) {
+  //     navigateToDetailPage("food");
+  //     console.log("1");
 
-    // handleCloseSearch();
+  //   }
+  //   //  dispatch(clearFilterSearch());
+  //   // handleCloseSearch();
+  // };
+
+  const handleQueryChange = (e) => {
+    const value = e.target.value;
+    dispatch(setFilterSearch(value));
+
+    if (value.trim()) {
+      navigateToDetailPage("food");
+    }
   };
 
   const navigateToDetailPage = (type) => {
-  let url = "";
+    let url = "";
 
-  switch (type) {
-    case "food":
-      url = "/menus";
-      break;
-    case "404":
-      url = "/404";
-      break;
-    default:
-      return;
-  }
+    switch (type) {
+      case "food":
+        url = "/menus";
+        break;
+      case "404":
+        url = "/404";
+        break;
+      default:
+        return;
+    }
 
-  if (location.pathname !== url) {
-    navigate(url);
-  }
-};
-
+    if (location.pathname !== url) {
+      navigate(url);
+    }
+  };
 
   return (
     <>
