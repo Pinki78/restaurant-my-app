@@ -57,6 +57,8 @@ const SearchBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+  const value = e.target.value;
+    // dispatch(setFilterSearch(value));
 
     console.log("1");
 
@@ -66,17 +68,17 @@ const SearchBar = () => {
       return;
     }
 
-    // if (filteredFoodData.length > 0) {
+    if (filteredFoodData.length > 0) {
 
-    //     navigateToDetailPage("food");
-    //     console.log("155");
-    //   }
+        navigateToDetailPage("food");
+        console.log("155");
+      }
 
-    console.log("155");
+    // console.log("155");
     // navigateToDetailPage("food");
-    if (value.trim()) {
-      navigateToDetailPage("food");
-    }
+    // if (value.trim()) {
+    //   navigateToDetailPage("food");
+    // }
     handleCloseSearch();
   };
 

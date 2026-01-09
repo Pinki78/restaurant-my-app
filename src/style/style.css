@@ -40,6 +40,7 @@ ul{
 li{
   border: 0;
   border-radius: 0;
+  background: transparent;
 }
 
 .bx-info-line

@@ -1,10 +1,13 @@
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown,Dropdown  } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { HEADER_MANUS } from "../../../api-data/heade-data/heade-data";
 // import { NavLink } from "react-router-dom";
-import { useLocation, NavLink } from "react-router-dom";
+
+import { useLocation,} from "react-router-dom";
+import DropdownList from "./dropdown-list";
 const MenuList = ({ isMobileOrTablet }) => {
   const location = useLocation();
+
 
   return (
     <>
@@ -20,32 +23,26 @@ const MenuList = ({ isMobileOrTablet }) => {
                   key={item.id}
                   className={isActive ? "bx-active" : "bx-itemlike"}
                 >
+
+                  
                   {item.SubMenuDate?.length > 0 ? (
                     <NavDropdown
                       as="ul"
                       title={<span>{item.pathName}</span>}
                       id={`dropdown-${item.id}`}
-                      className={`p-0 ${isMobileOrTablet ? "w" : "show"}`}
-                    >
-                      {item.SubMenuDate.map((subitem) => {
-                        const isSubActive =
-                          location.pathname === subitem.pathUrlSub;
+                      show={isMobileOrTablet ? undefined : true}
+                       
 
-                        return (
-                          <NavDropdown.Item
-                            as="li"
-                            key={subitem.id}
-                            className={`
-                              ${isSubActive ? "bx-active" : "bx-itemlike"}
-                            
-                            `}
-                          >
-                            <Link to={subitem.pathUrlSub}>
-                              <span>{subitem.pathNameSub}</span>
-                            </Link>
-                          </NavDropdown.Item>
-                        );
-                      })}
+                      className={`bx-nav-dropdown p-0 ${isMobileOrTablet ? "bx-show-dropdown" : "bx-dropdown-nav show"}`}
+                    >
+                      <div>
+                  
+    {item.SubMenuDate.map((subitem) => (
+     
+        <DropdownList key={subitem.id} subitem={subitem} />
+     
+    ))}
+</div>
                     </NavDropdown>
                   ) : (
                     <Link to={item.pathUrl}>
