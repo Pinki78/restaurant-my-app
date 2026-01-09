@@ -120,56 +120,57 @@
                 }
             }
 
-           .bx-nav-dropdown {
-    position: relative;
-    height: 100%;
-    z-index: 99;
+            .bx-nav-dropdown {
+                position: relative;
+                height: 100%;
+                z-index: 99;
 
-    &:hover,
-    &:hover .dropdown-menu {
-        .dropdown-menu {
-            transform: scaleY(1);
-            visibility: visible;
-            // display: block;
-            pointer-events: auto;
-        }
-    }
+                &:hover,
+                &:hover .dropdown-menu {
+                    .dropdown-menu {
+                        transform: scaleY(1);
+                        visibility: visible;
+                        // display: block;
+                        pointer-events: auto;
+                    }
+                }
 
-    .dropdown-toggle {
-        &:is(:hover, :active, :focus) {
-            transform: scaleY(1);
-            visibility: visible;
-        }
+                .dropdown-toggle {
+                    &:is(:hover, :active, :focus) {
+                        transform: scaleY(1);
+                        visibility: visible;
+                    }
 
-        &::after{
-            z-index: 9;
-            position: inherit;
-        }
-    }
+                    &::after {
+                        z-index: 9;
+                        position: inherit;
+                    }
+                }
 
-    .dropdown-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        transform: scaleY(0);
-        transform-origin: top;
-        visibility: hidden;
-        pointer-events: none;
-        transition: transform 0.3s ease, visibility 0.3s ease;
-        border-radius: 0;
-    padding-top: 25px;
-    background: transparent;
-    border: 0;
-    div{
-        background: #fff;
-    }
-    a{
-        width: 100%;
-        // display: block;
-    }
-    }
-}
-
+                .dropdown-menu {
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    transform: scaleY(0);
+                    transform-origin: top;
+                    visibility: hidden;
+                    pointer-events: none;
+                    transition:
+                        transform 0.3s ease,
+                        visibility 0.3s ease;
+                    border-radius: 0;
+                    padding-top: 25px;
+                    background: transparent;
+                    border: 0;
+                    div {
+                        background: #fff;
+                    }
+                    a {
+                        width: 100%;
+                        // display: block;
+                    }
+                }
+            }
         }
     }
 
