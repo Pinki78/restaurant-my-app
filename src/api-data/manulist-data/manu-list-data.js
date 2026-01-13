@@ -20,7 +20,8 @@ const getIdCategoryMenu = (categoryName, suffix = "", ) => {
   return `${setCategoryTittleId}${suffix}`;
 };
 
-export const createFoodMenu = (title, imageName, info, price, rating, categoryName,offer ) => {
+export const createFoodMenu = (title, imageName, info, price, rating, categoryName, offer = null, 
+  vegType = null   ) => {
   // Normalize category to an array if a single string is provided
   const categories = Array.isArray(categoryName) ? categoryName : [categoryName];
 const imagePath = `/images/menu/${categories[0]
@@ -31,7 +32,7 @@ const imagePath = `/images/menu/${categories[0]
     foodImage: imagePath,
     title,
     price,
-    rating,
+    rating:Number(rating) || 0,
     info,
     FoodCategory: categories.map((item) => ({
       id: getIdCategoryMenu(categoryName,"-categories"),
@@ -39,7 +40,8 @@ const imagePath = `/images/menu/${categories[0]
     })),
 
    offer,
-    
+  clientRatings: [],
+   vegType
   };
 };
 
@@ -54,7 +56,19 @@ export const FOOD_MENU_DATA = [
     "508.99",
     4.8,
     "Launch",
-    '20%'
+    '20%',
+    'Non Vag'
+  ),
+  createFoodMenu(
+    "Wagyu Veg Wellington",
+    "launch-8.png",
+    `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five
+     centuries, but also the leap into electronic typesetting, remaining essentially unchanged.`,
+    "408.99",
+    4.8,
+    "Launch",
+    '25%',
+    'Vag'
   ),
   createFoodMenu(
     "Breakfast Special",
@@ -64,7 +78,7 @@ export const FOOD_MENU_DATA = [
     "108.99",
     4.8,
     "Breakfast",
-    "30%"
+   
   ),
 
   createFoodMenu(
@@ -86,7 +100,8 @@ export const FOOD_MENU_DATA = [
     "117.99",
     4.6,
     "Fast Food",
-    "30%"
+    null,
+    'Vag'
   ),
   createFoodMenu(
     "Soup of the Day",
@@ -96,8 +111,9 @@ export const FOOD_MENU_DATA = [
     "105.99",
     4.5,
     "Soup",
-    "30%"
+    "10%"
   ),
+
   createFoodMenu(
     "Orange Juice",
     "drinks-2.jpg",
@@ -106,7 +122,7 @@ export const FOOD_MENU_DATA = [
     "103.99",
     4.7,
     "Drinks",
-    "30%"
+   
   ),
   createFoodMenu(
     "Lemon Juice",
@@ -116,7 +132,7 @@ export const FOOD_MENU_DATA = [
     "203.99",
     4.7,
     "Drinks",
-    "30%"
+    "15%"
   ),
   createFoodMenu(
     "Tandoori",
@@ -126,7 +142,7 @@ export const FOOD_MENU_DATA = [
     "113.99",
     4.7,
     "Dinner",
-    "30%"
+    
   ),
 
   createFoodMenu(
@@ -147,15 +163,66 @@ export const FOOD_MENU_DATA = [
     "217.99",
     4.6,
     "Fast Food",
-    "30%"
+    
   ),
 
+   createFoodMenu(
+    "Launch 2",
+    "launch-3.jpeg",
+    `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five
+     centuries, but also the leap into electronic typesetting, remaining essentially unchanged.`,
+    "458.99",
+    4.8,
+    "Launch",
+    '25%',
+    'Non Vag'
+  ),
+ 
+ createFoodMenu(
+    "Soup of the Day 1",
+    "soup-3.jpg",
+`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five
+     centuries, but also the leap into electronic typesetting, remaining essentially unchanged.`,
+    "105.99",
+    4.5,
+    "Soup",
+    "20%"
+  ),
 
+  createFoodMenu(
+    "Juice 1",
+    "drinks-2.jpg",
+`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five
+     centuries, but also the leap into electronic typesetting, remaining essentially unchanged.`,
+    "303.99",
+    4.7,
+    "Drinks",
+    "15%"
+  ),
 
+  createFoodMenu(
+    "Pizza 2",
+    "fastfood-9.png",
+ `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five
+     centuries, but also the leap into electronic typesetting, remaining essentially unchanged.`,
+    "217.99",
+    4.6,
+    "Fast Food",
+    null,
+    'Non Vag'
+  ),
 
-
-
-
+  createFoodMenu(
+    "Burger 2",
+    "fastfood-2.jpg",
+  `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five
+     centuries, but also the leap into electronic typesetting, remaining essentially unchanged.`,
+    "317.99",
+    4.6,
+    "Fast Food",
+    null,
+    "Non Vag"
+  ),
 
 
 ];

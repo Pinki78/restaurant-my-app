@@ -1,8 +1,8 @@
 li {
-    background-color: transparent;
     border: 0;
     border-radius: 0;
     text-decoration: none;
+    background: transparent;
 }
 
 .no-button-boder {
@@ -10,8 +10,8 @@ li {
     border: 0;
     border-radius: 0;
 }
-.bx-before-after{
-        content: "";
+.bx-before-after {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;

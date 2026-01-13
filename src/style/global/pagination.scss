@@ -1,0 +1,132 @@
+.bx-pagination-hide {
+    display: none;
+}
+
+.bx-pagination-root {
+    margin-bottom: 20px;
+    button {
+        border: 0;
+
+        background: transparent;
+        outline: unset;
+        color: #000;
+        letter-spacing: 2.64px;
+        &:disabled {
+            color: $color-orange;
+            padding: 0 0.75rem;
+        }
+        svg {
+            font-size: 20px;
+            letter-spacing: 2.64px;
+        }
+
+        &:hover {
+            color: $color-black1;
+            background: transparent;
+        }
+    }
+
+    // .bx-previous
+    // {
+    //       padding-right: 20px;
+
+    // }
+}
+
+.bx-pagination-group {
+    justify-content: center;
+    align-items: center;
+        flex-direction: row;
+    li {
+        display: inline-block;
+        position: relative;
+           padding: 12px 8px;
+    margin: 5px 4px;
+        cursor: pointer;
+
+        /* only for li properties */
+        transition: color 0.2s cubic-bezier(0.2, 1, 0.3, 1);
+
+        /* 🔥 PSEUDO ELEMENTS NEED THEIR OWN TRANSITION */
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            border-radius: 2px;
+            transition: all 0.25s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        &::before {
+            top: 0;
+            bottom: 0;
+            border-top: 2px solid $color-black-353535;
+            border-bottom: 2px solid $color-black-353535;
+        }
+
+        &::after {
+            top: 0;
+            bottom: 0;
+            border-left: 2px solid $color-black-353535;
+            border-right: 2px solid $color-black-353535;
+        }
+
+        /* 🔥 TRANSITION MUST BE ON a */
+        a,
+        span {
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition:
+                background-color 0.25s cubic-bezier(0.2, 1, 0.3, 1),
+                color 0.25s cubic-bezier(0.2, 1, 0.3, 1);
+            color: $color-black-353535;
+            border: 0;
+        }
+
+        &.disabled {
+            span {
+                background: $color-orange2;
+                color: #fff;
+            }
+        }
+
+        &:hover {
+            &::before {
+                top: 2px;
+                bottom: 2px;
+            }
+
+            &::after {
+                top: 6px;
+                bottom: 6px;
+            }
+
+            a {
+                background: $color-orange2;
+                color: #fff;
+            }
+        }
+
+        &.active {
+            background: transparent;
+            border: 0;
+            &::before {
+                top: 2px;
+                bottom: 2px;
+            }
+
+            &::after {
+                top: 6px;
+                bottom: 6px;
+            }
+            span {
+                background: $color-orange2;
+                color: #fff;
+            }
+        }
+    }
+}
+.page-item.active .page-link {
+  pointer-events: none;
+}

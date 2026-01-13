@@ -1,0 +1,97 @@
+.bx-categories-root-list {
+    .bx-product-menu-wrap {
+        &:hover {
+            &::after {
+                bottom: 0;
+            }
+        }
+
+        &::before {
+            top: 15px;
+            left: 15px;
+            border: 2px solid #353535;
+            background-color: unset;
+            width: 93%;
+            height: 96%;
+        }
+        &::after {
+            bottom: 0;
+            right: 0;
+            border: unset;
+            background-color: #353535;
+            height: 70%;
+            width: 100%;
+            left: 0;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .bx-desc-listcategoreis {
+            &:hover {
+                h3 {
+                    a {
+                        color: #fff;
+                    }
+                }
+            }
+
+            h3{
+                    font-size: 24px;
+            }
+        }
+    }
+}
+
+.bx-desc-listcategoreis {
+    position: relative;
+    overflow: visible;
+    display: inline-block;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+    margin: 0 10px;
+    padding: 10px 0 0;
+    padding: 15px;
+    width: 100%;
+    &:hover {
+        &::before {
+            width: 100%;
+            background-color: $color-orange;
+        }
+        h3 {
+            a {
+                color: #fff;
+            }
+        }
+
+       
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 100%;
+        background: #fff;
+        transition: all 400ms ease-in-out;
+        -webkit-transition: all 400ms ease-in-out;
+        -moz-transition: all 400ms ease-in-out;
+        -ms-transition: all 400ms ease-in-out;
+        -o-transition: all 400ms ease-in-out;
+    }
+
+    h3 {
+        position: relative;
+        z-index: 9;
+            font-size: 24px;
+    }
+
+    a {
+        position: relative;
+        z-index: 9;
+           color: #fff;
+    }
+}

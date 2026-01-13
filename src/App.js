@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "animate.css/animate.min.css";
+import 'swiper/css';
 
 import "./style/style.css";
 import "./style/global.scss";

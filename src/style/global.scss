@@ -3,35 +3,35 @@
 @import "global/font.scss";
 @import "global/color.scss";
 @import "global/button.scss";
- @import "global/search-bar.scss";
-
+@import "global/search-bar.scss";
+@import "global/section-headring.scss";
+@import "global/pagination.scss";
+@import "global/swiper.scss";
+//
+// 
+// 
+// @import "global/.scss";
+// @import "global/.scss";
+// @import "global/.scss";
+// @import "global/.scss";
+// @import "global/.scss";
+// @import "global/.scss";
+// @import "global/.scss";
+// @import "global/.scss";
+// @import "global/.scss";
+// @import "global/.scss";
+// @import "global/.scss";
+// @import "global/.scss";
+// @import "global/.scss";
+// @import "global/.scss";
+// @import "global/.scss";
+// @import "global/.scss";
+// @import "global/.scss";
 
 //
-// @import "global/.scss";
-// @import "global/.scss";
-// @import "global/.scss";
-// @import "global/.scss";
-// @import "global/.scss";
-// @import "global/.scss";
-// @import "global/.scss";
-// @import "global/.scss";
-// @import "global/.scss";
-// @import "global/.scss";
-// @import "global/.scss";
-// @import "global/.scss";
-// @import "global/.scss";
-// @import "global/.scss";
-// @import "global/.scss";
-// @import "global/.scss";
-// @import "global/.scss";
-// @import "global/.scss";
-// @import "global/.scss";
-
-// 
-// 
-// 
-// @import "components-style/.scss";
-// @import "components-style/.scss";
+//
+//
+//
 // @import "components-style/.scss";
 // @import "components-style/.scss";
 // @import "components-style/.scss";
@@ -49,12 +49,14 @@
 // @import "components-style/.scss";
 // @import "components-style/.scss";
 //
+//
 
- @import "components-style/page-title-area.scss";
+ @import "components-style/categories.scss";
+@import "components-style/menu-food.scss";
+@import "components-style/page-title-area.scss";
 @import "components-style/top-header.scss";
 @import "components-style/header.scss";
- @import "components-style/service.scss";
- @import "components-style/about-us.scss";
-  @import "components-style/menu-list.scss";
+@import "components-style/service.scss";
+@import "components-style/about-us.scss";
+@import "components-style/menu-list.scss";
 @import "components-style/home.scss";
-

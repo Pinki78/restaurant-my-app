@@ -44,7 +44,7 @@ const MenuDataDispaly = limit ? filteredData.slice(0, limit) : filteredData;
       <div className="">
         <Row as="ul">
           {MenuDataDispaly.map((listMenu) => (
-            <MenuItems listMenu={listMenu} limit={limit} Max_Length={Max_Length } />
+            <MenuItems key={listMenu.id} listMenu={listMenu} limit={limit} Max_Length={Max_Length } />
           ))}
         </Row>
       </div>

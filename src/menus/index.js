@@ -5,12 +5,18 @@ import Menuwrapper from "./menu-componebts/menu-wrapper"
 
 
 const MenusIndex = ({PageName}) => {
+
+
+
   return (
     <>
      <PageTitleArea PageName={PageName} />
      <section>
-      < Container>
-      <Menuwrapper />
+      <Container>
+        <Menuwrapper
+        Max_Length={48}
+        
+        />
       </Container>
      </section>
     </>

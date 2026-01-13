@@ -1,13 +1,12 @@
-import { Navbar, Nav, NavDropdown,Dropdown  } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { HEADER_MANUS } from "../../../api-data/heade-data/heade-data";
 // import { NavLink } from "react-router-dom";
 
-import { useLocation,} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import DropdownList from "./dropdown-list";
 const MenuList = ({ isMobileOrTablet }) => {
   const location = useLocation();
-
 
   return (
     <>
@@ -23,26 +22,24 @@ const MenuList = ({ isMobileOrTablet }) => {
                   key={item.id}
                   className={isActive ? "bx-active" : "bx-itemlike"}
                 >
-
-                  
                   {item.SubMenuDate?.length > 0 ? (
                     <NavDropdown
+                    key={item.id}
                       as="ul"
                       title={<span>{item.pathName}</span>}
                       id={`dropdown-${item.id}`}
                       show={isMobileOrTablet ? undefined : true}
-                       
-
-                      className={`bx-nav-dropdown p-0 ${isMobileOrTablet ? "bx-show-dropdown" : "bx-dropdown-nav show"}`}
+                      className={`bx-nav-dropdown p-0 ${
+                        isMobileOrTablet
+                          ? "bx-show-dropdown"
+                          : "bx-dropdown-nav show"
+                      }`}
                     >
                       <div>
-                  
-    {item.SubMenuDate.map((subitem) => (
-     
-        <DropdownList key={subitem.id} subitem={subitem} />
-     
-    ))}
-</div>
+                        {item.SubMenuDate.map((subitem) => (
+                          <DropdownList key={subitem.id} subitem={subitem} />
+                        ))}
+                      </div>
                     </NavDropdown>
                   ) : (
                     <Link to={item.pathUrl}>

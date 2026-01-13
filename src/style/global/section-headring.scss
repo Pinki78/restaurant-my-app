@@ -1,0 +1,20 @@
+.bx-icon-list-layout {
+    @extend .bx-border-inline-double;
+    padding: 9px 18px;
+    width: 240px;
+    svg {
+        font-size: 25px;
+        margin-right: 5px;
+        color: $color-orange2;
+    }
+    span {
+        font-weight: 500;
+        font-size: 15px;
+    }
+}
+.bx-section-headring {
+    h2 {
+        font-size: font-size(xl);
+        margin: 19px 0;
+    }
+}

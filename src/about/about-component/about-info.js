@@ -6,7 +6,19 @@ import { BiSolidPhoneCall } from "react-icons/bi";
 import { TbTargetArrow } from "react-icons/tb";
 import { ButtonLink } from "../../components/button-box/button-link";
 import { Link } from "react-router-dom";
-const AboutInfo = () => {
+import LcoListLayout from "../../components/icon-list-layout/icon-list-layout";
+import SectionHeadring from "../../components/seciton-headring/section-headring";
+import { useLocation } from "react-router-dom";
+
+const AboutInfo = (props) => {
+
+const { PathUrl , ButtonName, ClassBtn} = props;
+
+  const location = useLocation();
+
+const isAboutPage = location.pathname === "/about-us";
+    // const isPathPage = location.pathname === "/";
+
   return (
     <>
       <Row>
@@ -20,25 +32,19 @@ const AboutInfo = () => {
           className="align-self-center"
         >
           <div className="bx-about-info-wrapper wow fadeInLeft  animated">
-            <div className="bx-restaurant">
-              <ListGroup as="ul" className="bx-icon-list-items">
-                <ListGroup.Item as="li" className="bx-icon-list-item">
-                  <span className="bx-icon-list-icon">
-                    <GiHamburger />
-                  </span>
-                  <span className="bx-icon-list-text">About Restaurant</span>
-                </ListGroup.Item>
-              </ListGroup>
-            </div>
-            <h2>
-              We are a mexican restaurant makes delicious.
-              <div className="wave"> </div>
-            </h2>
-            <p className="bx-info-line">
-              Lorem ipsum dolor sit amet consectetur adipiscing elit tempus id
+            <LcoListLayout
+              IocnLayoutClass="bx-restaurant"
+              Icon={<GiHamburger />}
+              IconText="About Restaurant"
+            />
+
+            <SectionHeadring 
+            SectionHeadring="We are a mexican restaurant makes delicious."
+            SectionInfo=" Lorem ipsum dolor sit amet consectetur adipiscing elit tempus id
               phasellus massa faucibus lectus in sapien ornare et leo egestas
-              blandit amet nunc pharetra vitae id mattis ac sed.
-            </p>
+              blandit amet nunc pharetra vitae id mattis ac sed."
+            />
+            
 
             <div className="bx-listcheck-missvision ">
               <Row className="m-0 p-0">
@@ -92,11 +98,13 @@ const AboutInfo = () => {
                   </div>
 
                   <div className="bx-call-us mt-3 d-xxl-flex d-block align-items-center">
+                    
                     <ButtonLink
-                      PathUrl={"/about"}
-                      ButtonName={"About Us"}
-                      ClassBtn={"bx-btn-2"}
+                      PathUrl={isAboutPage ?  "/contact" : PathUrl }
+                      ButtonName={isAboutPage ? "Contact"  : ButtonName}
+                      ClassBtn={isAboutPage ? "bx-btn-2"  : ClassBtn}
                     />
+
                     <div className="bx-call mt-4 ms-xxl-3 ms-0">
                       <Link to="tel:+91123456790" aria-label="Call us">
                         <span className="">

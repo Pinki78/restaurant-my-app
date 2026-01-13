@@ -1,0 +1,98 @@
+.bx-slider-header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    .slider-nav {
+        position: relative;
+        display: flex;
+        width: 16%;
+        justify-content: flex-end;
+        top: -17px;
+    }
+}
+
+/* Reset default arrows */
+// .swiper-button-prev::after,
+// .swiper-button-next::after {
+//   display: none;
+// }
+.swiper-button-disabled {
+    opacity: 0.7;
+}
+/* Common styles */
+.swiper-button-prev,
+.swiper-button-next {
+    position: relative;
+    width: 100%;
+}
+.swiper-button-prev {
+    &::after,
+    &::before {
+        width: auto;
+        height: auto;
+        padding: 12px 28px;
+        position: absolute;
+        font-size: 14px;
+        letter-spacing: 2px;
+        background: transparent;
+        cursor: pointer;
+        color: $color-black-353535;
+        font-weight: 600;
+    }
+
+    &::before {
+        content: " ";
+        border: 2px solid $color-orange;
+        width: 55px;
+        height: 40px;
+    }
+    &::after {
+        content: "PREV";
+        display: inline;
+        background: #fff;
+        padding: 0;
+        /* left: 0; */
+        right: 27px;
+        transform: translate(0px, 12px);
+    }
+    svg {
+        display: none;
+    }
+}
+.swiper-button-next {
+    &::after,
+    &::before {
+        width: auto;
+        height: auto;
+        padding: 12px 28px;
+        position: absolute;
+        font-size: 14px;
+        letter-spacing: 2px;
+        background: transparent;
+        cursor: pointer;
+        color: $color-black-353535;
+        font-weight: 600;
+    }
+
+    &::before {
+        content: "";
+        border: 2px solid $color-orange;
+        width: 55px;
+        height: 40px;
+        right: 0;
+    }
+    &::after {
+        content: "NEXT";
+        display: inline;
+        background: #fff;
+        padding: 0;
+        /* left: 0; */
+        right: 27px;
+        transform: translate(0px, 12px);
+    }
+    svg {
+        display: none;
+    }
+}
+

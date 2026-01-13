@@ -1,3 +1,11 @@
+.bx-home-layout-root {
+    .bx-wave2 {
+        .wave {
+            background-size: auto;
+        }
+    }
+}
+
 .bx-hero-page-section {
     position: relative;
     background-color: $color-orange;
@@ -115,5 +123,16 @@
         background: #fff url(../../../public/images/about/abotBg.jpg);
         opacity: 0.3;
         background-attachment: fixed;
+    }
+}
+
+.bx-menu-silder-section {
+    .bx-icon-list-layout {
+        width: fit-content;
+    }
+
+    .wave {
+        width: 70%;
+        background-size: 28% !important;
     }
 }
