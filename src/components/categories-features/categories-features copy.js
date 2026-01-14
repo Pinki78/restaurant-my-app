@@ -10,12 +10,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
 const CategoriesFeaturesList = (props) => {
-
   const { limit, Max_Length, PaginationHide } = props;
   const isMobileOrTablet = useMediaQuery({ minWidth: 576, maxWidth: 991 });
 
   const dispatch = useDispatch();
-
+  
   const { itemsMenuList, loading } = useSelector(
     (state) => state.ListReducermenu
   );
@@ -28,8 +27,8 @@ const CategoriesFeaturesList = (props) => {
   // 1️⃣ Prepare unique categories with images
   // const uniqueCategories = Array.from(
   //   new Map(
-  //     itemsMenuList.flatMap((fooditem) =>
-  //       fooditem.FoodCategory.map((cat) => [
+  //     itemsMenuList.flatMap((foodItem) =>
+  //       foodItem.FoodCategory.map((cat) => [
   //         cat.categoryName, // unique key
   //         {
   //           ...cat,
@@ -73,27 +72,15 @@ const CategoriesFeaturesList = (props) => {
           },
         }}
       >
+        {categoriesToDisplay.map((item) => {
+          // find first food item for this category
+          // const foodItem = itemsMenuList.find((item) =>
+          //   item.FoodCategory.some((c) => c.categoryName === cat.categoryName)
+          // );
 
-        {categoriesToDisplay.map((fooditem, index) =>
-          fooditem.FoodCategory.map((cat) => {
-            if (shownCategories.has(cat.categoryName)) return null;
-            shownCategories.add(cat.categoryName);
-
-            return (
-              <SwiperSlide key={cat.categoryName}>
-                {/* <Link to={`/category/${cat.categorySlug}`}>
-                  <div className="bx-category-card">
-                    <Image
-                      src={item.foodImage}
-                      alt={cat.categoryName}
-                      fluid
-                    />
-                    <h6>{cat.categoryName}</h6>
-                  </div>
-                </Link> */}
-
-
-<div className="bx-product-menu-wrap wow fadeInUp animated">
+          return (
+            <SwiperSlide key={cat.id}>
+              <div className="bx-product-menu-wrap wow fadeInUp animated">
                 <div className="bx-thumbnail-top">
                   <div className="bx-images">
                     <Link
@@ -103,13 +90,13 @@ const CategoriesFeaturesList = (props) => {
                     >
                       <Image
                         className="d-block w-100 "
-                        src={fooditem?.foodImage}
+                        src={foodItem?.foodImage}
                         alt={cat.categoryName || "carousel-image"}
                         width="67%"
                         height="auto"
                       />
                       <Image
-                        src={fooditem?.foodImage}
+                        src={foodItem?.foodImage}
                         alt={cat.categoryName || "carousel-image"}
                         className="d-block w-100 bx-img2"
                         width="67%"
@@ -140,11 +127,9 @@ const CategoriesFeaturesList = (props) => {
                     </Link>
                 </div>
               </div>
-
-              </SwiperSlide>
-            );
-          })
-        )}
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
       </div>
     </>

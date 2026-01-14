@@ -1,5 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { MdOutlineMenuBook, MdRestaurantMenu } from "react-icons/md";
+import { MdOutlineMenuBook , MdRestaurantMenu } from "react-icons/md";
 
 import CarouselFadeExample from "./home-component/home-carousel/carousel-example";
 import HeroInfo from "./home-component/home-carousel/hero-info";
@@ -8,9 +8,8 @@ import MenuListSilder from "./home-component/menu-list-silder";
 import LcoListLayout from "../components/icon-list-layout/icon-list-layout";
 import SectionHeadring from "../components/seciton-headring/section-headring";
 import CategoriesFeaturesList from "../components/categories-features/categories-features";
-import BookingTableFrom from "../components/reserve-section/booking-table-from";
-// import GoogleLogin from "../firebase/GoogleLogin";
-// import FacebookLoginButton from "../firebase/facebookLogin";
+import GoogleLogin from "../firebase/GoogleLogin";
+import FacebookLoginButton from "../firebase/facebookLogin";
 
 const HomeIndex = () => {
   return (
@@ -54,35 +53,32 @@ const HomeIndex = () => {
         <Container>
           <LcoListLayout Icon={<MdOutlineMenuBook />} IconText="Our Menu" />
 
+
           <MenuListSilder Max_Length={48} />
         </Container>
       </section>
 
       {/* --Manu2-- */}
 
-      {/* --Manu-- */}
+{/* --Manu-- */}
 
       <section
         className="bx-categories-features-section overflow-hidden mb-5"
         id="category-menu-section"
       >
         <Container>
-          <LcoListLayout
-            Icon={<MdRestaurantMenu />}
-            IconText="Our Categories"
-          />
+          <LcoListLayout Icon={<MdRestaurantMenu  />} IconText="Our Categories"  />
 
-          <SectionHeadring
-            SectionHeadring="Categories Features"
-            HeadringClass="bx-wave2"
-          />
-
+<SectionHeadring SectionHeadring="Categories Features" HeadringClass="bx-wave2"  />
+          
           <CategoriesFeaturesList />
         </Container>
       </section>
 
       {/* --Manu2-- */}
-      <BookingTableFrom />
+{/* <GoogleLogin />
+<FacebookLoginButton /> */}
+
     </>
   );
 };
