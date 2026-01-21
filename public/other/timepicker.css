@@ -1,0 +1,131 @@
+.tp-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+.tp-modal {
+  width: 320px;
+  background: #fff;
+  padding: 16px;
+  border-radius: 6px;
+}
+
+.tp-wheel {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+  position: relative;
+}
+
+.wheel {
+  height: 120px;
+  width: 60px;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  overscroll-behavior: contain;
+  text-align: center;
+}
+
+.wheel::-webkit-scrollbar {
+  display: none;
+}
+
+.wheel-item {
+  height: 40px;
+  line-height: 40px;
+  font-size: 22px;
+  color: #aaa;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.wheel-item.active.selected {
+  color: #007bff;
+  font-weight: bold;
+  font-size: 1.25rem;
+  transform: scale(1.1);
+}
+
+/* AM/PM specific */
+
+/* .ampm-wheel {
+  height: 120px;     
+  width: 60px;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  text-align: center;
+  position: relative;
+}
+
+.ampm-wheel .wheel-item.pm-selected {
+  color: #ff4500;
+  font-weight: bold;
+  font-size: 1.35rem;
+  transform: scale(1.2);
+  transition: all 0.4s ease;
+}
+
+.ampm-wheel::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  height: 40px;
+  border-top: 2px solid #00aaff;
+  border-bottom: 2px solid #00aaff;
+  pointer-events: none;
+} */
+
+.tp-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ampm-wheel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80px;       /* just enough for 2 items */
+  width: 60px;
+  pointer-events: auto;
+}
+
+.ampm-wheel .wheel-item {
+  height: 40px;
+  line-height: 40px;
+  font-size: 22px;
+  color: #aaa;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease; /* smooth color/size change */
+}
+
+.ampm-wheel .wheel-item.active.selected {
+  color: #007bff;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.ampm-wheel .wheel-item.pm-selected {
+  color: #ff4500;
+  font-weight: bold;
+  font-size: 1.35rem;
+  transform: scale(1.2);
+  transition: all 0.4s ease;
+}
+
+
+
+

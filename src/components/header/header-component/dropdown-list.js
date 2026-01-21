@@ -7,10 +7,12 @@ const DropdownList = (props) => {
       <NavDropdown.Item
         as="li"
         key={subitem.id}
-        className={`
-            ${isSubActive ? "bx-active" : "bx-itemlike"}
+        // className={`
+        //     ${isSubActive ? "bx-active 000" : "bx-itemlike ggg0"}
         
-        `}
+        // `}
+
+        className={`${isSubActive ? "bx-active" : "bx-itemlike"}`}
       >
         <Link to={subitem.pathUrlSub}>
           <span>{subitem.pathNameSub}</span>

@@ -1,7 +1,53 @@
 .bx-home-layout-root {
+    .bx-headring-button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .bx-headring-our {}
+    }
+
     .bx-wave2 {
         .wave {
             background-size: auto;
+        }
+    }
+
+    .bx-wave3 {
+        .wave {
+            width: 69%;
+        }
+    }
+
+    .bx-booking-table-form {
+        padding: 72px 28px;
+
+        .bx-wave2 {
+            .wave {
+                margin: 0 auto;
+            }
+        }
+    }
+
+    .bx-services {
+        .fluidBox {
+            padding: 26px 12px 25px 16px;
+
+            .title {
+                margin: 0 0 5px;
+                font-size: 15px;
+            }
+
+            p.description {
+                font-size: 12px;
+            }
+        }
+
+        .service-icon {
+            font-size: 24px;
+            line-height: 46px;
+            height: 46px;
+            width: 46px;
         }
     }
 }
@@ -43,6 +89,7 @@
         padding-top: 3rem;
         padding-bottom: 7rem;
         z-index: 1;
+
         h2 {
             font-size: font-size(xxl);
             line-height: 1.5;
@@ -62,7 +109,7 @@
         position: absolute;
         left: 37px;
         width: 54%;
-        transform: translateY(30px);
+        transform: translateY(13px);
         z-index: 9;
         padding-right: 3rem;
     }
@@ -106,7 +153,7 @@
 
 .bx-about-section {
     margin-top: 0%;
-    padding-top: 5rem;
+    padding-top: 7rem;
     position: relative;
     margin-bottom: 6rem;
     padding-bottom: 4rem;
@@ -134,5 +181,109 @@
     .wave {
         width: 70%;
         background-size: 28% !important;
+    }
+}
+
+.bx-reserve-section {
+    position: relative;
+    background-color: #fe5f3f;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0.44;
+        background-image: url("../../../public/images/home/banner/cartographer.png");
+        // z-index: 1;
+        background-attachment: fixed;
+    }
+}
+
+.bx-testimonials-section {
+    position: relative;
+
+    .bx-swiper-testimonia {
+        position: relative;
+        margin-top: 32px;
+        padding: 71px 0 44px;
+
+        background: $color-orange2;
+
+        .swiper-slide {
+            padding: 13px;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            height: 100%;
+            width: 100%;
+            background: url("../../../public/images/pattern-dark.png");
+            opacity: 0.3;
+            background-attachment: fixed;
+        }
+
+
+        &::after {
+            content: "";
+            background: url("../../../public/images/seafood.jpg");
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-size: cover;
+            opacity: 0.7;
+            background-attachment: fixed;
+        }
+
+        .bx-testi-items {
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                max-width: 100%;
+                left: -40px;
+                bottom: 0px;
+                border-radius: 0px 0px 20px 0px;
+                // box-shadow: 20px 0px 0px 0px ;
+                margin-block-end: 0;
+                width: 40px;
+                top: 0;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                max-width: 100%;
+                right: 0px;
+                aspect-ratio: 1 / 1;
+                border-radius: 0px 0px 20px 0px;
+                // box-shadow: 20px 0px 0px 0px #000;
+                margin-block-end: 0;
+                width: 40px;
+                top: 0;
+                height: 100%;
+            }
+        }
+
+
+    }
+
+    .bx-testi-items {
+        .bx-testi-init {
+           padding: 34px;
+        }
     }
 }

@@ -1,7 +1,8 @@
 .bx-icon-list-layout {
     @extend .bx-border-inline-double;
     padding: 9px 18px;
-    width: 240px;
+    // width: 240px;
+        width: fit-content;
     svg {
         font-size: 25px;
         margin-right: 5px;

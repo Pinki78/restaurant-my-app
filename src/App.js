@@ -1,6 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "animate.css/animate.min.css";
-import 'swiper/css';
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+import "swiper/css";
+import "react-datepicker/dist/react-datepicker.css";
 
 import "./style/style.css";
 import "./style/global.scss";
@@ -18,6 +20,14 @@ import HomeIndex from "./home";
 import AboutIndex from "./about";
 import MenusIndex from "./menus";
 import Index404 from "./404";
+import GalleryIndex from "./gallery";
+import TestimonialsIndex from "./testimonials";
+import TestissIdIndex from "./testimonials/testissId";
+import CategoryIdIndex from "./menus/categoryId";
+import SingleProductInIndex from "./menus/single-product";
+import BlogsIndex from "./blog";
+import BlogsIndexId from "./blog/blogId";
+import Footer from "./components/footer/footer";
 
 // import OffersIndex from "./offers";
 // import ContactIndex from "./contact";
@@ -71,6 +81,31 @@ function App() {
                 </PageTitle>
               }
             />
+            <Route
+              path="gallery"
+              element={
+                <PageTitle title="No Find  | Food App">
+                  <GalleryIndex />
+                </PageTitle>
+              }
+            />
+            <Route
+              path="testimonials"
+              element={
+                <PageTitle title="No Find  | Food App">
+                  <TestimonialsIndex />
+                </PageTitle>
+              }
+            />
+
+            <Route
+              path="blog"
+              element={
+                <PageTitle title="No Find  | Food App">
+                  <BlogsIndex />
+                </PageTitle>
+              }
+            />
 
             <Route
               path="404"
@@ -81,13 +116,24 @@ function App() {
               }
             />
 
-            {/*  <Route path="menus" element={ <MenusIndex/> } />
+
+
+            <Route
+              path="/menu/single-product/:id"
+              element={<SingleProductInIndex />}
+            />
+            <Route path="/category/:categoryId" element={<CategoryIdIndex />} />
+            <Route path="/testimonials/:testissId" element={<TestissIdIndex />} />
+            <Route path="/blog/:blogId" element={<BlogsIndexId  />} />
+
+            {/*  
           <Route path="offers" element={ <OffersIndex/> } />
           <Route path="contact" element={ <ContactIndex/> } />
           <Route path="login" element={ <LoginIndex  /> } />
           <Route path="register" element={ <RegisterIndex/> } /> */}
           </Routes>
         </div>
+        <Footer />
       </Provider>
     </>
   );

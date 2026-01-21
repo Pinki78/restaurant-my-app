@@ -1,41 +1,43 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { pageTitleMap } from "./page-title-component/pageTitleMap";
-import { setPageTitle } from "../../redux-store//store-redux-componets/pageTitleSlice";
-import React from "react";
+import { setPageTitle } from "../../redux-store/store-redux-componets/pageTitleSlice";
 
 const PageTitle = ({ children }) => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
-  const titleUrlName = useSelector((state) => state.pageTitle.title);
 
-  // Update Redux title on route change
+  // Compute page name immediately from pathname
+  // const pageName = pageTitleMap[pathname] || "Home"; 
+  const pageName = pathname === "/" ? "Home" : pageTitleMap[pathname] ;
+
+  // const pageName = pathname === "/" ? "Home" : (pageTitleMap[pathname] || "Page");
+
+  // Update Redux state
   useEffect(() => {
-    const pageName = pageTitleMap[pathname] || "Page";
     dispatch(setPageTitle(pageName));
-  }, [pathname, dispatch]);
+  }, [pageName, dispatch]);
 
-  // Update browser document title
+  // Update browser document title immediately
   useEffect(() => {
-    document.title = `${titleUrlName} | Food App`; // ✅ fix here
-  }, [titleUrlName]);
+    document.title = `${pageName} | Food App`;
+  }, [pageName]);
 
   // Update body class dynamically
   useEffect(() => {
-    if (!titleUrlName) return;
-
-    const bodyClass = `bx-${titleUrlName.toLowerCase().replace(/\s+/g, "-")}-layout-root`;
+    const bodyClass = `bx-${pageName.toLowerCase().replace(/\s+/g, "-")}-layout-root`;
     document.body.classList.add(bodyClass);
 
+    // Cleanup previous class on unmount or pageName change
     return () => {
       document.body.classList.remove(bodyClass);
     };
-  }, [titleUrlName]);
+  }, [pageName]);
 
-  // Inject PageName into children dynamically
+  // Inject PageName prop into children if it's a valid React element
   return React.isValidElement(children)
-    ? React.cloneElement(children, { PageName: titleUrlName })
+    ? React.cloneElement(children, { PageName: pageName })
     : children;
 };
 

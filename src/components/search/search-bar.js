@@ -17,9 +17,13 @@ const SearchBar = () => {
   const [showSearch, setShowSearch] = useState(false);
 
   // Redux state
-  const searchQuery = useSelector((state) => state.menuSearch.filterSearch);
+  const searchQuery = useSelector((state) => state.SearchList.filterSearch);
 
   const menuItems = useSelector((state) => state.ListReducermenu.itemsMenuList);
+
+    const testissItem = useSelector(
+    (state) => state.TestimonialReducermenu.testimonialDataList
+  );
 
   const handleCloseSearch = () => {
     setShowSearch(false);
@@ -55,52 +59,37 @@ const SearchBar = () => {
     item.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const filteredTestissData = testissItem.filter((item) =>
+    item.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-  const value = e.target.value;
-    // dispatch(setFilterSearch(value));
 
-    console.log("1");
-
-    if (filteredFoodData.length === 0) {
-      console.log("15");
+    if (!searchQuery.trim()) {
       handleCloseSearch();
       return;
     }
 
-    if (filteredFoodData.length > 0) {
-
-        navigateToDetailPage("food");
-        console.log("155");
-      }
-
-    // console.log("155");
-    // navigateToDetailPage("food");
-    // if (value.trim()) {
-    //   navigateToDetailPage("food");
-    // }
-    handleCloseSearch();
-  };
-
-  // const handleQueryChange = (e) => {
-  //   // const value = e.target.value;
-  //   dispatch(setFilterSearch(e.target.value));
-  //    if (filteredFoodData) {
-  //     navigateToDetailPage("food");
-  //     console.log("1");
-
-  //   }
-  //   //  dispatch(clearFilterSearch());
-  //   // handleCloseSearch();
-  // };
-
-  const handleQueryChange = (e) => {
-    const value = e.target.value;
-    dispatch(setFilterSearch(value));
-
-    if (value.trim()) {
-      navigateToDetailPage("food");
+    // No results found
+    if (filteredFoodData.length === 0 && filteredTestissData.length === 0) {
+      console.log("No data found");
+      navigateToDetailPage("404");
+      handleCloseSearch();
+      return;
     }
+
+    // Navigate based on available results
+    if (filteredFoodData.length > 0) {
+      navigateToDetailPage("food");
+      console.log("Navigated to food");
+    } else if (filteredTestissData.length > 0) {
+      navigateToDetailPage("testimonial");
+      console.log("Navigated to testimonial");
+    }
+
+    handleCloseSearch();
   };
 
   const navigateToDetailPage = (type) => {
@@ -109,6 +98,9 @@ const SearchBar = () => {
     switch (type) {
       case "food":
         url = "/menus";
+        break;
+      case "testimonial":
+        url = "/testimonials";
         break;
       case "404":
         url = "/404";
@@ -121,6 +113,28 @@ const SearchBar = () => {
       navigate(url);
     }
   };
+
+// Handle input changes
+const handleQueryChange = (e) => {
+  const value = e.target.value;
+  dispatch(setFilterSearch(value));
+
+  const query = value.trim().toLowerCase();
+  if (!query) return; // do nothing if empty
+
+  // Whole-word search for food
+  const regex = new RegExp(`\\b${query}\\b`, "i");
+  const foodMatch = menuItems.some((item) => regex.test(item.title));
+  const testimonialMatch = testissItem.some((item) => regex.test(item.title));
+
+  if (foodMatch) {
+    navigateToDetailPage("food");
+  } else if (testimonialMatch) {
+    navigateToDetailPage("testimonial");
+  }
+  // else do nothing, wait for submit to go 404 if needed
+};
+
 
   return (
     <>

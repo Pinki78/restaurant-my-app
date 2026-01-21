@@ -7,16 +7,15 @@ button.btn:focus-visible {
     box-shadow: unset;
     color: #111;
 }
-button.btn
-{
-    &:disabled{
-                background: transparent;
-    outline: unset;
-    color: #000;
-    opacity: 1;
-    padding: 0;
-    border: 0;
-        }
+button.btn {
+    &:disabled {
+        background: transparent;
+        outline: unset;
+        color: #000;
+        opacity: 1;
+        padding: 0;
+        border: 0;
+    }
 }
 
 .bx-btn {
@@ -252,3 +251,65 @@ button.btn
     .bx-quantity {
     }
 }
+
+.bx-button-2 {
+    border-radius: 0;
+    &:hover {
+        &::after {
+            border-color: #fff;
+            background-color: #fff;
+        }
+        span {
+            color: #000000;
+        }
+    }
+
+    &::before {
+        background: #000000;
+    }
+
+    &::after {
+        background-color: $color-black-353535;
+        border-color: #fff;
+    }
+}
+
+
+
+.bx-view-more {
+   position: relative;
+  font-size: 14px;
+  color: black; // your default color
+  cursor: pointer;
+  &:hover{
+      color:$color-black-353535;
+    &::before {
+  background-size: 100% 100%; /* expand vertically */
+  background-position: 0% 100%; /* move from right to left */
+  height: 100%;
+  
+}}
+span{
+    position: relative;
+    z-index: 9;
+        padding: 3px;
+}
+  &::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0; /* underline at the bottom of the text */
+  width: 100%; /* full width */
+  height: 50%; /* thickness of the underline */
+  background: linear-gradient($color-orange2, $color-orange2);
+  background-size: 100% 10%; /* initial size of the line */
+  background-repeat: no-repeat;
+  background-position: 100% 100%; /* start from right */
+  transition: background-size 0.3s ease-in-out, background-position 0.5s ease-in-out;
+}
+
+}
+
+
+/* Hover animation */
+

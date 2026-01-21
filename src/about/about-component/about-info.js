@@ -1,4 +1,4 @@
-import { Row, Col, ListGroup } from "react-bootstrap";
+import { Row, Col, ListGroup, Image } from "react-bootstrap";
 import { GiHamburger } from "react-icons/gi";
 import { IoCheckmarkDoneOutline } from "react-icons/io5";
 import { FaEye } from "react-icons/fa";
@@ -164,7 +164,7 @@ const isAboutPage = location.pathname === "/about-us";
 
         <Col xs={12} sm={12} md={5} lg={5} xl={5} xxl={5} className="">
           <div className="bx-about-image-wrapper wow fadeInRight  animated">
-            <img
+            <Image
               src={process.env.PUBLIC_URL + "/images/about/about.png"}
               alt="about"
             />

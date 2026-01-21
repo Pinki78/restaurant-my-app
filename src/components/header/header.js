@@ -4,10 +4,13 @@ import TopHeader from "./header-component/top-header"
 import MediumHeader from "./header-component/medium-header"
 
 const Header = () => {
+
+
+
   return (
     <>
 
-      <header className="">
+      <header className={`bx-header`}>
           <TopHeader />
           <MediumHeader />
           

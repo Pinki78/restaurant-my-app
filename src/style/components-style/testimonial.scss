@@ -1,0 +1,80 @@
+:root {
+  --itemWidth: 10px;
+  --itemWidthMinus: -10px; /* must have a minus sign for negative offset */
+}
+
+.bx-testi-items {
+    border-radius: 15px 15px 15px 15px;
+    padding: 20px 20px 20px 20px;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
+    background: $color-black1;
+    margin-bottom: 29px;
+    box-shadow: 
+		inset -10px -10px 0 black, 
+		inset 10px -10px 0 $color-orange, 
+		inset -10px 10px 0 $color-orange2, 
+		inset 10px 10px 0 $color-orangeLight, 
+		0 0 20px silver;
+	transition: box-shadow ease-in-out .6s, color ease-in-out .5s;	
+    position: relative;
+    &:hover {
+        box-shadow:
+            inset 0 0 0 transparent,
+            inset 0 0 0 transparent,
+            inset 0 0 0 transparent,
+            inset 0 0 0 transparent,
+            0 0 20px silver;
+        color: transparent;
+        &::before {
+            -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+        }
+    }
+    
+
+    .bx-testi-init {
+       padding: 19px;
+}
+
+    .bx-selected-img {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        color: #fff;
+        img {
+            height: 86px;
+            width: 86px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+    }
+    .bx-rating-icon {
+        color: #fff;
+        margin-bottom: 9px;
+        display: flex;
+        align-items: center;
+        svg {
+            margin-left: 8px;
+        }
+    }
+    a {
+        color: #fff;
+    }
+    p {
+        color: #fff;
+        font-size: 14px;
+    }
+
+    h3 {
+        font-size: 26px;
+        color: #fff;
+    }
+    h5 {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    h6 {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+}

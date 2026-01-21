@@ -22,7 +22,6 @@ export const fetchMenuList  = createAsyncThunk (
    }
 )
 
-
 const menuListItmes = createSlice({
   name: "menuLists",
   initialState: {

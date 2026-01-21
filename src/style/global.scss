@@ -7,12 +7,16 @@
 @import "global/section-headring.scss";
 @import "global/pagination.scss";
 @import "global/swiper.scss";
+@import "global/time-input.scss";
+@import "global/booking-table-form.scss";
+@import "global/from.scss";
+
 //
 // 
 // 
-// @import "global/.scss";
-// @import "global/.scss";
-// @import "global/.scss";
+// 
+// 
+// 
 // @import "global/.scss";
 // @import "global/.scss";
 // @import "global/.scss";
@@ -32,6 +36,7 @@
 //
 //
 //
+// 
 // @import "components-style/.scss";
 // @import "components-style/.scss";
 // @import "components-style/.scss";
@@ -42,15 +47,20 @@
 // @import "components-style/.scss";
 // @import "components-style/.scss";
 // @import "components-style/.scss";
-// @import "components-style/.scss";
-// @import "components-style/.scss";
-// @import "components-style/.scss";
-// @import "components-style/.scss";
-// @import "components-style/.scss";
-// @import "components-style/.scss";
+// 
+// 
+// 
+// 
+// 
 //
 //
-
+@import "components-style/footer.scss";
+@import "components-style/404.scss";
+@import "components-style/blog.scss";
+@import "components-style/testimonial.scss";
+@import "components-style/gallery.scss";
+@import "components-style/menu-list.scss";
+@import "components-style/offer.scss";
  @import "components-style/categories.scss";
 @import "components-style/menu-food.scss";
 @import "components-style/page-title-area.scss";
@@ -58,5 +68,4 @@
 @import "components-style/header.scss";
 @import "components-style/service.scss";
 @import "components-style/about-us.scss";
-@import "components-style/menu-list.scss";
 @import "components-style/home.scss";

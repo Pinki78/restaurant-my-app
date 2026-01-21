@@ -6,19 +6,29 @@ import { IoMdHeart } from "react-icons/io";
 import { BsCartCheckFill } from "react-icons/bs";
 import { FaRegEye } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
+import { useEffect, useRef } from "react";
 const MenuItems = (props) => {
-  const { Max_Length, listMenu , isMobileOrTablet} = props;
+  const { Max_Length, listMenu , isMobileOrTablet , isOfferPage, productMenuCLass } = props;
 
+    const actionsRef = useRef(null);
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    if (isOfferPage && actionsRef.current && textRef.current) {
+      textRef.current.append(actionsRef.current); // or prepend
+    }
+  }, [isOfferPage]);
+  const getProductUrl = (id) => `/menu/single-product/${id}`;
   return (
     <>
       
         <div
-          className="bx-product-menu-wrap  wow fadeInUp  animated"
+          className={`bx-product-menu-wrap  wow fadeInUp  animated ${productMenuCLass || ""}`}
           id={listMenu.id}
         >
           <div className="bx-thumbnail-top">
             <div className="bx-images">
-              <Link href={`/menus/${listMenu.id}`}>
+              <Link to={getProductUrl(listMenu.id)}>
                 <Image
                   className="d-block w-100 "
                   src={listMenu.foodImage}
@@ -39,7 +49,7 @@ const MenuItems = (props) => {
                 <div className="bx-offer">{listMenu.offer}</div>
               ) : null}
             </div>
-            <div className="bx-product-actions ">
+            <div className="bx-product-actions " ref={actionsRef}>
               <ListGroup
                 as="ul"
                 className=" bg-transparent d-flex flex-row justify-content-center align-items-center"
@@ -92,9 +102,9 @@ const MenuItems = (props) => {
             </div>
           </div>
 
-          <div className="bx-pro-text">
+          <div className="bx-pro-text" ref={textRef}>
             <h3>
-              <Link href={`/menus/${listMenu.id}`}>{listMenu.title}</Link>
+              <Link to={getProductUrl(listMenu.id)}>{listMenu.title}</Link>
             </h3>
             <p>
               {listMenu.info.length > Max_Length

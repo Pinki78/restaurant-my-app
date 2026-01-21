@@ -24,9 +24,9 @@ export const BoookingInputData =[
  
   {
     id:getIdInput("form"),
-    Inputname: "Time",
+    // Inputname: "Time",
     label: "Time",
-    type: "Time",
+    // type: "Time",
     errorText: "Time is required",
   },
  {

@@ -43,7 +43,17 @@ export const  HEADER_MANUS =[
 
 
        SubMenuDate: [
-          {
+        {
+          id:getIdMenu("SubMenu" , "sub"),
+          pathNameSub:"Gallery",
+          pathUrlSub:"/gallery",
+        },
+        {
+          id:getIdMenu("SubMenu" , "sub"),
+          pathNameSub:"Single Post",
+          pathUrlSub:"/single-post",
+        },
+        {
           id:getIdMenu("SubMenu" , "sub"),
           pathNameSub:"Blog",
           pathUrlSub:"/blog",
@@ -52,7 +62,7 @@ export const  HEADER_MANUS =[
         {
           id:getIdMenu("SubMenu" , "sub"),
           pathNameSub:"Testimonial",
-          pathUrlSub:"/testimonial",
+          pathUrlSub:"/testimonials",
         },
 
         {

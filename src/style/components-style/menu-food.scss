@@ -47,8 +47,10 @@
         }
     }
     &:hover {
-        .bx-thumbnail-top {
-            .bx-product-actions {
+        // .bx-thumbnail-top {
+            
+        // }
+        .bx-product-actions {
                 bottom: 20px;
             }
             .bx-images {
@@ -59,7 +61,6 @@
                     opacity: 1;
                 }
             }
-        }
     }
     .bx-pro-text {
         color: #fff;
@@ -78,7 +79,10 @@
     .bx-thumbnail-top {
         position: relative;
 
-        .bx-images {
+        
+    }
+
+    .bx-images {
             position: relative;
             height: 297px;
             img {
@@ -98,7 +102,6 @@
                 -webkit-transition: all 500ms ease-in-out;
             }
         }
-    }
 
     .bx-currency-rating {
         display: flex;
@@ -117,6 +120,17 @@
         padding: 3px 5px;
         font-size: 15px;
         font-weight: 700;
+    }
+
+    .bx-rating {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        span {
+            margin-left: 5px;
+            margin-top: 2px;
+        }
     }
 }
 
@@ -139,5 +153,53 @@
     -ms-transition: all 500ms ease-in-out;
     .bx-add-to-cart {
         margin: 0 4px;
+    }
+}
+
+.bx-product-list-wapper {
+    display: flex;
+    &:hover {
+        &::before {
+            height: 92%;
+        }
+    }
+
+    &::after {
+        height: 92%;
+    }
+
+    .bx-pro-text {
+        width: 50%;
+        margin-left: 19px;
+    }
+
+    .bx-thumbnail-top {
+        width: 45%;
+        .bx-images {
+            height: 269px;
+        }
+    }
+
+    .bx-product-actions {
+        position: relative;
+        bottom: 0;
+        justify-content: left;
+        margin-top: 15px;
+    }
+
+    .bx-add-cart-btn {
+        background: $color-orange2;
+        &:is(:hover, :active, :focus, :focus-visible) {
+            background: $color-gray;
+            color: #fff;
+        }
+    }
+
+    .bx-btn-prim {
+        background: $color-orange2;
+        &:is(:hover, :active, :focus, :focus-visible) {
+            background: $color-gray;
+            color: #fff;
+        }
     }
 }

@@ -1,12 +1,32 @@
 import { Offcanvas, Container, Row, Col, Image, Button } from "react-bootstrap";
 import { useMediaQuery } from "react-responsive";
 import { FaBarsStaggered } from "react-icons/fa6";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MenuList from "./menu-list";
-import SearchBar from "../../search/search-bar";
+
+import HeaderRight from "./header-right-side/header-right";
 const MediumHeader = (props) => {
-  const isMobileOrTablet = useMediaQuery({ minWidth: 576, maxWidth: 991 });
+
+    const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+
+  // const isMobileOrTablet = useMediaQuery({ maxWidth: 480,  maxWidth: 576, maxWidth: 991, });
+  // const isMobileOrTablet = useMediaQuery({ maxWidth: 480, maxWidth: 576, maxWidth: 991 });
+
+const isMobile = useMediaQuery({ maxWidth: 480 });
+const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 991 });
+const isMobileOrTablet = isMobile || isTablet;
+
 
   const [show, setShow] = useState(false);
 
@@ -15,7 +35,7 @@ const MediumHeader = (props) => {
 
   return (
     <>
-      <div className="bx-medium-header py-2">
+      <div className={`bx-medium-header py-2 ${scrolled ? "bx-scrolled" : ""}`}>
         <Container>
           <Row>
             <Col xs={5} sm={5} md={4} lg={3} xl={3} xxl={3}>
@@ -50,14 +70,15 @@ const MediumHeader = (props) => {
                         <Offcanvas.Title>Offcanvas</Offcanvas.Title>
                       </Offcanvas.Header>
                       <Offcanvas.Body>
-                        <MenuList  />
+                        <MenuList isMobileOrTablet={isMobileOrTablet} />
                       </Offcanvas.Body>
                     </Offcanvas>
                   </>
                 ) : (
                   <MenuList isMobileOrTablet={isMobileOrTablet} />
                 )}
-                <SearchBar />
+
+                <HeaderRight isMobileOrTablet={isMobileOrTablet} />
               </div>
             </Col>
           </Row>

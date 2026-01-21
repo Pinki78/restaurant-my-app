@@ -1,8 +1,7 @@
-import { Navbar, Nav, NavDropdown, Dropdown } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown,  } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { HEADER_MANUS } from "../../../api-data/heade-data/heade-data";
 // import { NavLink } from "react-router-dom";
-
 import { useLocation } from "react-router-dom";
 import DropdownList from "./dropdown-list";
 const MenuList = ({ isMobileOrTablet }) => {
@@ -14,7 +13,8 @@ const MenuList = ({ isMobileOrTablet }) => {
         {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
         <Nav as="ul" className="me-auto bx-nav-ul-item">
           {HEADER_MANUS.map((item) => {
-            const isActive = location.pathname === item.pathUrl;
+           const isActive = location.pathname === item.pathUrl;
+
             return (
               <>
                 <Nav
@@ -32,15 +32,28 @@ const MenuList = ({ isMobileOrTablet }) => {
                       className={`bx-nav-dropdown p-0 ${
                         isMobileOrTablet
                           ? "bx-show-dropdown"
-                          : "bx-dropdown-nav show"
+                          : "bx-dropdown-nav "
                       }`}
                     >
                       <div>
-                        {item.SubMenuDate.map((subitem) => (
-                          <DropdownList key={subitem.id} subitem={subitem} />
-                        ))}
+                        {item.SubMenuDate.map((subitem) => {
+                          const isSubActive = location.pathname === subitem.pathUrlSub;
+                          return (
+                            <DropdownList
+                              key={subitem.id}
+                              subitem={subitem}
+                              isSubActive={isSubActive}
+                            />
+                          );
+                        })}
                       </div>
                     </NavDropdown>
+
+
+
+
+
+
                   ) : (
                     <Link to={item.pathUrl}>
                       <span>{item.pathName}</span>

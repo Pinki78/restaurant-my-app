@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+
+  font-family: "Quicksand", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+font-family: "ZCOOL XiaoWei", sans-serif;
+  text-transform: capitalize;
+}
+a:hover,
+a:focus,
+a:visited,
+a:active,
+button:active{
+    text-decoration:none;
+    outline:none;
+}
+
+a,
+p,
+span {
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+p {
+  font-size: 14px;
+color: #3f3f3f;
+
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+}
+
+li{
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.bx-info-line
+{
+  font-size: 18px;
+}
+
+.tp-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.tp-modal {
+  width: 300px;
+  background: #fff;
+  border-radius: 6px;
+  padding: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.tp-modal h4 {
+  color: #00aaff;
+  border-bottom: 2px solid #00aaff;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+.tp-columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tp-columns select {
+  border: none;
+  border-bottom: 2px solid #00aaff;
+  font-size: 22px;
+  text-align: center;
+  outline: none;
+  background: transparent;
+}
+
+.tp-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.tp-actions button {
+  border: none;
+  background: none;
+  font-size: 16px;
+  cursor: pointer;
+}

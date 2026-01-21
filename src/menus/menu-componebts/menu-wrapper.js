@@ -37,9 +37,9 @@ const Menuwrapper = (props) => {
   );
 
   const filterSearchData = useSelector(
-    (state) => state.menuSearch.filterSearch
+    (state) => state.SearchList.filterSearch
   );
-
+  
   useEffect(() => {
     dispatch(fetchMenuList());
   }, [dispatch]);
