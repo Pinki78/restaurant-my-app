@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useParams , } from "react-router-dom";
 import PageTitleArea from "../../components/page-title-area/page-title-area";
 
 

@@ -65,7 +65,7 @@ function App() {
             />
 
             <Route
-              path="about-us"
+              path="/about-us"
               element={
                 <PageTitle title="About Us | Food App">
                   <AboutIndex />
@@ -74,63 +74,30 @@ function App() {
             />
 
             <Route
-              path="menus"
+              path="/menus"
               element={
                 <PageTitle title="Menu | Food App">
                   <MenusIndex />
                 </PageTitle>
               }
             />
-            <Route
-              path="gallery"
-              element={
-                <PageTitle title="No Find  | Food App">
-                  <GalleryIndex />
-                </PageTitle>
-              }
-            />
-            <Route
-              path="testimonials"
-              element={
-                <PageTitle title="No Find  | Food App">
-                  <TestimonialsIndex />
-                </PageTitle>
-              }
-            />
 
-            <Route
-              path="blog"
-              element={
-                <PageTitle title="No Find  | Food App">
-                  <BlogsIndex />
-                </PageTitle>
-              }
-            />
-
-            <Route
-              path="404"
-              element={
-                <PageTitle title="No Find  | Food App">
-                  <Index404 />
-                </PageTitle>
-              }
-            />
-
-
+            <Route path="/gallery" element={<GalleryIndex />} />
+            <Route path="/testimonials" element={<TestimonialsIndex />} />
+            <Route path="/blog" element={<BlogsIndex />} />
 
             <Route
               path="/menu/single-product/:id"
               element={<SingleProductInIndex />}
             />
             <Route path="/category/:categoryId" element={<CategoryIdIndex />} />
-            <Route path="/testimonials/:testissId" element={<TestissIdIndex />} />
-            <Route path="/blog/:blogId" element={<BlogsIndexId  />} />
+            <Route
+              path="/testimonials/:testissId"
+              element={<TestissIdIndex />}
+            />
+            <Route path="/blog/:blogId" element={<BlogsIndexId />} />
 
-            {/*  
-          <Route path="offers" element={ <OffersIndex/> } />
-          <Route path="contact" element={ <ContactIndex/> } />
-          <Route path="login" element={ <LoginIndex  /> } />
-          <Route path="register" element={ <RegisterIndex/> } /> */}
+            <Route path="*" element={<Index404 />} />
           </Routes>
         </div>
         <Footer />

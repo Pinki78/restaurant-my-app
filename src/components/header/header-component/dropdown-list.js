@@ -2,6 +2,9 @@ import { NavDropdown, Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 const DropdownList = (props) => {
   const { subitem , isSubActive} = props;
+  const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
   return (
     <>
       <NavDropdown.Item
@@ -14,7 +17,7 @@ const DropdownList = (props) => {
 
         className={`${isSubActive ? "bx-active" : "bx-itemlike"}`}
       >
-        <Link to={subitem.pathUrlSub}>
+        <Link to={subitem.pathUrlSub} onClick={scrollToTop}>
           <span>{subitem.pathNameSub}</span>
         </Link>
       </NavDropdown.Item>

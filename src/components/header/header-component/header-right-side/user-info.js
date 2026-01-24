@@ -43,28 +43,31 @@ const UserInfoAccount = (props) => {
           <Dropdown.Toggle variant="success" id="dropdown-basic">
             <FaUserLarge />
           </Dropdown.Toggle>
-<Dropdown.Menu
-  as="ul"
-  className="bx-user-dropdown-menu dropdown-menu"
-  style={
-    isMobileOrTablet
-      ? { transform: "translate3d(0px, 38.4px, 0px)", position: "relative" }
-      : { position: "relative" }
-  }
->
+          <Dropdown.Menu
+            as="ul"
+            className="bx-user-dropdown-menu dropdown-menu"
+            style={
+              isMobileOrTablet
+                ? {
+                    transform: "translate3d(0px, 38.4px, 0px)",
+                    position: "relative",
+                  }
+                : { position: "relative" }
+            }
+          >
             <div className="bx-user-dropdown-div">
               {UserDropdownList.map((list) => (
-                <>
+                
                   <Dropdown.Item
                     as="li"
                     key={list.id}
                     className="user-dropdown-item dropdown-item navbar-nav"
                   >
                     <Link to={list.pathUrl}>
-                    <span>{list.pathName}</span>
+                      <span>{list.pathName}</span>
                     </Link>
                   </Dropdown.Item>
-                </>
+                
               ))}
             </div>
           </Dropdown.Menu>

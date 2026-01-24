@@ -42,6 +42,7 @@
     from {
         background-position-x: 0;
     }
+
     to {
         background-position-x: -200px;
     }
@@ -65,10 +66,12 @@
     background-color: $color-orange;
     position: relative;
     display: block;
-    height: calc(60vh - 124px);
-    padding-top: 60px;
+    // height: calc(60vh - 124px);
+    padding-top: 78px;
+    padding-bottom: 78px;
 
     margin-bottom: 2rem;
+
     &::before {
         @extend .bx-before-after;
         //    background: url("../../../public/images/squiggle.svg");
@@ -98,12 +101,13 @@
         z-index: 1;
         clear: both;
         opacity: 1;
+
         h2 {
             // @extend .bx-overlay-clear;
             font-size: 55px;
-                z-index: 1;
-    position: relative;
-    color: #fff;
+            z-index: 1;
+            position: relative;
+            color: #fff;
         }
     }
 }
@@ -114,41 +118,31 @@
     .bx-page-titles-breadcrumb {
         height: auto;
         padding-top: 103px;
-            padding-bottom: 9px;
-            .bx-page-overlay h2 {
+        padding-bottom: 9px;
+
+        .bx-page-overlay h2 {
             font-size: 40px;
         }
     }
 }
 
 @media (max-width: 1023px) {
-    .bx-page-titles-breadcrumb {
-
-        padding-top: 103px;
-    }
+    .bx-page-titles-breadcrumb {}
 }
 
 @media (max-width: 1024px) {
-    .bx-page-titles-breadcrumb {
-
-        padding-top: 103px;
-    }
+    .bx-page-titles-breadcrumb {}
 }
 
 @media (max-width: 900px) {
-    .bx-page-titles-breadcrumb {
-
-        padding-top: 103px;
-
-        
-    }
+    .bx-page-titles-breadcrumb {}
 }
 
 @media (max-width: 786px) {
     .bx-page-titles-breadcrumb {
         height: auto;
         padding-top: 145px;
-            padding-bottom: 20px;
+        padding-bottom: 20px;
     }
 }
 
@@ -171,6 +165,7 @@
         padding-top: 132px;
         margin-bottom: 10px;
         padding-bottom: 28px;
+
         .bx-page-overlay h2 {
             font-size: 25px;
         }
@@ -181,7 +176,7 @@
     .bx-page-titles-breadcrumb {
         height: auto;
         padding-top: 129px;
-              padding-bottom: 28px;
+        padding-bottom: 28px;
 
         .bx-page-overlay h2 {
             font-size: 25px;
@@ -189,26 +184,26 @@
     }
 }
 
-@media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: portrait) {
-    .bx-page-titles-breadcrumb {
-        height: auto;
-        padding-top: 103px;
+// @media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: portrait) {
+//     .bx-page-titles-breadcrumb {
+//         height: auto;
+//         padding-top: 103px;
 
-    }
-}
+//     }
+// }
 
-@media only screen and (orientation: landscape) and (min-device-width: 320.99px)  {
-.bx-page-titles-breadcrumb {
-            height: auto;
-             padding-top: 124px;
-                     padding-bottom: 9px;
-    }
-}
+// @media only screen and (orientation: landscape) and (min-device-width: 320.99px)  {
+// .bx-page-titles-breadcrumb {
+//             height: auto;
+//              padding-top: 124px;
+//                      padding-bottom: 9px;
+//     }
+// }
 
-@media only screen and (orientation: landscape) and (min-device-width: 1024px)  {
-.bx-page-titles-breadcrumb {
-             height: auto;
-        padding-top: 142px;
-                    padding-bottom: 9px;
-    }
-}
+// @media only screen and (orientation: landscape) and (min-device-width: 1024px)  {
+// .bx-page-titles-breadcrumb {
+//              height: auto;
+//         padding-top: 142px;
+//                     padding-bottom: 9px;
+//     }
+// }

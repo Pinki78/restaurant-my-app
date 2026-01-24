@@ -11,7 +11,7 @@ const getIdMenu = (type=" MainMenu", suffix = '') => {
 }
 
 
-export const  HEADER_MANUS =[
+export const  HEADER_MANUS = [
  {
         id: getIdMenu ("MainMenu", "main"),
         pathName:"Home",

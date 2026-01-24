@@ -4,17 +4,17 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MenuList from "./menu-list";
-
+import { useLocation } from "react-router-dom";
 import HeaderRight from "./header-right-side/header-right";
 const MediumHeader = (props) => {
+const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
 
-    const [scrolled, setScrolled] = useState(false);
-
+  // Handle scroll event
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 50); // add class after 50px scroll
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -70,12 +70,12 @@ const isMobileOrTablet = isMobile || isTablet;
                         <Offcanvas.Title>Offcanvas</Offcanvas.Title>
                       </Offcanvas.Header>
                       <Offcanvas.Body>
-                        <MenuList isMobileOrTablet={isMobileOrTablet} />
+                        <MenuList isMobileOrTablet={isMobileOrTablet}  currentPath={location.pathname}  />
                       </Offcanvas.Body>
                     </Offcanvas>
                   </>
                 ) : (
-                  <MenuList isMobileOrTablet={isMobileOrTablet} />
+                  <MenuList isMobileOrTablet={isMobileOrTablet} currentPath={location.pathname}  />
                 )}
 
                 <HeaderRight isMobileOrTablet={isMobileOrTablet} />

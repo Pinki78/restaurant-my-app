@@ -1,0 +1,15 @@
+.bx-breadcrumbs{
+    a{
+           color: #fff;
+    opacity: 1;
+    position: relative;
+    z-index: 9;
+    }
+
+    .active{
+        color: #fff;
+        &::before{
+           color: #fff; 
+        }
+    }
+}

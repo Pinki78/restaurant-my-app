@@ -24,6 +24,12 @@
             color: $color-black1;
             background: transparent;
         }
+
+        ul{
+            li{
+                 padding: 12px 8px;
+            }
+        }
     }
 
     // .bx-previous
@@ -33,10 +39,23 @@
     // }
 }
 
+.bx-pagination-root{
+    ul.list-group{
+            li{
+                 padding: 12px 8px;
+            }
+        }
+}
+
 .bx-pagination-group {
     justify-content: center;
     align-items: center;
         flex-direction: row;
+        ul{
+            li{
+                 padding: 12px 8px;
+            }
+        }
     li {
         display: inline-block;
         position: relative;
@@ -111,6 +130,7 @@
         &.active {
             background: transparent;
             border: 0;
+             padding: 12px 8px;
             &::before {
                 top: 2px;
                 bottom: 2px;
