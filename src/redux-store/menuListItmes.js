@@ -1,47 +1,50 @@
-
-
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { collection, doc, getDoc ,  getDocs } from "firebase/firestore";
+
+import { db , } from "../assets/firebase/firebase";
 import { FOOD_MENU_DATA } from "../api-data/manulist-data/manu-list-data";
-// export const fetchMenuList = createAsyncThunk(
-//   "menu/fetchMenuList",
-//   async () => {
-//     const res = await axios.get("api-data/manulist-data/manu-list-data.js");
-//     return res.data;
-//   }
-// );
 
 
 
 
-export const fetchMenuList  = createAsyncThunk (
+export const fetchMenuList = createAsyncThunk(
   "menuLists/fetchMenuList",
   async () => {
-    //  const res = await axios.get(FOOD_MENU_DATA);
-     return FOOD_MENU_DATA;
-   }
-)
+    try {
+      const snapshot = await getDocs(collection(db, "foodManeList"));
 
-const menuListItmes = createSlice({
+      if (snapshot.empty) return FOOD_MENU_DATA;
+
+      // 🔥 FLATTEN itemsMenuList from all documents
+      const allItems = snapshot.docs.flatMap(doc => {
+        const data = doc.data();
+        return data.itemsMenuList || [];
+      });
+
+      return allItems.length ? allItems : FOOD_MENU_DATA;
+
+    } catch (error) {
+      console.error("Firestore fetch error:", error);
+      return FOOD_MENU_DATA;
+    }
+  }
+);
+
+
+const menuListItems = createSlice({
   name: "menuLists",
   initialState: {
     itemsMenuList: [],
     loading: false,
-
-  // // 🔍 search
-  //   search: "",
-
-
+    search: "",
   },
   reducers: {
-
     setSearch(state, action) {
       state.search = action.payload;
     },
-
   },
   extraReducers: (builder) => {
-    builder
+     builder
       .addCase(fetchMenuList.pending, (state) => {
         state.loading = true;
       })
@@ -51,8 +54,10 @@ const menuListItmes = createSlice({
       })
       .addCase(fetchMenuList.rejected, (state) => {
         state.loading = false;
+        state.itemsMenuList = FOOD_MENU_DATA;
       });
   },
 });
-// export const { setSearch } = menuListSlice.actions;
-export default menuListItmes.reducer;
+
+export const { setSearch } = menuListItems.actions;
+export default menuListItems.reducer;

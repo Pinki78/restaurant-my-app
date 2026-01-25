@@ -7,7 +7,7 @@ import { TbTargetArrow } from "react-icons/tb";
 import { ButtonLink } from "../../components/button-box/button-link";
 import { Link } from "react-router-dom";
 import LcoListLayout from "../../components/icon-list-layout/icon-list-layout";
-import SectionHeadring from "../../components/seciton-headring/section-headring";
+import SectionHeadrTitel from "../../components/seciton-headring/section-headring";
 import { useLocation } from "react-router-dom";
 
 const AboutInfo = (props) => {
@@ -25,7 +25,7 @@ const isAboutPage = location.pathname === "/about-us";
         <Col
           xs={12}
           sm={12}
-          md={7}
+          md={12}
           lg={7}
           xl={7}
           xxl={7}
@@ -38,8 +38,8 @@ const isAboutPage = location.pathname === "/about-us";
               IconText="About Restaurant"
             />
 
-            <SectionHeadring 
-            SectionHeadring="We are a mexican restaurant makes delicious."
+            <SectionHeadrTitel
+            SectionHeadr="We are a mexican restaurant makes delicious."
             SectionInfo=" Lorem ipsum dolor sit amet consectetur adipiscing elit tempus id
               phasellus massa faucibus lectus in sapien ornare et leo egestas
               blandit amet nunc pharetra vitae id mattis ac sed."
@@ -162,7 +162,7 @@ const isAboutPage = location.pathname === "/about-us";
           </div>
         </Col>
 
-        <Col xs={12} sm={12} md={5} lg={5} xl={5} xxl={5} className="">
+        <Col xs={12} sm={12} md={12} lg={5} xl={5} xxl={5} className="">
           <div className="bx-about-image-wrapper wow fadeInRight  animated">
             <Image
               src={process.env.PUBLIC_URL + "/images/about/about.png"}

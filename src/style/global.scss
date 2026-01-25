@@ -11,6 +11,12 @@
 @import "global/booking-table-form.scss";
 @import "global/from.scss";
 @import "global/breadcrumbs.scss";
+@import "global/headring-button.scss";
+@import "global/why-choose-us.scss";
+@import "global/counter.scss";
+@import "global/accordion.scss";
+ @import "global/cart-preview.scss";
+@import "global/qty-controls.scss";
 
 //
 // 
@@ -18,12 +24,12 @@
 // 
 // 
 // 
-// @import "global/.scss";
-// @import "global/.scss";
-// @import "global/.scss";
-// @import "global/.scss";
-// @import "global/.scss";
-// @import "global/.scss";
+// 
+// 
+// 
+// 
+//
+// 
 // @import "global/.scss";
 // @import "global/.scss";
 // @import "global/.scss";
@@ -38,9 +44,9 @@
 //
 //
 // 
-// @import "components-style/.scss";
-// @import "components-style/.scss";
-// @import "components-style/.scss";
+// 
+// 
+//
 // @import "components-style/.scss";
 // @import "components-style/.scss";
 // @import "components-style/.scss";
@@ -55,6 +61,10 @@
 // 
 //
 //
+
+ @import "components-style/quick-modal.scss";
+@import "components-style/product-view.scss";
+@import "components-style/team.scss";
 @import "components-style/footer.scss";
 @import "components-style/404.scss";
 @import "components-style/blog.scss";

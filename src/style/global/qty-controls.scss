@@ -1,0 +1,23 @@
+.qty-controls {
+     display: inline-block;
+    border: 1px solid $color-black1;
+
+    .btn{
+        background: $color-orange2;
+        color: $color-black1;
+        border-radius: 0;
+        border-color: transparent;
+
+
+    }
+
+    .bx-minus{
+        border-right-color: $color-black1;
+    }
+    .bx-plus{
+border-left-color: $color-black1;
+    }
+
+
+
+}

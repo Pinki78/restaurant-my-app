@@ -1,6 +1,5 @@
-
 import { Link } from "react-router-dom";
-import { ListGroup,  } from "react-bootstrap";
+import { ListGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 // import { useMediaQuery } from "react-responsive";
@@ -19,38 +18,41 @@ const FooterPopularFood = (props) => {
   }, [dispatch]);
   const shownCategories = new Set();
 
+  const slugify = (categoryName = "") =>
+    categoryName
+      .toString()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
   return (
     <>
       <div className="bx-popular-food">
-
         <div className="bx-footer-titel">
-            <h3>
-                Popular Food
-            </h3>
+          <h3>Popular Food</h3>
         </div>
- <ListGroup as="ul">
-        {itemsMenuList.map((fooditem, index) =>
-          fooditem.FoodCategory.map((cat) => {
-            if (shownCategories.has(cat.categoryName)) return null;
-            shownCategories.add(cat.categoryName);
+        <ListGroup as="ul">
+          {itemsMenuList.map((fooditem, index) =>
+            fooditem.FoodCategory?.map((cat) => {
+              if (!cat?.categoryName) return null;
 
-            return (
-              <ListGroup.Item
-                        as="li" key={cat.id}>
-                        
+              if (shownCategories.has(cat.categoryName)) return null;
+              shownCategories.add(cat.categoryName);
 
-                <Link
-                  to={`/category/${cat.categoryName
-                    .toLowerCase()
-                    .replace(/\s+/g, "-")}`}
+              return (
+                <ListGroup.Item
+                  as="li"
+                  key={`${cat.categoryName}-${index}`}
+                  id={`${slugify(cat.categoryName)}-${index}`}
                 >
+                  <Link to={`/category/${slugify(cat.categoryName)}`}>
                     <MdKeyboardDoubleArrowRight />
-                  <span>{cat.categoryName}</span>
-                </Link>
-              </ListGroup.Item>
-            );
-          }),
-        )}
+                    <span>{cat.categoryName}</span>
+                  </Link>
+                </ListGroup.Item>
+              );
+            }),
+          )}
         </ListGroup>
       </div>
     </>

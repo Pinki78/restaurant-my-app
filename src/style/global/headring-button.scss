@@ -1,0 +1,24 @@
+.bx-headring-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .bx-wave2 {
+        .wave {
+            background-size: auto;
+        }
+    }
+
+    .bx-wave3 {
+        .wave {
+            width: 69%;
+        }
+    }
+
+    .bx-wave4
+    {
+        .wave {
+            width: 58%;
+        }
+    }
+}

@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import PageTitleArea from "../components/page-title-area/page-title-area"
+import PageTitleArea from "../components/page-title-area/page-title-area";
 import Menuwrapper from "./menu-componebts/menu-wrapper"
 
 

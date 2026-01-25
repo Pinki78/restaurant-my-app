@@ -6,6 +6,10 @@ import TestimonialListReducer   from "./store-redux-componets/testimonialListSto
 
 import BlogsListReducer   from "./store-redux-componets/blogListStort"
 
+import TeamReducer from "./store-redux-componets/teamSlice";
+
+import faqListStort from './store-redux-componets/faqListStort'
+import cartStort from './store-redux-componets/cartSlice'
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +17,9 @@ export const store = configureStore({
      SearchList: searchReducer,
      ListReducermenu: menuListReducer ,
      TestimonialReducermenu:TestimonialListReducer,
-     BlogsReducermenu:BlogsListReducer
+     BlogsReducermenu:BlogsListReducer,
+     TeamReducerStore:TeamReducer,
+     FaqReducerStore:faqListStort,
+     CartReducerStore:cartStort,
   },
 });

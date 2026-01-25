@@ -10,14 +10,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
 const CategoriesFeaturesList = (props) => {
-
   const { limit, Max_Length, PaginationHide } = props;
   const isMobileOrTablet = useMediaQuery({ minWidth: 576, maxWidth: 991 });
 
   const dispatch = useDispatch();
 
   const { itemsMenuList, loading } = useSelector(
-    (state) => state.ListReducermenu
+    (state) => state.ListReducermenu,
   );
 
   useEffect(() => {
@@ -51,37 +50,36 @@ const CategoriesFeaturesList = (props) => {
     <>
       <div className="bx-categories-root-list">
         <Swiper
-        spaceBetween={20}
-        slidesPerView={4}
-        modules={[Autoplay]}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        breakpoints={{
-          0: {
-            slidesPerView: 1,
-          },
-          640: {
-            slidesPerView: 2,
-          },
-          768: {
-            slidesPerView: 3,
-          },
-          1024: {
-            slidesPerView: 4,
-          },
-        }}
-      >
+          spaceBetween={20}
+          slidesPerView={4}
+          modules={[Autoplay]}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            640: {
+              slidesPerView: 2,
+            },
+            768: {
+              slidesPerView: 3,
+            },
+            1024: {
+              slidesPerView: 4,
+            },
+          }}
+        >
+          {categoriesToDisplay.map((fooditem, index) =>
+            fooditem.FoodCategory.map((cat) => {
+              if (shownCategories.has(cat.categoryName)) return null;
+              shownCategories.add(cat.categoryName);
 
-        {categoriesToDisplay.map((fooditem, index) =>
-          fooditem.FoodCategory.map((cat) => {
-            if (shownCategories.has(cat.categoryName)) return null;
-            shownCategories.add(cat.categoryName);
-
-            return (
-              <SwiperSlide key={cat.categoryName}>
-                {/* <Link to={`/category/${cat.categorySlug}`}>
+              return (
+                <SwiperSlide key={cat.categoryName}>
+                  {/* <Link to={`/category/${cat.categorySlug}`}>
                   <div className="bx-category-card">
                     <Image
                       src={item.foodImage}
@@ -92,60 +90,56 @@ const CategoriesFeaturesList = (props) => {
                   </div>
                 </Link> */}
 
+                  <div className="bx-product-menu-wrap wow fadeInUp animated">
+                    <div className="bx-thumbnail-top">
+                      <div className="bx-images">
+                        <Link
+                          to={`/category/${cat.categoryName
+                            .toLowerCase()
+                            .replace(/\s+/g, "-")}`}
+                        >
+                          <Image
+                            className="d-block w-100 "
+                            src={fooditem?.foodImage}
+                            alt={cat.categoryName || "carousel-image"}
+                            width="67%"
+                            height="auto"
+                          />
+                          <Image
+                            src={fooditem?.foodImage}
+                            alt={cat.categoryName || "carousel-image"}
+                            className="d-block w-100 bx-img2"
+                            width="67%"
+                            height="auto"
+                          />
+                        </Link>
+                      </div>
+                    </div>
 
-<div className="bx-product-menu-wrap wow fadeInUp animated">
-                <div className="bx-thumbnail-top">
-                  <div className="bx-images">
-                    <Link
-                      to={`/category/${cat.categoryName
-                        .toLowerCase()
-                        .replace(/\s+/g, "-")}`}
-                    >
-                      <Image
-                        className="d-block w-100 "
-                        src={fooditem?.foodImage}
-                        alt={cat.categoryName || "carousel-image"}
-                        width="67%"
-                        height="auto"
-                      />
-                      <Image
-                        src={fooditem?.foodImage}
-                        alt={cat.categoryName || "carousel-image"}
-                        className="d-block w-100 bx-img2"
-                        width="67%"
-                        height="auto"
-                      />
-                    </Link>
+                    <div className="bx-pro-text bx-desc-listcategoreis">
+                      <h3>
+                        <Link
+                          to={`/category/${cat.categoryName
+                            .toLowerCase()
+                            .replace(/\s+/g, "-")}`}
+                        >
+                          {cat.categoryName}
+                        </Link>
+                      </h3>
+                      <Link
+                        to={`/category/${cat.categoryName
+                          .toLowerCase()
+                          .replace(/\s+/g, "-")}`}
+                      >
+                        <span>View More</span>
+                      </Link>
+                    </div>
                   </div>
-                </div>
-
-                <div className="bx-pro-text bx-desc-listcategoreis">
-                  <h3>
-                    <Link
-                      to={`/category/${cat.categoryName
-                        .toLowerCase()
-                        .replace(/\s+/g, "-")}`}
-                    >
-                      {cat.categoryName}
-                    </Link>
-                  </h3>
-                   <Link
-                      to={`/category/${cat.categoryName
-                        .toLowerCase()
-                        .replace(/\s+/g, "-")}`}
-                    >
-                      <span>
-                        View More
-                      </span>
-                    </Link>
-                </div>
-              </div>
-
-              </SwiperSlide>
-            );
-          })
-        )}
-      </Swiper>
+                </SwiperSlide>
+              );
+            }),
+          )}
+        </Swiper>
       </div>
     </>
   );

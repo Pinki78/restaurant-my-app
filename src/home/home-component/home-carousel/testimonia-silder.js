@@ -27,13 +27,6 @@ const TestimoniaSilder = (props) => {
 
   return (
     <>
-      {/* <div className="bx-slider-header-nav">
-        <SectionHeadring SectionHeadring="Top Products" HeadringClass="bx-wave2"  />
-        <div className="slider-nav">
-          <div className="swiper-button-prev"></div>
-          <div className="swiper-button-next"></div>
-        </div>
-      </div> */}
 
       <div className="bx-swiper-testimonia">
         <Container>
@@ -47,10 +40,10 @@ const TestimoniaSilder = (props) => {
                 prevEl: ".swiper-button-prev",
                 nextEl: ".swiper-button-next",
               }}
-              // autoplay={{
-              //   delay: 2500,
-              //   disableOnInteraction: false,
-              // }}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
               style={{
                 "--swiper-navigation-color": "#ff0000ff",
                 "--swiper-pagination-color": "#ff0000ff",

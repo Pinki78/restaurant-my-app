@@ -1,11 +1,11 @@
-import { Col, Image, Button } from "react-bootstrap";
+import { Col, Image,} from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 import ViewMoreLink from "../../components/button-box/view-more";
 
 const TestimonialList = (props) => {
-  const { items, productMenuCLass, MAX_LENGTH, col } = props;
+  const { items, MAX_LENGTH, col } = props;
 
   return (
     <>

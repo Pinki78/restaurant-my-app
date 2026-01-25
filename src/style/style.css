@@ -43,6 +43,18 @@ li{
   background: transparent;
 }
 
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #353535;
+}
+
+::-webkit-scrollbar-track {
+    background: #ff9781;
+}
+
 .bx-info-line
 {
   font-size: 18px;
@@ -52,19 +64,8 @@ li{
   display: none;
 }
 
-
-.bx-medium-header {
-  transition: all 0.3s ease;
-  background: transparent;
+.bx-section-margine{
+  margin-bottom: 3.5rem;
 }
 
-.bx-medium-header.scrolled {
-  background: #fff; /* change background */
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  padding: 0.5rem 0;
-}
 

@@ -1,7 +1,7 @@
 import { ButtonLink } from "../../components/button-box/button-link";
 
 import LcoListLayout from "../../components/icon-list-layout/icon-list-layout";
-import SectionHeadring from "../../components/seciton-headring/section-headring";
+import SectionHeadrTitel from "../seciton-headring/section-headring";
 import { Row, Col, ListGroup, Image } from "react-bootstrap";
 import { BiSolidOffer } from "react-icons/bi";
 import OfferList from "./offer-list";
@@ -20,8 +20,8 @@ const SpecialOfferinfo = (props) => {
               IconText="Special Offer"
             />
 
-            <SectionHeadring
-              SectionHeadring="Delicious Meals, Cool Drinks, Happy Moments."
+            <SectionHeadrTitel
+              SectionHeadr="Delicious Meals, Cool Drinks, Happy Moments."
               SectionInfo={`Every bite is a delight, every drink uplifts the mood, and good company turns simple moments into cherished memories.`}
             />
 

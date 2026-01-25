@@ -55,9 +55,15 @@ const SearchBar = () => {
   //   }
   //   dispatch(clearFilterSearch());
   // };
-  const filteredFoodData = menuItems.filter((item) =>
-    item.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // const filteredFoodData = menuItems.filter((item) =>
+  //   item.title.toLowerCase().includes(searchQuery.toLowerCase())
+  // );
+
+  const query = searchQuery?.toLowerCase() || "";
+
+const filteredFoodData = menuItems.filter(item =>
+  (item.title || "").toLowerCase().includes(query)
+);
 
   const filteredTestissData = testissItem.filter((item) =>
     item.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -139,7 +145,7 @@ const handleQueryChange = (e) => {
   return (
     <>
       <div className="bx-search-bar">
-        <Button variant="primary" onClick={handleShowSearch} className="me-2">
+        <Button variant="primary" onClick={handleShowSearch} className="">
           <FiSearch />
         </Button>
         <Offcanvas

@@ -1,0 +1,130 @@
+.bx-cart-preview {
+    margin-left: 4px;
+
+    .bx-cart-button-count {
+        @extend .bx-remove;
+    }
+
+    .bx-remove {
+        border: 0;
+        background: transparent;
+        color: $color-orange;
+        padding: 8px;
+        border: 0;
+        font-size: 26px;
+        position: relative;
+
+        &:is(:hover, :active, :focus, :focus-visible) {
+            color: $color-orange;
+            background: transparent;
+            border-color: transparent;
+        }
+    }
+
+    .bx-btn {
+        padding: 6px 14px 5px;
+        font-size: 12px;
+        margin-right: 12px;
+    }
+
+    .bx-button-2 {
+        padding: 6px 14px 5px;
+        font-size: 12px;
+
+        &::before {
+            background: #ffffff;
+        }
+    }
+
+    .bx-cart-button-group {
+        display: flex;
+        border-top: 1px solid #fff;
+        padding-top: 11px;
+        margin-top: 9px;
+        margin-bottom: 9px;
+    }
+
+    span.bx-cart-item-count {
+        position: absolute;
+        top: 5px;
+        left: auto;
+        right: 4px;
+        bottom: auto;
+        padding: 10px 6px 8px;
+        font-size: 11px;
+        background: $color-black1;
+        border-radius: 21px;
+        -khtml-border-radius: 10px;
+        line-height: 0;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .bx-motion-dropdown {
+
+        position: absolute;
+        top: 75px;
+        border-top: 2px solid $color-orange2;
+        margin: 0;
+        position: absolute;
+        left: auto;
+        right: 87px;
+        width: 34%;
+        z-index: 10;
+        background: $color-black1;
+
+
+    }
+
+    .bx-cart-popup-dropdown {
+        padding: 15px;
+        /* overflow-y: scroll; */
+        color: #fff;
+    }
+
+    .bx-cart-items-list {
+        overflow-y: scroll;
+        /* height: 261px; */
+        padding-bottom: 12px;
+    }
+}
+
+.bx-cart-items-list {
+
+    li {
+        display: flex;
+        color: #fff;
+        margin-bottom: 15px;
+        justify-content: space-between;
+
+        .bx-cart-items-img {
+            width: 27%;
+            height: 83px;
+            margin-right: 12px;
+
+            img {
+                width: 100%;
+                object-fit: cover;
+                height: 100%;
+            }
+
+        }
+
+        .bx-item-info {
+            display: inline-grid;
+            align-content: center;
+            justify-content: start;
+
+            .bx-item-name {
+                font-size: 14px;
+            }
+        }
+
+        .bx-remove {
+            font-size: 14px;
+        }
+
+
+
+    }
+}

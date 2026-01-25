@@ -28,6 +28,12 @@ import SingleProductInIndex from "./menus/single-product";
 import BlogsIndex from "./blog";
 import BlogsIndexId from "./blog/blogId";
 import Footer from "./components/footer/footer";
+import TeamIndex from "./team";
+import FaqIndex from "./faq";
+import ServiceIndex from "./service";
+import CartIndex from "./cart";
+import CheckoutIndex from "./checkout";
+
 
 // import OffersIndex from "./offers";
 // import ContactIndex from "./contact";
@@ -35,6 +41,7 @@ import Footer from "./components/footer/footer";
 // import RegisterIndex from "./register";
 
 function App() {
+  
   //   const title = useSelector((state) => state.pageTitle.title);
   // //   const bodyTitle = useSelector((state) => state.pageTitle.bodyClassName);
 
@@ -58,7 +65,7 @@ function App() {
             <Route
               path="/"
               element={
-                <PageTitle title="Home | Food App">
+                <PageTitle>
                   <HomeIndex />
                 </PageTitle>
               }
@@ -67,7 +74,7 @@ function App() {
             <Route
               path="/about-us"
               element={
-                <PageTitle title="About Us | Food App">
+                <PageTitle>
                   <AboutIndex />
                 </PageTitle>
               }
@@ -76,15 +83,36 @@ function App() {
             <Route
               path="/menus"
               element={
-                <PageTitle title="Menu | Food App">
+                <PageTitle>
                   <MenusIndex />
                 </PageTitle>
               }
             />
 
-            <Route path="/gallery" element={<GalleryIndex />} />
-            <Route path="/testimonials" element={<TestimonialsIndex />} />
-            <Route path="/blog" element={<BlogsIndex />} />
+            <Route
+              path="/gallery"
+              element={
+                <PageTitle>
+                  <GalleryIndex />
+                </PageTitle>
+              }
+            />
+            <Route
+              path="/testimonials"
+              element={
+                <PageTitle>
+                  <TestimonialsIndex />
+                </PageTitle>
+              }
+            />
+            <Route
+              path="/blog"
+              element={
+                <PageTitle>
+                  <BlogsIndex />
+                </PageTitle>
+              }
+            />
 
             <Route
               path="/menu/single-product/:id"
@@ -97,7 +125,56 @@ function App() {
             />
             <Route path="/blog/:blogId" element={<BlogsIndexId />} />
 
-            <Route path="*" element={<Index404 />} />
+            <Route path="/404" element={<Index404 />} />
+
+            <Route
+              path="/team"
+              element={
+                <PageTitle title="Team">
+                  <TeamIndex />
+                </PageTitle>
+              }
+            />
+
+            <Route
+              path="/faq"
+              element={
+                <PageTitle >
+                  <FaqIndex />
+                </PageTitle>
+              }
+            />
+
+            <Route
+              path="/service"
+              element={
+                <PageTitle >
+                  <ServiceIndex />
+                </PageTitle>
+              }
+            />
+             <Route
+              path="/cart"
+              element={
+                <PageTitle >
+                  <CartIndex />
+                </PageTitle>
+              }
+            />
+
+            <Route
+              path="/checkout"
+              element={
+                <PageTitle >
+                  <CheckoutIndex />
+                </PageTitle>
+              }
+            />
+
+
+
+
+
           </Routes>
         </div>
         <Footer />

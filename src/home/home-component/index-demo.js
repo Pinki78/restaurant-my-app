@@ -6,7 +6,7 @@ import HeroInfo from "./home-carousel/hero-info";
 import AboutInfo from "../about/about-component/about-info";
 import MenuListSilder from "./home-component/menu-list-silder";
 import LcoListLayout from "../components/icon-list-layout/icon-list-layout";
-import SectionHeadring from "../components/seciton-headring/section-headring";
+import SectionHeadrTitel from "../../components/seciton-headring/section-headring";
 import CategoriesFeaturesList from "../components/categories-features/categories-features";
 // import GoogleLogin from "../firebase/GoogleLogin";
 // import FacebookLoginButton from "../firebase/facebookLogin";
@@ -69,7 +69,7 @@ const HomeIndex = () => {
         <Container>
           <LcoListLayout Icon={<MdRestaurantMenu  />} IconText="Our Categories"  />
 
-<SectionHeadring SectionHeadring="Categories Features" HeadringClass="bx-wave2"  />
+<SectionHeadrTitel  SectionHeadr="Categories Features" HeadringClass="bx-wave2"  />
           
           <CategoriesFeaturesList />
         </Container>

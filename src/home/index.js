@@ -11,20 +11,22 @@ import HeroInfo from "./home-component/home-carousel/hero-info";
 import AboutInfo from "../about/about-component/about-info";
 import MenuListSilder from "./home-component/menu-list-silder";
 import LcoListLayout from "../components/icon-list-layout/icon-list-layout";
-import SectionHeadring from "../components/seciton-headring/section-headring";
+import SectionHeadrTitel from "../components/seciton-headring/section-headring";
 import CategoriesFeaturesList from "../components/categories-features/categories-features";
 
 import SpecialOffer from "../components/special-offer/special-offer";
 import OnlineReserve from "./home-component/online-reserve";
 import GalleryWrapper from "../gallery/gallery-comp/gallery-wrapper";
-import ReviewSilder from "./home-component/review-silder";
-import { ButtonLink } from "../components/button-box/button-link";
+// import ReviewSilder from "./home-component/review-silder";
+// import { ButtonLink } from "../components/button-box/button-link";
 import TestimoniaSilder from "./home-component/home-carousel/testimonia-silder";
 
 // import GoogleLogin from "../firebase/GoogleLogin";
 // import FacebookLoginButton from "../firebase/facebookLogin";
 import { FaMicroblog } from "react-icons/fa6";
 import BlogWrapper from "../blog/blog-component/blog-wrapper";
+import HeadringButtonContainer from "../components/headring-button/headring-button";
+
 const HomeIndex = () => {
   return (
     <>
@@ -52,7 +54,7 @@ const HomeIndex = () => {
       </section>
       {/* --About-- */}
       <section
-        className="bx-about-section overflow-hidden"
+        className="bx-about-section overflow-hidden bx-section-margine"
         id="about-page-section"
       >
         <Container>
@@ -68,7 +70,7 @@ const HomeIndex = () => {
       {/* --Manu-- */}
 
       <section
-        className="bx-menu-silder-section overflow-hidden mb-5"
+        className="bx-menu-silder-section overflow-hidden bx-section-margine"
         id="menu-silder-section"
       >
         <Container>
@@ -83,7 +85,7 @@ const HomeIndex = () => {
       {/* --Manu-- */}
 
       <section
-        className="bx-categories-features-section overflow-hidden mb-5"
+        className="bx-categories-features-section overflow-hidden bx-section-margine"
         id="category-menu-section"
       >
         <Container>
@@ -92,8 +94,8 @@ const HomeIndex = () => {
             IconText="Our Categories"
           />
 
-          <SectionHeadring
-            SectionHeadring="Categories Features"
+          <SectionHeadrTitel
+            SectionHeadr="Categories Features"
             HeadringClass="bx-wave2"
           />
 
@@ -105,7 +107,7 @@ const HomeIndex = () => {
       {/* --special-offer-- */}
 
       <section
-        className="bx-special-offer-section overflow-hidden mb-5"
+        className="bx-special-offer-section overflow-hidden bx-section-margine"
         id="special-offer-section"
       >
         <Container>
@@ -117,7 +119,7 @@ const HomeIndex = () => {
       {/* --reserve-- */}
 
       <section
-        className="bx-reserve-section overflow-hidden mb-5"
+        className="bx-reserve-section overflow-hidden bx-section-margine"
         id="reserve-section"
       >
         <Container fluid className="pe-xxl-0  pe-1 ">
@@ -130,14 +132,14 @@ const HomeIndex = () => {
       {/* --gallery-- */}
 
       <section
-        className="bx-gallery-section overflow-hidden mb-5"
+        className="bx-gallery-section overflow-hidden bx-section-margine"
         id="gallery-section"
       >
         <Container>
           <LcoListLayout Icon={<GrGallery />} IconText="Our Gallery" />
 
-          <SectionHeadring
-            SectionHeadring="A Glimpse Into Our Kitchen Craft."
+          <SectionHeadrTitel
+            SectionHeadr="A Glimpse Into Our Kitchen Craft."
             HeadringClass="bx-wave2"
           />
           <GalleryWrapper
@@ -152,29 +154,21 @@ const HomeIndex = () => {
       {/* --testimonials-- */}
 
       <section
-        className="bx-testimonials-section overflow-hidden mb-5"
+        className="bx-testimonials-section overflow-hidden bx-section-margine"
         id="testimonials-section"
       >
         <Container>
-          <div className="bx-headring-button">
-            <div className="bx-headring-our">
-              <LcoListLayout
-                Icon={<MdOutlineFeedback />}
-                IconText="Our Reviews"
-              />
-
-              <SectionHeadring
-                SectionHeadring="Happy Testimonials"
-                HeadringClass="bx-wave3"
-              />
-            </div>
-            <ButtonLink
-              PathUrl={"/testimonial"}
-              ButtonName={"View All"}
-              ClassBtn={"bx-btn-2"}
-            />
-          </div>
+          <HeadringButtonContainer
+            IconText="Our Reviews"
+            Icon={<MdOutlineFeedback />}
+            SectionHeadr="Happy Testimonials"
+            HeadringClass="bx-wave3"
+            PathUrl={"/testimonial"}
+            ButtonName={"View All"}
+            ClassBtn={"bx-btn-2"}
+          />
         </Container>
+
         {/* <ReviewSilder 
             limit="6" Max_Length={100} 
           /> */}
@@ -189,28 +183,22 @@ const HomeIndex = () => {
       {/* --blog-- */}
 
       <section
-        className="bx-blog-section overflow-hidden mb-5"
+        className="bx-blog-section overflow-hidden bx-section-margine"
         id="blog-section"
       >
         <Container>
-          <div className="bx-headring-button">
-            <div className="bx-headring-our">
-              <LcoListLayout Icon={<FaMicroblog />} IconText="Our Blogs" />
+          <HeadringButtonContainer
+            Icon={<FaMicroblog />}
+            IconText="Our Blogs"
+            PathUrl={"/blog"}
+            ButtonName={"View All"}
+            ClassBtn={"bx-btn-2"}
+            SectionHeadr="Delicious Stories From Our Culinary World."
+            HeadringClass="bx-wave2"
+          />
 
-              <SectionHeadring
-                SectionHeadring="Delicious Stories From Our Culinary World."
-                HeadringClass="bx-wave2"
-              />
-            </div>
-            <ButtonLink
-              PathUrl={"/blog"}
-              ButtonName={"View All"}
-              ClassBtn={"bx-btn-2"}
-            />
-          </div>
           <BlogWrapper limit="3" MAX_LENGTH={100} />
         </Container>
-        
       </section>
 
       {/* --blog-- */}

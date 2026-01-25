@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
-import {Col, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import MenuItems from "./menu-items";
 import { fetchMenuList } from "../../redux-store/menuListItmes";
 // import { setFilterSearch } from "../../redux-store/store-redux-componets/searchSlice";
@@ -33,20 +33,23 @@ const Menuwrapper = (props) => {
   // const searchQuery = useSelector((state) => state.menuSearch.filterSearch);
 
   const { itemsMenuList, loading } = useSelector(
-    (state) => state.ListReducermenu
+    (state) => state.ListReducermenu,
   );
 
-  const filterSearchData = useSelector(
-    (state) => state.SearchList.filterSearch
-  );
+  console.log(itemsMenuList);
   
+
+  const filterSearchData = useSelector(
+    (state) => state.SearchList.filterSearch,
+  );
+
   useEffect(() => {
     dispatch(fetchMenuList());
   }, [dispatch]);
 
   const filteredData = filterSearchData
     ? itemsMenuList.filter((item) =>
-        item.title.toLowerCase().includes(filterSearchData.toLowerCase())
+        item.title.toLowerCase().includes(filterSearchData.toLowerCase()),
       )
     : itemsMenuList;
 
@@ -75,31 +78,34 @@ const Menuwrapper = (props) => {
   // const MenuDataDispaly = limit ? filteredData.slice(0, limit) : filteredData;
   const MenuDataDispaly = baseData.slice(IndexOfFirstItem, IndexOfLastItem);
 
+
+
+
+  
   return (
     <>
       <div className="bx-wrapp-menu-root">
         <Row as="ul">
-          {MenuDataDispaly.map((listMenu) => (
-            
+          {MenuDataDispaly.map((listMenu, index) => (
             <Col
-        xs={6}
-        sm={6}
-        md={4}
-        lg={4}
-        xl={4}
-        xxl={3}
-        key={listMenu.id}
-        as="li"
-        className=" list-unstyled"
-      >
-            <MenuItems
+              xs={6}
+              sm={6}
+              md={4}
+              lg={4}
+              xl={4}
+              xxl={3}
               key={listMenu.id}
-              listMenu={listMenu}
-              limit={limit}
-              Max_Length={Max_Length}
-              isMobileOrTablet={isMobileOrTablet}
-            />
-</Col>
+              as="li"
+              className=" list-unstyled"
+            >
+              <MenuItems
+              index={index}
+                listMenu={listMenu}
+                limit={limit}
+                Max_Length={Max_Length}
+                isMobileOrTablet={isMobileOrTablet}
+              />
+            </Col>
           ))}
         </Row>
       </div>

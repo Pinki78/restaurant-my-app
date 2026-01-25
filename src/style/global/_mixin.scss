@@ -1,6 +1,4 @@
-
-@mixin important-card-wishlist
-{
+@mixin important-card-wishlist {
     font-weight: 600;
     border-radius: 100%;
     position: absolute;
@@ -18,8 +16,7 @@
     font-size: 12px;
 }
 
-@mixin important-ulFlex
-{
+@mixin important-ulFlex {
     display: flex;
     flex-direction: row;
     padding-left: 0;
@@ -30,7 +27,7 @@
     padding: 0;
 }
 
-@mixin  imporp-o {
+@mixin imporp-o {
     overflow: hidden;
     position: relative;
 }
@@ -40,26 +37,109 @@
     color: #fff;
     width: 100%;
     padding: 10px;
-    transform: translate(-50% , -50%);
+    transform: translate(-50%, -50%);
     position: absolute;
     top: 50%;
     left: 50%;
     z-index: 2;
     transition: all 0.5s ease;
-    
+
 }
 
-@mixin imporp-overlaye
-{
+@mixin imporp-overlaye {
     content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        height: 100%;
-        width: 100%;
-        background:rgba(0, 0, 0, 0.359);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.359);
 
 }
 
+@mixin black-box {
+    background-color: $color-black2;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 20px 20px 20px 20px;
+    padding: 25px 25px 25px 25px;
+    transition: all .4s ease;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+@mixin bx-bolle {
+    position: absolute;
+    background: #fff;
+    width: 20px;
+    min-height: 150px;
+    bottom: 180px;
+    right: -9px;
+
+    &::before {
+        content: "";
+        @extend .bx-icon-bolle;
+    }
+
+    &::after {
+        content: "";
+        @extend .bx-icon-bolle;
+        bottom: 0;
+    }
+}
+
+@mixin bx-image {
+    width: 100%;
+    aspect-ratio: 1 / 1.221;
+    object-fit: cover;
+    transition: all 0.4s ease-in-out;
+
+}
+
+@mixin bx-image-anime {
+    display: block;
+    position: relative;
+    cursor: none;
+    border-radius: 20px;
+    overflow: hidden;
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 200%;
+        height: 0%;
+        left: 50%;
+        top: 50%;
+        background-color: rgba(255, 255, 255, .3);
+        transform: translate(-50%, -50%) rotate(-45deg);
+        z-index: 1;
+    }
+}
+
+@mixin bx-card-body-2 {
+    border-radius: 15px 15px 15px 15px;
+    padding: 20px 20px 20px 20px;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
+    background: #353535;
+    margin-bottom: 29px;
+    box-shadow: inset -10px -10px 0 black, inset 10px -10px 0 #fe5f3f, inset -10px 10px 0 #fb2a00, inset 10px 10px 0 #ff9781, 0 0 20px silver;
+    transition: box-shadow ease-in-out 0.6s, color ease-in-out 0.5s;
+    position: relative;
+
+    &:hover {
+        box-shadow:
+            inset 0 0 0 transparent,
+            inset 0 0 0 transparent,
+            inset 0 0 0 transparent,
+            inset 0 0 0 transparent,
+            0 0 20px silver;
+        color: transparent;
+
+        &::before {
+            -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+        }
+
+    }
+}

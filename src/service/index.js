@@ -6,7 +6,7 @@ const ServiceIndex = ({ PageName }) => {
   return (
     <>
   <PageTitleArea PageName={PageName} />
-      <section className="bx-service-root">
+      <section className="bx-service-root ">
         <Container>
           <ServiceList />
         </Container>

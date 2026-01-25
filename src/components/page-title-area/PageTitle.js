@@ -4,13 +4,18 @@ import { useLocation } from "react-router-dom";
 import { pageTitleMap } from "./page-title-component/pageTitleMap";
 import { setPageTitle } from "../../redux-store/store-redux-componets/pageTitleSlice";
 
-const PageTitle = ({ children }) => {
+const PageTitle = ({ children,  title }) => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
 
   // Compute page name immediately from pathname
   // const pageName = pageTitleMap[pathname] || "Home"; 
-  const pageName = pathname === "/" ? "Home" : pageTitleMap[pathname] ;
+  // const pageName = pathname === "/" ? "Home" : pageTitleMap[pathname] ;
+
+  const pageName =
+  title ||
+  (pathname === "/" ? "Home" : pageTitleMap[pathname]) ||
+  "Page";
 
   // const pageName = pathname === "/" ? "Home" : (pageTitleMap[pathname] || "Page");
 

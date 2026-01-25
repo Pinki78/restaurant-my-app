@@ -1,12 +1,12 @@
 import React from "react";
 
-const SectionHeadring = (props) => {
-  const { SectionHeadring, SectionInfo, HeadringClass } = props;
+const SectionHeadrTitel = (props) => {
+  const { SectionHeadr, SectionInfo, HeadringClass } = props;
 
   return (
     <div className={`bx-section-headring ${HeadringClass || ""}`}>
       <h2>
-        {SectionHeadring}
+        {SectionHeadr}
         <div className="wave"> </div>
       </h2>
       {SectionInfo && (
@@ -18,4 +18,4 @@ const SectionHeadring = (props) => {
   );
 };
 
-export default SectionHeadring;
+export default SectionHeadrTitel;

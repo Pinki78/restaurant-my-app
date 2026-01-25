@@ -18,3 +18,25 @@ li {
     right: 0;
     bottom: 0;
 }
+
+.bx-round-card
+{
+    opacity: 1;
+    min-height: 500px;
+    align-items: center;
+    border-style: solid;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-color: #fe5f3f;
+    border-radius: 200px 200px 0px 0px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    position: relative;
+    width: 100%;
+}

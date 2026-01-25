@@ -20,28 +20,44 @@ const getIdCategoryMenu = (categoryName, suffix = "", ) => {
   return `${setCategoryTittleId}${suffix}`;
 };
 
-export const createFoodMenu = (title, imageName, info, price, rating, categoryName, offer = null, 
-  vegType = null   ) => {
-  // Normalize category to an array if a single string is provided
-  const categories = Array.isArray(categoryName) ? categoryName : [categoryName];
-const imagePath = `/images/menu/${categories[0]
-  .toLowerCase()
-  .replace(/\s+/g, "")}/${imageName}`;
+const slugify = (text) =>
+  text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+export const createFoodMenu = (
+  title,
+  imageName,
+  info,
+  price,
+  rating,
+  categoryName,
+  offer = null,
+  vegType = null
+) => {
+  const categories = Array.isArray(categoryName)
+    ? categoryName
+    : [categoryName];
+
+  const imagePath = `/images/menu/${categories[0]
+    .toLowerCase()
+    .replace(/\s+/g, "")}/${imageName}`;
+
   return {
-    id: getIdFoodMenu(title),
+    
     foodImage: imagePath,
     title,
     price,
-    rating:Number(rating) || 0,
+    rating: Number(rating) || 0,
     info,
     FoodCategory: categories.map((item) => ({
-      id: getIdCategoryMenu(categoryName,"-categories"),
-      categoryName: item, 
+      id: slugify(item), // stable category id
+      categoryName: item,
     })),
-
-   offer,
-  clientRatings: [],
-   vegType
+    offer,
+    clientRatings: [],
+    vegType,
   };
 };
 

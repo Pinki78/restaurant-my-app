@@ -1,0 +1,32 @@
+.bx-counter-body{
+ @include bx-card-body-2;
+ .bx-counter-card {
+    padding: 13px;
+    color: #fff;
+}
+
+.bx-counter-icon {
+    font-size: 50px;
+    margin-bottom: 8px;
+        line-height: 0;
+}
+
+p{
+     color: #fff; 
+     margin: 0;
+}
+.bx-counter-num-prefix {
+    display: flex;
+        font-size: 23px;
+    font-weight: 700;
+    h5{
+            font-size: 23px;
+    font-weight: 700;
+    }
+    span{
+           margin-top: -3px;
+    margin-left: 10px;
+    }
+}
+
+}

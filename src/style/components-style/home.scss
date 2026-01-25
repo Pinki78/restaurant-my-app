@@ -1,12 +1,5 @@
 .bx-home-layout-root {
-    .bx-headring-button {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .bx-headring-our {}
-    }
-
+    
     .bx-wave2 {
         .wave {
             background-size: auto;
@@ -19,15 +12,7 @@
         }
     }
 
-    .bx-booking-table-form {
-        padding: 72px 28px;
-
-        .bx-wave2 {
-            .wave {
-                margin: 0 auto;
-            }
-        }
-    }
+   
 
     .bx-services {
         .fluidBox {
@@ -49,6 +34,10 @@
             height: 46px;
             width: 46px;
         }
+    }
+
+    .bx-testimonials-section{
+           margin-bottom:50px;
     }
 }
 
@@ -155,7 +144,7 @@
     margin-top: 0%;
     padding-top: 7rem;
     position: relative;
-    margin-bottom: 6rem;
+    margin-bottom:50px;
     padding-bottom: 4rem;
 
     &::before {
@@ -287,3 +276,13 @@
         }
     }
 }
+
+ .bx-booking-table-form {
+        padding: 72px 28px;
+
+        .bx-wave2 {
+            .wave {
+                margin: 0 auto;
+            }
+        }
+    }

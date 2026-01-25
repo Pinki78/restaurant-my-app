@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchMenuList } from "../../redux-store/menuListItmes";
 import MenuItems from "../../menus/menu-componebts/menu-items";
-import SectionHeadring from "../../components/seciton-headring/section-headring";
+import SectionHeadrTitel from "../../components/seciton-headring/section-headring";
 import { useMediaQuery } from "react-responsive";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
@@ -24,7 +24,7 @@ const MenuListSilder = (props) => {
   return (
     <>
       <div className="bx-slider-header-nav">
-        <SectionHeadring SectionHeadring="Top Products" HeadringClass="bx-wave2"  />
+        <SectionHeadrTitel SectionHeadr="Top Products" HeadringClass="bx-wave2"  />
         <div className="slider-nav">
           <div className="swiper-button-prev"></div>
           <div className="swiper-button-next"></div>

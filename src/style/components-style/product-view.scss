@@ -1,0 +1,94 @@
+.bx-product-view {
+    .bx-img2 {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        transition: all 500ms ease-in-out;
+        -webkit-transition: all 500ms ease-in-out;
+    }
+
+    img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        transition: all 0.3s ease-out 0s;
+    }
+
+    .bx-images {
+        position: relative;
+        height: 321px;
+    }
+
+    .bx-thumbnail-top {
+        position: relative;
+
+        &:hover {
+            .bx-images {
+                img {
+                    opacity: 0;
+                }
+
+                .bx-img2 {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .bx-offer {
+        background: #fe5f3f;
+        color: #fff;
+        font-family: "ZCOOL XiaoWei", sans-serif;
+        text-transform: uppercase;
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: 3px 5px;
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    .bx-pro-text h3 {
+        font-size: 27px;
+        font-weight: 600;
+        margin-top: 12px;
+
+        a {
+            color: $color-orange;
+
+            &:hover {
+                color: $color-black1;
+            }
+        }
+    }
+
+    .bx-currency {
+        font-size: 27px;
+        font-weight: 600;
+        margin-bottom: 12px;
+    }
+
+    .bx-rating {
+        font-size: 18px;
+        font-size: 18px;
+        font-family: "ZCOOL XiaoWei", sans-serif;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+
+        svg {
+            margin-top: -4px;
+            margin-right: 7px;
+        }
+    }
+
+    .bx-btn {
+        padding: 11px 18px;
+        margin-left: 36px;
+    }
+
+}

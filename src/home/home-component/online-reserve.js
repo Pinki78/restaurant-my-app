@@ -6,7 +6,7 @@ import { Fancybox } from "@fancyapps/ui";
 
 import BookingTableForm from "../../components/from/booking-table-form/booking-table-from";
 import LcoListLayout from "../../components/icon-list-layout/icon-list-layout";
-import SectionHeadring from "../../components/seciton-headring/section-headring";
+import SectionHeadrTitel from "../../components/seciton-headring/section-headring";
 import { Link } from "react-router-dom";
 
 const OnlineReserve = () => {
@@ -20,8 +20,8 @@ const OnlineReserve = () => {
               IconText="Online reservation"
             />
 
-            <SectionHeadring
-              SectionHeadring="Book A Table"
+            <SectionHeadrTitel
+              SectionHeadr="Book A Table"
               HeadringClass="bx-wave2"
               SectionInfo={
                 <>
