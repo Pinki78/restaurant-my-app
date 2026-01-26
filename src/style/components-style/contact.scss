@@ -1,0 +1,44 @@
+.bx-contact-info {
+
+    ul {
+
+
+        li {
+            display: flex;
+            margin-bottom: 15px;
+            width: 50%;
+        }
+    }
+
+    a {
+        color: $color-black1;
+
+        .bx-icon {}
+    }
+
+    svg {
+        color: $color-orange;
+        font-size: 55px;
+    }
+
+    h5 {
+        display: inline-flex;
+        flex-direction: column;
+        color: $color-orange;
+        font-size: 20px;
+        margin-left: 14px;
+        margin-bottom: 0;
+
+        span {
+            color: $color-black1;
+            font-size: 16px;
+            margin-top: 4px;
+        }
+    }
+}
+
+.bx-contact-form {
+    .invalid-feedback {
+        color: red;
+    }
+}

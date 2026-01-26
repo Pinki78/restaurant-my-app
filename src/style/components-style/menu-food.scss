@@ -184,6 +184,11 @@
         &::before {
             height: 92%;
         }
+
+        .bx-product-actions {
+            transform: translate(-50%, -60%);
+            visibility: visible;
+        }
     }
 
     &::after {
@@ -203,11 +208,18 @@
         }
     }
 
+    .bx-currency-rating {
+        margin-bottom: 30px;
+    }
+
     .bx-product-actions {
         position: relative;
         bottom: 0;
         justify-content: left;
         margin-top: 15px;
+        margin-top: 15px;
+        transform: translate(-50%, -60%);
+        visibility: visible;
     }
 
     .bx-add-cart-btn {

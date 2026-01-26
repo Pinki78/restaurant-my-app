@@ -7,7 +7,7 @@ import { BiSolidOffer } from "react-icons/bi";
 import OfferList from "./offer-list";
 
 const SpecialOfferinfo = (props) => {
-  const { PathUrl, ButtonName, ClassBtn, limit, Max_Length } = props;
+  const { start, limit, Max_Length } = props;
 
   return (
     <>
@@ -34,6 +34,7 @@ const SpecialOfferinfo = (props) => {
 
           <Col xs={12} sm={12} md={6} lg={6} xl={6} xxl={6} className="">
             <OfferList
+            start={start}
              productMenuCLass='bx-product-list-wapper'
              col={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12, xxl: 12 }}
             limit={limit} Max_Length={Max_Length} BxColClassName={'p-0'}/>

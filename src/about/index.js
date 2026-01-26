@@ -36,14 +36,14 @@ const AboutIndex = ({ PageName }) => {
             SectionHeadr="Meet Our Professionals"
             HeadringClass="bx-wave4"
           />
-
           <TeamWrapper Max_Length={48} limit={4} />
         </Container>
       </section>
-      {/* --why-choose-us-- */}
-      <section    className="bx-why-choose-us-section overflow-hidden bx-section-margine">
+     {/* --why-choose-us-- */}
+      <section className="bx-why-choose-us-section overflow-hidden bx-section-margine">
         <WhyChooseUs />
       </section>
+      
 
       {/* --reserve-- */}
 
@@ -71,9 +71,6 @@ const AboutIndex = ({ PageName }) => {
          <AboutFaq/>
         </Container>
       </section>
-      
-
-      
 
     </>
   );

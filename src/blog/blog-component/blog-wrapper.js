@@ -61,8 +61,8 @@ const BlogWrapper = props => {
   const isXl = useMediaQuery({ minWidth: 1536 });
   const itemsPerPage = isXs ? 6 : isSm ? 6 : isMd ? 6 : isLg ? 6 : isXl ? 6 : 6;
 
-  const IndexOfLastItem = currentPage * itemsPerPage;
-  const IndexOfFirstItem = itemsPerPage - IndexOfLastItem;
+   const IndexOfLastItem = currentPage * itemsPerPage;
+  const IndexOfFirstItem = IndexOfLastItem - itemsPerPage;
 
   const baseData = limit
     ? filteredData.slice(0, limit)
@@ -75,8 +75,8 @@ const BlogWrapper = props => {
   
     <div className="bx-blog-wrapper mt-2 mt-xxl-5">
         <Row as="ul">
-          {DisplayItems.map((items) => (
-            <BlogList  blogItem={items} key={items.id} col={col} limit={limit} MAX_LENGTH={MAX_LENGTH} />
+          {DisplayItems.map((items , index) => (
+            <BlogList index={index}  blogItem={items} key={items.id} col={col} limit={limit} MAX_LENGTH={MAX_LENGTH} />
           ))}
         </Row>
       </div>

@@ -26,8 +26,14 @@ import TestimoniaSilder from "./home-component/home-carousel/testimonia-silder";
 import { FaMicroblog } from "react-icons/fa6";
 import BlogWrapper from "../blog/blog-component/blog-wrapper";
 import HeadringButtonContainer from "../components/headring-button/headring-button";
+import { useScrollAnimation } from "../assets/hooks/scroll-animation/scroll-animation";
 
-const HomeIndex = () => {
+const HomeIndex = (props) => {
+
+
+const [ref, animationClass] = useScrollAnimation(props.animationClass || "animate__fadeInUp");
+  
+
   return (
     <>
       <section
@@ -70,13 +76,14 @@ const HomeIndex = () => {
       {/* --Manu-- */}
 
       <section
-        className="bx-menu-silder-section overflow-hidden bx-section-margine"
+        className="bx-menu-silder-section overflow-hidden bx-section-margine "
+                
         id="menu-silder-section"
       >
         <Container>
           <LcoListLayout Icon={<MdOutlineMenuBook />} IconText="Our Menu" />
 
-          <MenuListSilder Max_Length={48} />
+          <MenuListSilder ref={ref} animationClass='animate__fadeInDown' Max_Length={48} />
         </Container>
       </section>
 
@@ -85,7 +92,8 @@ const HomeIndex = () => {
       {/* --Manu-- */}
 
       <section
-        className="bx-categories-features-section overflow-hidden bx-section-margine"
+        className="bx-categories-features-section overflow-hidden bx-section-margine animate__animated animate__fadeInUp"
+                style={{ animationDelay: "0.3s", animationDuration: "2s" }} 
         id="category-menu-section"
       >
         <Container>
@@ -111,7 +119,7 @@ const HomeIndex = () => {
         id="special-offer-section"
       >
         <Container>
-          <SpecialOffer limit="1" Max_Length={100} />
+          <SpecialOffer start={0} limit={1} Max_Length={100} />
         </Container>
       </section>
 
@@ -132,7 +140,7 @@ const HomeIndex = () => {
       {/* --gallery-- */}
 
       <section
-        className="bx-gallery-section overflow-hidden bx-section-margine"
+        className="bx-gallery-section overflow-hidden bx-section-margine "
         id="gallery-section"
       >
         <Container>
@@ -166,6 +174,7 @@ const HomeIndex = () => {
             PathUrl={"/testimonial"}
             ButtonName={"View All"}
             ClassBtn={"bx-btn-2"}
+            
           />
         </Container>
 
@@ -175,6 +184,7 @@ const HomeIndex = () => {
         <TestimoniaSilder
           MAX_LENGTH={100}
           col={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12, xxl: 12 }}
+          ref={ref} animationClass='animate__fadeInDown'
         />
       </section>
 

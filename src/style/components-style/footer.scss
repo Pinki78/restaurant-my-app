@@ -111,35 +111,7 @@ footer.bx-footer-main {
     }
 }
 
-.bx-footer-contact-info {
-    ul {
-        li {
-            .bx-icon-box-wrapper {
-                display: flex;
-            }
 
-            span.bx-icon {
-                font-size: 38px;
-                color: #fff;
-                cursor: pointer;
-                margin-right: 7px;
-                line-height: 0;
-            }
-
-            h3 {
-                color: #fff;
-                font-size: 18px;
-            }
-
-            p {
-                font-size: 15px;
-                color: #cdcdcd;
-            }
-
-
-        }
-    }
-}
 
 .bx-copyright-root {
     background: #000;
@@ -184,6 +156,36 @@ footer.bx-footer-main {
             &:last-child {
                 margin-right: 0;
             }
+        }
+    }
+}
+
+.bx-contact-li-info {
+    ul {
+        li {
+            .bx-icon-box-wrapper {
+                display: flex;
+            }
+
+            span.bx-icon {
+                font-size: 38px;
+                color: #fff;
+                cursor: pointer;
+                margin-right: 7px;
+                line-height: 0;
+            }
+
+            h3 {
+                color: #fff;
+                font-size: 18px;
+            }
+
+            p {
+                font-size: 15px;
+                color: #cdcdcd;
+            }
+
+
         }
     }
 }

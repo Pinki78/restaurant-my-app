@@ -1,7 +1,9 @@
 import { Col, Image, Button } from "react-bootstrap";
-import { Link, } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import ViewMoreLink from "../../components/button-box/view-more";
+
+import { useScrollAnimation } from "../../assets/hooks/scroll-animation/scroll-animation";
 
 /* 👉 ADD HERE */
 // const formatDate = (date) =>
@@ -20,10 +22,13 @@ const formatDate = (date) => {
   });
 };
 
-
 const BlogList = (props) => {
-  const { blogItem, productMenuCLass, MAX_LENGTH, col } = props;
-const MAX_LENGTH_TITLE = 20;
+  // Hook returns ref and animation class
+const [ref, animationClass] = useScrollAnimation(props.animationClass || "animate__fadeInUp");
+
+  const { blogItem, productMenuCLass, MAX_LENGTH, col, index } = props;
+  const MAX_LENGTH_TITLE = 20;
+
   return (
     <>
       <Col
@@ -35,24 +40,29 @@ const MAX_LENGTH_TITLE = 20;
         xxl={col.xxl ?? 4}
         key={blogItem.id}
         as="li"
+        ref={ref}
         className=" list-unstyled"
       >
-        <div className="bx-post-blogImage " id={blogItem.id}>
+        <div
+          className={`bx-post-blogImage ${animationClass}`}
+          style={{ animationDelay: `${index * 0.2}s`, animationDuration: "1s" }}
+          id={blogItem.id}
+        >
           <div className="bx-post-card">
             <div className="bx-post-img">
               <Link to={`/blog/${blogItem.id}`}>
-              <Image
-                src={blogItem.blogImage}
-                alt={blogItem.title}
-                style={{ objectFit: "cover" }}
-              />
-            </Link>
+                <Image
+                  src={blogItem.blogImage}
+                  alt={blogItem.title}
+                  style={{ objectFit: "cover" }}
+                />
+              </Link>
 
-<span className="bx-meta-date">
-                  <span className="bx-meta-date-text">
-                    {formatDate(blogItem.montheData)}
-                  </span>
+              <span className="bx-meta-date">
+                <span className="bx-meta-date-text">
+                  {formatDate(blogItem.montheData)}
                 </span>
+              </span>
             </div>
 
             <div className="bx-post-body">
@@ -65,13 +75,11 @@ const MAX_LENGTH_TITLE = 20;
                   </span>
                 </div>
 
-                
-
                 <h2 className="bx-entry-title">
                   <Link to={`/blog/${blogItem.id}`}>
-                  {blogItem.title.length > MAX_LENGTH_TITLE
-  ? `${blogItem.title.substring(0, MAX_LENGTH_TITLE)}...`
-  : blogItem.title}
+                    {blogItem.title.length > MAX_LENGTH_TITLE
+                      ? `${blogItem.title.substring(0, MAX_LENGTH_TITLE)}...`
+                      : blogItem.title}
                     {/* {blogItem.title} */}
                   </Link>
                 </h2>
@@ -85,7 +93,7 @@ const MAX_LENGTH_TITLE = 20;
                 <div className="btn-wraper">
                   <ViewMoreLink
                     PathUrl={`/blog/${blogItem.id}`}
-                     ViewName=" Learn more"
+                    ViewName=" Learn more"
                   />
                 </div>
               </div>

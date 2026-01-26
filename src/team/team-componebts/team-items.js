@@ -2,12 +2,14 @@ import { Image, ListGroup,  } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 const TeamItems = (props) => {
-  const { Max_Length, listtems } = props;
+  const { Max_Length, listtems, animationClass , index } = props;
   const getUrl = (id) => `/team/${id}`;
 
   return (
     <>
-      <div className="bx-team-item " id={listtems.id}>
+      <div className= {`bx-team-item animate__animated  ${animationClass || ""}`}  id={listtems.id}
+       style={{ animationDelay: `${index * 0.2}s`, animationDuration: "1s" }}
+      >
 
         <div class="bx-bolle"> </div>
 
@@ -47,12 +49,12 @@ const TeamItems = (props) => {
                 <h6>
                 {listtems.caption}
                 </h6>
-                <p>
 
-                    {listtems.info.length > Max_Length
-                    ? `${listtems.info.substring(0, Max_Length)}... `
-                    : listtems.info}
-                </p>
+                <p>
+            {(listtems.info || "").length > Max_Length
+              ? `${listtems.info.substring(0, Max_Length)}...`
+              : listtems.info}
+          </p>
             </div>
 
         </div>

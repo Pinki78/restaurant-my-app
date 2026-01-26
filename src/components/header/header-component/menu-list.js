@@ -4,10 +4,17 @@ import { HEADER_MANUS } from "../../../api-data/heade-data/heade-data";
 // import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import DropdownList from "./dropdown-list";
+
+import { useDispatch } from "react-redux";
+import { setLoading } from "../../../redux-store/store-redux-componets/loadingSlice";
+
 const MenuList = ({ isMobileOrTablet, currentPath , }) => {
+
+    const dispatch = useDispatch();
   const location = useLocation();
 
   const scrollToTop = () => {
+    dispatch(setLoading(true)); // trigger Redux loader
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 

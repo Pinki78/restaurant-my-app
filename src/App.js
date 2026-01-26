@@ -3,11 +3,16 @@ import "animate.css/animate.min.css";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import "swiper/css";
 import "react-datepicker/dist/react-datepicker.css";
+import 'react-toastify/dist/ReactToastify.css';
+
+import "animate.css";
 
 import "./style/style.css";
 import "./style/global.scss";
 // import { useEffect } from "react";
 // import { useSelector } from "react-redux";
+
+import { useState, } from "react";
 
 import { Provider } from "react-redux";
 import { store } from "./redux-store/store";
@@ -15,6 +20,7 @@ import { Routes, Route } from "react-router-dom";
 import PageTitle from "./components/page-title-area/PageTitle";
 
 import Header from "./components/header/header";
+import PageLoadingIndex from "./components/page-load.js/page-loading";
 
 import HomeIndex from "./home";
 import AboutIndex from "./about";
@@ -33,6 +39,9 @@ import FaqIndex from "./faq";
 import ServiceIndex from "./service";
 import CartIndex from "./cart";
 import CheckoutIndex from "./checkout";
+import ContactIndex from "./contact";
+import WishlistIndex from "./wishlist";
+import ThankYouindex from "./think-you";
 
 
 // import OffersIndex from "./offers";
@@ -40,8 +49,8 @@ import CheckoutIndex from "./checkout";
 // import LoginIndex from "./login";
 // import RegisterIndex from "./register";
 
+
 function App() {
-  
   //   const title = useSelector((state) => state.pageTitle.title);
   // //   const bodyTitle = useSelector((state) => state.pageTitle.bodyClassName);
 
@@ -55,13 +64,16 @@ function App() {
   //       document.body.classList.remove(`bx-${title}-layout-root`);
   //     };
   //   }, []);
-
+// const [pageLoading, setPageLoading] = useState(false);
   return (
     <>
       <Provider store={store}>
-        <Header />
+        <PageLoadingIndex  />
+        <Header  />
         <div className="App">
+
           <Routes>
+            
             <Route
               path="/"
               element={
@@ -139,7 +151,7 @@ function App() {
             <Route
               path="/faq"
               element={
-                <PageTitle >
+                <PageTitle>
                   <FaqIndex />
                 </PageTitle>
               }
@@ -148,15 +160,15 @@ function App() {
             <Route
               path="/service"
               element={
-                <PageTitle >
+                <PageTitle>
                   <ServiceIndex />
                 </PageTitle>
               }
             />
-             <Route
+            <Route
               path="/cart"
               element={
-                <PageTitle >
+                <PageTitle>
                   <CartIndex />
                 </PageTitle>
               }
@@ -165,12 +177,38 @@ function App() {
             <Route
               path="/checkout"
               element={
-                <PageTitle >
+                <PageTitle>
                   <CheckoutIndex />
                 </PageTitle>
               }
             />
 
+            <Route
+              path="/contact"
+              element={
+                <PageTitle>
+                  <ContactIndex />
+                </PageTitle>
+              }
+            />
+
+            <Route
+              path="/wishlist"
+              element={
+                <PageTitle>
+                  <WishlistIndex />
+                </PageTitle>
+              }
+            />
+
+            <Route
+              path="/thank-you"
+              element={
+                <PageTitle>
+                  <ThankYouindex />
+                </PageTitle>
+              }
+            />
 
 
 

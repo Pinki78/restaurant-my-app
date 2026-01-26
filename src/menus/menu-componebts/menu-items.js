@@ -13,6 +13,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart, } from "../../redux-store/store-redux-componets/cartSlice";
 import { useNavigate } from "react-router-dom";
 
+
+
 const MenuItems = (props) => {
   const {
     Max_Length,
@@ -21,6 +23,7 @@ const MenuItems = (props) => {
     isMobileOrTablet,
     isOfferPage,
     productMenuCLass,
+    animationClass
   } = props;
   const navigate = useNavigate();
   const slugify = (title = "") =>
@@ -79,11 +82,17 @@ const MenuItems = (props) => {
   const getProductUrl = (id) =>
     `/menu/single-product/${`${slugify(listMenu.title)}`}`;
 
+
+
+
   return (
     <>
       <div
-        className={`bx-product-menu-wrap  wow fadeInUp  animated ${productMenuCLass || ""}`}
+        className={`bx-product-menu-wrap animate__animated  ${animationClass || ""} ${productMenuCLass || ""}`}
         id={`${slugify(listMenu.title)}-${index}`}
+
+        style={{ animationDelay: `${index * 0.2}s`, animationDuration: "1s" }}
+
       >
         <div className="bx-thumbnail-top">
           <div className="bx-images">

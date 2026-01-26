@@ -7,6 +7,9 @@ import MenuList from "./menu-list";
 import { useLocation } from "react-router-dom";
 import HeaderRight from "./header-right-side/header-right";
 const MediumHeader = (props) => {
+
+  const {} = props;
+
 const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
 
@@ -70,12 +73,12 @@ const isMobileOrTablet = isMobile || isTablet;
                         <Offcanvas.Title>Offcanvas</Offcanvas.Title>
                       </Offcanvas.Header>
                       <Offcanvas.Body>
-                        <MenuList isMobileOrTablet={isMobileOrTablet}  currentPath={location.pathname}  />
+                        <MenuList  isMobileOrTablet={isMobileOrTablet}  currentPath={location.pathname}  />
                       </Offcanvas.Body>
                     </Offcanvas>
                   </>
                 ) : (
-                  <MenuList isMobileOrTablet={isMobileOrTablet} currentPath={location.pathname}  />
+                  <MenuList  isMobileOrTablet={isMobileOrTablet} currentPath={location.pathname}  />
                 )}
 
                 <HeaderRight isMobileOrTablet={isMobileOrTablet} />

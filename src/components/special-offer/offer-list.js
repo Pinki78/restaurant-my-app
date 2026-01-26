@@ -8,11 +8,11 @@ import { Link, useLocation } from "react-router-dom";
 const OfferList = (props) => {
 
 
-  const {  productMenuCLass ,PathUrl, ButtonName, ClassBtn, limit, Max_Length, col = {} , BxColClassName} = props;
+  const {  start, limit, Max_Length, col = {} , BxColClassName} = props;
   const location = useLocation();
   const dispatch = useDispatch();
 
-  const isPage = (location.pathname = "");
+ const isPage = location.pathname === "/offer";
 
   const { itemsMenuList, loading } = useSelector(
     (state) => state.ListReducermenu
@@ -26,7 +26,11 @@ const OfferList = (props) => {
   const offerItems = itemsMenuList.filter((item) => item.offer);
 
   // Limit items if needed
-  const OfferDisplay = limit ? offerItems.slice(0, limit) : offerItems;
+  // const OfferDisplay = limit ? offerItems.slice(0,  limit) : offerItems;
+const OfferDisplay = limit
+  ? offerItems.slice(start, start + limit)
+  : offerItems;
+
 
   return (
     <>

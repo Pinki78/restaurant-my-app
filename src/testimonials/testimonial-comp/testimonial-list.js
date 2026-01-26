@@ -4,8 +4,15 @@ import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import ViewMoreLink from "../../components/button-box/view-more";
 
+import { useScrollAnimation } from "../../assets/hooks/scroll-animation/scroll-animation";
+
 const TestimonialList = (props) => {
-  const { items, MAX_LENGTH, col } = props;
+
+  const { items, MAX_LENGTH, col, testiCLass , index} = props;
+
+const [ref, animationClass] = useScrollAnimation(props.animationClass || "animate__fadeInUp");
+
+  
 
   return (
     <>
@@ -17,10 +24,15 @@ const TestimonialList = (props) => {
         xl={col.xl ?? 4}
         xxl={col.xxl ?? 4}
         key={items.id}
+        ref={ref}
         as="li"
         className=" list-unstyled"
       >
-        <div className="bx-testi-items " id={items.id}>
+        <div 
+        className={`bx-testi-items  animate__animated  ${animationClass || ""} ${testiCLass || ""}`}
+         id={items.id}
+         style={{ animationDelay: `${index * 0.2}s`, animationDuration: "1s" }}
+         >
           <div className="bx-testi-init">
             {/* <span  className="bx-quote-icon">
             <FaQuoteRight />

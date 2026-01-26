@@ -49,7 +49,7 @@ const TestimonialWroapper = (props) => {
   const itemsPerPage = isXs ? 6 : isSm ? 6 : isMd ? 6 : isLg ? 6 : isXl ? 6 : 6;
 
   const IndexOfLastItem = currentPage * itemsPerPage;
-  const IndexOfFirstItem = itemsPerPage - IndexOfLastItem;
+  const IndexOfFirstItem = IndexOfLastItem - itemsPerPage;
 
   const baseData = limit
     ? filteredData.slice(0, limit)
@@ -61,8 +61,8 @@ const TestimonialWroapper = (props) => {
     <>
       <div className="bx-gallery-wrapper mt-2 mt-xxl-5">
         <Row as="ul">
-          {DisplayItems.map((items) => (
-            <TestimonialList items={items} key={items.id} col={col} limit={limit} MAX_LENGTH={MAX_LENGTH} />
+          {DisplayItems.map((items, index) => (
+            <TestimonialList index={index} items={items} key={items.id} col={col} limit={limit} MAX_LENGTH={MAX_LENGTH} />
           ))}
         </Row>
       </div>

@@ -3,6 +3,9 @@ import { Button, ListGroup } from "react-bootstrap";
 import { SlArrowLeftCircle, SlArrowRightCircle } from "react-icons/sl";
 import { useNavigate, useLocation } from "react-router-dom";
 
+import { useDispatch } from "react-redux";
+import { setLoading } from "../../redux-store/store-redux-componets/loadingSlice";
+
 const PaginationList = ({
   setCurrentPage,
   currentPage,
@@ -10,7 +13,12 @@ const PaginationList = ({
   //   totalItems,
   itemsPerPage,
   PaginationHide,
+
 }) => {
+
+
+    const dispatch = useDispatch();
+
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -21,6 +29,7 @@ const PaginationList = ({
   useEffect(() => {
     console.log("currentPage:", currentPage, "totalPages:", totalPages);
   }, [currentPage, totalPages]);
+
   const handlePageChange = (page) => {
     console.log(
       "handlePageChange called with:",
@@ -33,9 +42,11 @@ const PaginationList = ({
       console.log("❌ invalid page");
       return;
     }
-
+ dispatch(setLoading(true)); // trigger Redux loader
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setCurrentPage(page);
   };
+
   return (
     <div
       className={`bx-pagination-root ${PaginationHide || ""} d-flex justify-content-center align-items-center`}

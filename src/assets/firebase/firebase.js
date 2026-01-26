@@ -6,14 +6,16 @@ import { getFirestore } from "firebase/firestore"; // ← import Firestore
 const firebaseConfig = {
   apiKey: "AIzaSyCECVlz8qU86eAMLkl_DYQi3TqaU9g8-M4",
   authDomain: "restaurants-my-app.firebaseapp.com",
+  databaseURL: "https://restaurants-my-app-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "restaurants-my-app",
   storageBucket: "restaurants-my-app.firebasestorage.app",
   messagingSenderId: "805523643306",
   appId: "1:805523643306:web:32056d702d74b6d4b1e9d3"
 };
 
+
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 
 // Auth
 export const auth = getAuth(app);

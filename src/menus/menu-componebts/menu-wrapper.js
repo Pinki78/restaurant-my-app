@@ -10,7 +10,11 @@ import PaginationList from "../../components/pagination-list/pagination";
 
 // import { FOOD_MENU_DATA } from "../../api-data/ManulistData/manu-list-data";
 
+import { useScrollAnimation } from "../../assets/hooks/scroll-animation/scroll-animation";
+
+
 const Menuwrapper = (props) => {
+  
   const { limit, Max_Length, PaginationHide } = props;
   const [currentPage, setCurrentPage] = useState(1);
   const isXs = useMediaQuery({ maxWidth: 599 });
@@ -78,7 +82,7 @@ const Menuwrapper = (props) => {
   // const MenuDataDispaly = limit ? filteredData.slice(0, limit) : filteredData;
   const MenuDataDispaly = baseData.slice(IndexOfFirstItem, IndexOfLastItem);
 
-
+ const [ref, animationClass] = useScrollAnimation(props.animationClass || "animate__fadeInUp");
 
 
   
@@ -97,6 +101,7 @@ const Menuwrapper = (props) => {
               key={listMenu.id}
               as="li"
               className=" list-unstyled"
+              ref={ref}
             >
               <MenuItems
               index={index}
@@ -104,6 +109,7 @@ const Menuwrapper = (props) => {
                 limit={limit}
                 Max_Length={Max_Length}
                 isMobileOrTablet={isMobileOrTablet}
+                animationClass={animationClass}
               />
             </Col>
           ))}

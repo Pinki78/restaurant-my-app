@@ -10,17 +10,17 @@ export const fetchTeamList = createAsyncThunk(
   "teamName/fetchTeamList",
   async () => {
     try {
-      const querySnapshot = await getDocs(collection(db, "teamlist"));
-      const TeamDataupload = [];
-      querySnapshot.forEach((doc) => {
-        TeamDataupload.push({ id: doc.id, ...doc.data() });
-      });
+      const docRef = doc(db, "teamlist", "TeamDataupload");
+      const snapshot = await getDocs(docRef);
 
-      // If Firebase is empty, fallback to static TeamData
-      return TeamDataupload.length ? TeamDataupload : TeamData;
+      if (snapshot.exists()) {
+        return snapshot.data().teamList || [];
+      }
+
+      return TeamData;
     } catch (error) {
-      console.error("Error fetching menu from Firebase:", error);
-      return TeamData; // fallback if Firebase fails
+      console.error("Error fetching team list:", error);
+      return TeamData;
     }
   }
 );

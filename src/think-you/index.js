@@ -2,7 +2,7 @@ import { Container } from "react-bootstrap";
 import PageTitleArea from "../components/page-title-area/page-title-area";
 
 
-const WishlistIndex = ({ PageName }) => {
+const ThankYouindex = ({ PageName }) => {
   return (
     <>
      <PageTitleArea PageName={PageName} />
@@ -11,4 +11,4 @@ const WishlistIndex = ({ PageName }) => {
   )
 }
 
-export default WishlistIndex
+export default ThankYouindex

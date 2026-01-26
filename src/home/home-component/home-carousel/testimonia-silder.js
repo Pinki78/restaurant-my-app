@@ -10,7 +10,7 @@ import { Container, Row } from "react-bootstrap";
 
 const TestimoniaSilder = (props) => {
   const isMobileOrTablet = useMediaQuery({ maxWidth: 576, maxWidth: 991 });
-  const { col = {}, limit, PaginationHide, MAX_LENGTH } = props;
+  const { col = {}, limit, PaginationHide, MAX_LENGTH, animationClass , ref } = props;
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -28,9 +28,9 @@ const TestimoniaSilder = (props) => {
   return (
     <>
 
-      <div className="bx-swiper-testimonia">
+      <div className="bx-swiper-testimonia ">
         <Container>
-          <Row as="ul" className="bx-ul">
+          <Row as="ul" ref={ref} className={`bx-ul animate__animated position-relative z-3 ${animationClass}`}  style={{ animationDelay: `3s`, animationDuration: "2s" }}>
             <Swiper
               spaceBetween={0}
               slidesPerView={2}

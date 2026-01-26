@@ -7,7 +7,13 @@ import { fetchTeamList } from "../../redux-store/store-redux-componets/teamSlice
 import PaginationList from "../../components/pagination-list/pagination";
 import TeamItems from "./team-items";
 
+import { useScrollAnimation} from "../../assets/hooks/scroll-animation/scroll-animation";
+
 const TeamWrapper = (props) => {
+
+const [ref, animationClass] = useScrollAnimation(props.animationClass || "animate__fadeInUp");
+
+
   const { limit, Max_Length, PaginationHide } = props;
   const [currentPage, setCurrentPage] = useState(1);
   const isXs = useMediaQuery({ maxWidth: 599 });
@@ -61,15 +67,16 @@ const TeamWrapper = (props) => {
 
   const TeamDataDispaly = baseData.slice(IndexOfFirstItem, IndexOfLastItem);
 
-  if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
+
+
 
   return (
     <>
       <>
         <div className="bx-wrapp-team-root">
-          <Row as="ul">
-            {TeamDataDispaly.map((list) => (
+          <Row as="ul" ref={ref}>
+            {TeamDataDispaly.map((list , index) => (
               <Col
                 xs={6}
                 sm={6}
@@ -86,6 +93,8 @@ const TeamWrapper = (props) => {
                   limit={limit}
                   Max_Length={Max_Length}
                   isMobileOrTablet={isMobileOrTablet}
+                  index={index}
+                  animationClass={animationClass}
                 />
               </Col>
             ))}

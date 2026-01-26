@@ -62,9 +62,13 @@ const QuickModal = (props) => {
           }}
           className="bx-quick-modal"
         >
-          <Button variant="secondary" className="bx-close-icon" onClick={() => setShow(false)}>
-             <IoClose />
-            </Button>
+          <Button
+            variant="secondary"
+            className="bx-close-icon"
+            onClick={() => setShow(false)}
+          >
+            <IoClose />
+          </Button>
           <Modal.Body>
             <div className="bx-product-view">
               <Row>
@@ -118,33 +122,26 @@ const QuickModal = (props) => {
 
                     <div className="">
                       <div className="qty-controls">
-                      <Button onClick={onDecrease} className="bx-minus">
-                        <FaMinus />
-                      </Button>
-                      <span className="qty">{isInCart ? quantity : 0}</span>
-                      <Button onClick={onIncrease}  className="bx-plus">
-                        <FaPlus />
-                      </Button>
+                        <Button onClick={onDecrease} className="bx-minus">
+                          <FaMinus />
+                        </Button>
+                        <span className="qty">{isInCart ? quantity : 0}</span>
+                        <Button onClick={onIncrease} className="bx-plus">
+                          <FaPlus />
+                        </Button>
+                      </div>
+
+                      <ButtonLink
+                        ButtonName="View Cart"
+                        PathUrl="/cart"
+                        ClassBtn="bx-button-2"
+                      />
                     </div>
-
-                    
-
-            <ButtonLink 
-                       
-                        ButtonName='View Cart'
-                        PathUrl='/cart'
-            ClassBtn='bx-button-2'
-                        />
-                    </div>
-
-
                   </div>
                 </Col>
               </Row>
             </div>
           </Modal.Body>
-
-          
         </Modal>
       )}
     </>

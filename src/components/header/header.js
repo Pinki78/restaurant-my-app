@@ -49,7 +49,7 @@ const headerClasses = [
 
       <header className={`bx-header ${headerClasses.join(" ")}`} >
           <TopHeader />
-          <MediumHeader />
+          <MediumHeader  />
           
       </header>
     
