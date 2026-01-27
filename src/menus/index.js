@@ -11,7 +11,7 @@ const MenusIndex = ({PageName}) => {
   return (
     <>
      <PageTitleArea PageName={PageName} />
-     <section>
+     <section className="bx-food-menu-root">
       <Container>
         <Menuwrapper
         Max_Length={48}

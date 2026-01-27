@@ -1,0 +1,22 @@
+.bx-wishlist-section-root {
+    ul {
+        li {
+            list-style: none;
+        }
+    }
+
+    .bx-remove {
+        position: absolute;
+        background: transparent;
+        border: 0;
+        z-index: 99;
+        font-size: 30px;
+        top: 6px;
+        right: 0;
+        color: $color-orange;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+}

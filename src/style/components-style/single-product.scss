@@ -1,0 +1,23 @@
+.bx-single-product-root {
+    .bx-product-view {
+        .bx-images {
+            position: relative;
+            height: auto;
+        }
+    }
+
+    .bx-qty-button-group {
+        display: flex;
+        align-items: center;
+    }
+
+    .qty-controls {
+        height: 59%;
+
+    }
+
+}
+
+.bx-single-product-menu {
+    margin-top: 4rem;
+}

@@ -4,7 +4,7 @@ import {  Container, Row, Col, Image} from "react-bootstrap";
 import { ButtonLink } from "../components/button-box/button-link";
 
 
-const Index404 = ({ PageName='Page not found' }) => {
+const Index404 = ({ PageName }) => {
   return (
     <>
     <PageTitleArea PageName={PageName} />

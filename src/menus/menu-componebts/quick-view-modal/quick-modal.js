@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Row, Col, Button, Modal, Image, ListGroup } from "react-bootstrap";
 import { FaRegEye } from "react-icons/fa6";
 import { Link } from "react-router-dom";
@@ -15,36 +15,61 @@ import {
 import { ButtonLink } from "../../../components/button-box/button-link";
 
 const QuickModal = (props) => {
+
   const { slugify, isInCart, quantity, cartItem, listMenu } = props;
+
+const [localQty, setLocalQty] = useState(1);
+
+useEffect(() => {
+  if (isInCart) {
+    setLocalQty(quantity);
+  } else {
+    setLocalQty(1);
+  }
+}, [isInCart, quantity]);
+
 
   const dispatch = useDispatch();
   const productId = slugify(listMenu.title);
 
   const onIncrease = () => {
-    if (!isInCart) {
+  setLocalQty((q) => q + 1);
+
+  if (!isInCart) {
+    dispatch(addToCart({ ...listMenu, id: productId }));
+  } else {
+    dispatch(increaseQuantity(productId));
+  }
+};
+
+const onDecrease = () => {
+  if (localQty <= 1) return;
+
+  setLocalQty((q) => q - 1);
+  dispatch(decreaseQuantity(productId));
+};
+
+
+  const getProductUrl = (id) =>
+    `/menu/single-product/${`${slugify(listMenu.title)}`}`;
+  const [show, setShow] = useState(false);
+
+
+
+  const handleShow = () => {
+    setShow(true);
       dispatch(
         addToCart({
           ...listMenu,
           id: productId,
         }),
       );
-    } else {
-      dispatch(increaseQuantity(productId));
-    }
   };
 
-  const onDecrease = () => {
-    if (!isInCart) return;
-    dispatch(decreaseQuantity(productId));
-  };
-
-  const getProductUrl = (id) =>
-    `/menu/single-product/${`${slugify(listMenu.title)}`}`;
-  const [show, setShow] = useState(false);
 
   return (
     <>
-      <Button as="button" className="bx-btn-prim" onClick={() => setShow(true)}>
+      <Button as="button" className="bx-btn-prim" onClick={handleShow }>
         <span className="bx-icon-list-icon">
           <FaRegEye />
         </span>
@@ -125,7 +150,7 @@ const QuickModal = (props) => {
                         <Button onClick={onDecrease} className="bx-minus">
                           <FaMinus />
                         </Button>
-                        <span className="qty">{isInCart ? quantity : 0}</span>
+                        <span className="qty">{localQty}</span>
                         <Button onClick={onIncrease} className="bx-plus">
                           <FaPlus />
                         </Button>

@@ -10,10 +10,15 @@ import { useEffect, useRef } from "react";
 import QuickModal from "./quick-view-modal/quick-modal";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, } from "../../redux-store/store-redux-componets/cartSlice";
+import { addToCart } from "../../redux-store/store-redux-componets/cartSlice";
 import { useNavigate } from "react-router-dom";
 
+import { setLoading } from "../../redux-store/store-redux-componets/loadingSlice";
 
+import {
+  addToWishlist,
+  removeFromWishlist,
+} from "../../redux-store/store-redux-componets/wishlistSlice";
 
 const MenuItems = (props) => {
   const {
@@ -23,9 +28,11 @@ const MenuItems = (props) => {
     isMobileOrTablet,
     isOfferPage,
     productMenuCLass,
-    animationClass
+    animationClass,
   } = props;
+
   const navigate = useNavigate();
+
   const slugify = (title = "") =>
     title
       .toString()
@@ -54,6 +61,9 @@ const MenuItems = (props) => {
   const handleAddToCart = () => {
     if (isInCart) {
       navigate(getProductUrl());
+      //  dispatch(setLoading(true));
+      dispatch(setLoading(true));
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       dispatch(
         addToCart({
@@ -61,8 +71,31 @@ const MenuItems = (props) => {
           id: productId,
         }),
       );
+      dispatch(setLoading(false));
     }
   };
+
+const handleLink = () => {
+  // 1. Add item ONLY if not already in cart
+  if (!isInCart) {
+    dispatch(
+      addToCart({
+        ...listMenu,
+        id: productId,
+        quantity: 1,
+      })
+    );
+  }
+
+  // 2. Navigate to single product page
+  navigate(getProductUrl());
+
+  // optional
+  dispatch(setLoading(true));
+};
+
+
+  
 
   // const handleAddToCart = () => {
   //   dispatch(addToCart(listMenu));
@@ -80,23 +113,50 @@ const MenuItems = (props) => {
   }, [isOfferPage]);
 
   const getProductUrl = (id) =>
-    `/menu/single-product/${`${slugify(listMenu.title)}`}`;
+    `/menus/${`${slugify(listMenu.title)}`}`;
 
+  const userId = "demo-user-id";
 
+  const wishlistItems = useSelector((state) => state.wishlistReducer.items);
 
+  // const wishlistCount = wishlistItems.length;
+
+  const isInWishlist = wishlistItems.some((item) => item.id === productId);
+
+  const Wishlistquantity = wishlistItems?.quantity || 1;
+
+  const handleWishlist = () => {
+    //  dispatch(setLoading(true));
+
+    if (isInWishlist) {
+      // dispatch(removeFromWishlist({ userId, productId }));
+      navigate("/wishlist");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      dispatch(setLoading(true));
+    } else {
+      dispatch(
+        addToWishlist({
+          userId,
+          product: {
+            ...listMenu,
+            id: productId,
+          },
+        }),
+      );
+      dispatch(setLoading(false));
+    }
+  };
 
   return (
     <>
       <div
         className={`bx-product-menu-wrap animate__animated  ${animationClass || ""} ${productMenuCLass || ""}`}
         id={`${slugify(listMenu.title)}-${index}`}
-
         style={{ animationDelay: `${index * 0.2}s`, animationDuration: "1s" }}
-
       >
         <div className="bx-thumbnail-top">
           <div className="bx-images">
-            <Link to={getProductUrl(listMenu.id)}>
+            <Link to={getProductUrl(listMenu.id)} onClick={handleLink}>
               <Image
                 className="d-block w-100 "
                 src={listMenu.foodImage}
@@ -126,15 +186,20 @@ const MenuItems = (props) => {
                 as="li"
                 className=" bg-transparent d-inline p-0 border-0"
               >
-                <span className="bx-icon-list-icon"></span>
                 <Button
                   as="button"
                   className="bx-btn-prim"
-                  //  onClick={handleClickCart}
+                  onClick={handleWishlist}
                 >
                   <span className="bx-icon-list-icon">
-                    <FaRegHeart />
+                    {isInWishlist ? <IoMdHeart /> : <FaRegHeart />}
                   </span>
+                  {/* {wishlistCount > 0 && (
+                    <span className="wishlist-count">{wishlistCount}</span>
+                  )} */}
+                  {isInWishlist && (
+                    <span className="badge">{Wishlistquantity}</span>
+                  )}
                 </Button>
               </ListGroup.Item>
               <ListGroup.Item
@@ -162,15 +227,21 @@ const MenuItems = (props) => {
                 as="li"
                 className=" bg-transparent d-inline p-0 border-0"
               >
-                <QuickModal slugify={slugify } listMenu={listMenu} cartItem={cartItem} quantity ={quantity} isInCart={ isInCart} />
+                <QuickModal
+                  slugify={slugify}
+                  listMenu={listMenu}
+                  cartItem={cartItem}
+                  quantity={quantity}
+                  isInCart={isInCart}
+                />
               </ListGroup.Item>
             </ListGroup>
           </div>
         </div>
 
         <div className="bx-pro-text" ref={textRef}>
-          <h3>
-            <Link to={getProductUrl(listMenu.id)}>{listMenu.title}</Link>
+          <h3 onClick={handleLink}>
+            <Link to={getProductUrl(listMenu.id)} >{listMenu.title}</Link>
           </h3>
           <p>
             {(listMenu.info || "").length > Max_Length

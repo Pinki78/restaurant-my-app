@@ -3,7 +3,7 @@ import "animate.css/animate.min.css";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import "swiper/css";
 import "react-datepicker/dist/react-datepicker.css";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 import "animate.css";
 
@@ -12,7 +12,7 @@ import "./style/global.scss";
 // import { useEffect } from "react";
 // import { useSelector } from "react-redux";
 
-import { useState, } from "react";
+import { useState } from "react";
 
 import { Provider } from "react-redux";
 import { store } from "./redux-store/store";
@@ -43,12 +43,10 @@ import ContactIndex from "./contact";
 import WishlistIndex from "./wishlist";
 import ThankYouindex from "./think-you";
 
-
 // import OffersIndex from "./offers";
 // import ContactIndex from "./contact";
 // import LoginIndex from "./login";
 // import RegisterIndex from "./register";
-
 
 function App() {
   //   const title = useSelector((state) => state.pageTitle.title);
@@ -64,16 +62,14 @@ function App() {
   //       document.body.classList.remove(`bx-${title}-layout-root`);
   //     };
   //   }, []);
-// const [pageLoading, setPageLoading] = useState(false);
+  // const [pageLoading, setPageLoading] = useState(false);
   return (
     <>
       <Provider store={store}>
-        <PageLoadingIndex  />
-        <Header  />
+        <PageLoadingIndex />
+        <Header />
         <div className="App">
-
           <Routes>
-            
             <Route
               path="/"
               element={
@@ -126,10 +122,7 @@ function App() {
               }
             />
 
-            <Route
-              path="/menu/single-product/:id"
-              element={<SingleProductInIndex />}
-            />
+            <Route path="/menus/:id" element={<SingleProductInIndex />} />
             <Route path="/category/:categoryId" element={<CategoryIdIndex />} />
             <Route
               path="/testimonials/:testissId"
@@ -137,7 +130,14 @@ function App() {
             />
             <Route path="/blog/:blogId" element={<BlogsIndexId />} />
 
-            <Route path="/404" element={<Index404 />} />
+            <Route
+              path="/404"
+              element={
+                <PageTitle title="Page not found">
+                  <Index404 />
+                </PageTitle>
+              }
+            />
 
             <Route
               path="/team"
@@ -168,7 +168,7 @@ function App() {
             <Route
               path="/cart"
               element={
-                <PageTitle>
+                <PageTitle title="Cart">
                   <CartIndex />
                 </PageTitle>
               }
@@ -195,7 +195,7 @@ function App() {
             <Route
               path="/wishlist"
               element={
-                <PageTitle>
+                <PageTitle title="Wishlist">
                   <WishlistIndex />
                 </PageTitle>
               }
@@ -204,15 +204,11 @@ function App() {
             <Route
               path="/thank-you"
               element={
-                <PageTitle>
+                <PageTitle title="Thank You">
                   <ThankYouindex />
                 </PageTitle>
               }
             />
-
-
-
-
           </Routes>
         </div>
         <Footer />

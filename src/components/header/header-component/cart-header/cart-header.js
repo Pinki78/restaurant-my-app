@@ -15,10 +15,15 @@ const navigate = useNavigate();
   const totalPrice = useSelector((state) => state.CartReducerStore.totalPrice);
   const dispatch = useDispatch();
 
-const totalQty = cartItems.reduce(
-  (sum, item) => sum + item.quantity,
-  0
+// const totalQty = cartItems.reduce(
+//   (sum, item) => sum + item.quantity,
+//   0
+// );
+
+const totalQty = useSelector((state) =>
+  state.CartReducerStore.cartItems.reduce((sum, item) => sum + item.quantity, 0)
 );
+
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const handleCartDrawerOpen = () => {

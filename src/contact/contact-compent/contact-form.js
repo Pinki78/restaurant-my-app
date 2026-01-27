@@ -5,6 +5,9 @@ import { ToastContainer, toast } from "react-toastify";
 
 import { useDispatch, useSelector } from "react-redux";
 import { submitContactForm } from "../../redux-store/store-redux-componets/contactStort";
+import ButtonType from "../../components/button-box/button";
+
+import { useEffect } from "react";
 
 const ContactForm = (props) => {
   const dispatch = useDispatch();
@@ -50,25 +53,30 @@ const ContactForm = (props) => {
 
     validationSchema,
 
-    onSubmit: (values, { resetForm }) => {
-      dispatch(submitContactForm(values));
-      localStorage.setItem("contactFormData", JSON.stringify(values));
-
-      // Show toast messages
-      toast.success("Form submitted successfully!"); // ✅ success toast
-
+    onSubmit: async (values, { resetForm }) => {
+     try {await dispatch(submitContactForm(values)).unwrap();
+    toast.success("Form submitted successfully!");
+    formikForm.resetForm();
       resetForm(); // clear form after submission
       localStorage.removeItem("contactFormData"); // <-- clear after submit
       console.log('values :'  , values );
+  } catch (err) {
+    toast.error(err || "Something went wrong");
+  }
       
     },
+
+
+
+    
   });
 
   // Show error toast if there is an error from Redux
+useEffect(() => {
   if (error) {
     toast.error(error);
   }
-
+}, [error]);
 
   return (
     <>
@@ -145,9 +153,7 @@ const ContactForm = (props) => {
             </Form.Control.Feedback>
           </Form.Group>
 
-          <Button type="submit" disabled={loading}>
-            {loading ? "Sending..." : "Submit"}
-          </Button>
+          <ButtonType ButtonType="submit" disabled={loading} ButtonName={loading ? "Sending..." : "Submit"} ClassBtn2="bx-button-2"  />
 
           {/* {success && (
             <p className="text-success mt-2">Message sent successfully!</p>

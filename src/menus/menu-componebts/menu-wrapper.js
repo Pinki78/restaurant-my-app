@@ -40,16 +40,18 @@ const Menuwrapper = (props) => {
     (state) => state.ListReducermenu,
   );
 
-  console.log(itemsMenuList);
+  // console.log(itemsMenuList);
   
 
   const filterSearchData = useSelector(
     (state) => state.SearchList.filterSearch,
   );
 
-  useEffect(() => {
+ useEffect(() => {
+  if (!itemsMenuList.length) {
     dispatch(fetchMenuList());
-  }, [dispatch]);
+  }
+}, [dispatch, itemsMenuList.length]);
 
   const filteredData = filterSearchData
     ? itemsMenuList.filter((item) =>
@@ -109,7 +111,7 @@ const Menuwrapper = (props) => {
                 limit={limit}
                 Max_Length={Max_Length}
                 isMobileOrTablet={isMobileOrTablet}
-                animationClass={animationClass}
+                animationClass='animate__fadeInUp'
               />
             </Col>
           ))}

@@ -13,6 +13,9 @@ import cartStort from './store-redux-componets/cartSlice'
 import contactStort from './store-redux-componets/contactStort'
 import bookingFormStort from './store-redux-componets/bookingFormStort'
 import loadingSlice from "./store-redux-componets/loadingSlice";
+import wishlistSlice from "./store-redux-componets/wishlistSlice";
+
+
 
 export const store = configureStore({
   reducer: {
@@ -27,5 +30,6 @@ export const store = configureStore({
      contactReducer:contactStort ,
      bookingReducer:bookingFormStort ,
      loadingReducer:loadingSlice,
+     wishlistReducer:wishlistSlice,
   },
 });
