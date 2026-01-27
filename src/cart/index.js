@@ -1,5 +1,6 @@
 import PageTitleArea from "../components/page-title-area/page-title-area";
-
+import { Container } from "react-bootstrap";
+import CartTableList from "./cart-compent/cart-table-list";
 
 
 
@@ -9,7 +10,11 @@ const CartIndex = props => {
     <>
         <PageTitleArea PageName={PageName} />
     
-    CartInex
+<section className="bx-cart-main-section">
+        <Container>
+          <CartTableList  />
+        </Container>
+      </section>
     
     </>
   )

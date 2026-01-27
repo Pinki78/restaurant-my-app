@@ -14,7 +14,6 @@ const CartPopupDropdown = (props) => {
   if (cartItems.length === 0) return <p>Your cart is empty</p>;
 
  
-
   return (
     <>
       <div className={`bx-cart-popup-dropdown ${drawerOpen ? "show" : ""}`}>

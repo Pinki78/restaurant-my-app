@@ -56,15 +56,29 @@ const onDecrease = () => {
 
 
 
+  // const handleShow = () => {
+  //   setShow(true);
+  //     dispatch(
+  //       addToCart({
+  //         ...listMenu,
+  //         id: productId,
+  //       }),
+  //     );
+  // };
+
   const handleShow = () => {
-    setShow(true);
-      dispatch(
-        addToCart({
-          ...listMenu,
-          id: productId,
-        }),
-      );
-  };
+  setShow(true);
+
+  if (!isInCart) {
+    dispatch(
+      addToCart({
+        ...listMenu,
+        id: productId,
+        quantity: 1,
+      })
+    );
+  }
+};
 
 
   return (

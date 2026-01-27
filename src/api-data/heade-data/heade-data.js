@@ -50,11 +50,6 @@ export const  HEADER_MANUS = [
         },
         {
           id:getIdMenu("SubMenu" , "sub"),
-          pathNameSub:"Single Post",
-          pathUrlSub:"/single-post",
-        },
-        {
-          id:getIdMenu("SubMenu" , "sub"),
           pathNameSub:"Blog",
           pathUrlSub:"/blog",
         },
