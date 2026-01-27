@@ -42,6 +42,7 @@ import CheckoutIndex from "./checkout";
 import ContactIndex from "./contact";
 import WishlistIndex from "./wishlist";
 import ThankYouindex from "./think-you";
+import MyOrderIndex from "./my-order";
 
 // import OffersIndex from "./offers";
 // import ContactIndex from "./contact";
@@ -197,6 +198,15 @@ function App() {
               element={
                 <PageTitle title="Wishlist">
                   <WishlistIndex />
+                </PageTitle>
+              }
+            />
+
+            <Route
+              path="/my-order"
+              element={
+                <PageTitle title="My Order">
+                  <MyOrderIndex />
                 </PageTitle>
               }
             />

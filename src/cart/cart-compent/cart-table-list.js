@@ -1,5 +1,5 @@
-import {  Table, Image } from "react-bootstrap";
-
+import { Table, Image, Button } from "react-bootstrap";
+import { FaPlus, FaMinus } from "react-icons/fa6";
 import { useSelector, useDispatch } from "react-redux";
 import {
   removeFromCart,
@@ -14,14 +14,12 @@ const CartTableList = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const cartItems = useSelector(
-    (state) => state.CartReducerStore.cartItems
-  );
+  const cartItems = useSelector((state) => state.CartReducerStore.cartItems);
 
   // 🧮 Subtotal (quantity × price for all items)
   const subTotal = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
-    0
+    0,
   );
 
   // 🧾 GST amount
@@ -54,41 +52,54 @@ const CartTableList = () => {
 
                 return (
                   <tr key={item.id}>
-                     <td><Image src={item.foodImage} alt={item.title} fluid /></td>
-                    <td><h6>{item.title}</h6></td>
-                    <td><h6>
-                        {new Intl.NumberFormat("en-IN", {
-                style: "currency",
-                currency: "INR",
-              }).format(item.price)}
-                        </h6></td>
-
                     <td>
-                      <button
-                        onClick={() => dispatch(decreaseQuantity(item.id))}
-                      >
-                        -
-                      </button>
-
-                      <span style={{ margin: "0 10px" }}>
-                        {item.quantity}
-                      </span>
-
-                      <button
-                        onClick={() => dispatch(increaseQuantity(item.id))}
-                      >
-                        +
-                      </button>
+                      <Image src={item.foodImage} alt={item.title} fluid />
+                    </td>
+                    <td>
+                      <h6>{item.title}</h6>
+                    </td>
+                    <td>
+                      <h6>
+                        {new Intl.NumberFormat("en-IN", {
+                          style: "currency",
+                          currency: "INR",
+                        }).format(item.price)}
+                      </h6>
                     </td>
 
-                    <td>₹{itemTotal.toFixed(2)}</td>
+                    <td>
+                      <div className="">
+                        <div className="qty-controls">
+                          <Button
+                            className="bx-minus"
+                            onClick={() => dispatch(decreaseQuantity(item.id))}
+                          >
+                            <FaMinus />
+                          </Button>
+                          <span className="qty">{item.quantity}</span>
+                          <Button
+                            onClick={() => dispatch(increaseQuantity(item.id))}
+                            className="bx-plus"
+                          >
+                            <FaPlus />
+                          </Button>
+                        </div>
+                      </div>
+                    </td>
 
                     <td>
-                      <button
-                        onClick={() => dispatch(removeFromCart(item.id))}
-                      >
-                        Remove
-                      </button>
+                      <h6>
+                        {new Intl.NumberFormat("en-IN", {
+                          style: "currency",
+                          currency: "INR",
+                        }).format(itemTotal)}
+                      </h6>
+                    </td>
+
+                    <td>
+                      <Button className="bx-btn-prim"  onClick={() => dispatch(removeFromCart(item.id))}>
+                        <span>Remove</span>
+                      </Button>
                     </td>
                   </tr>
                 );
@@ -98,13 +109,28 @@ const CartTableList = () => {
 
           {/* 🧾 Price Summary */}
           <div className="bx-cart-summary">
-            <p>Subtotal: ₹{subTotal.toFixed(2)}</p>
-            <p>GST (18%): ₹{gstAmount.toFixed(2)}</p>
-            <h3>Total: ₹{finalTotal.toFixed(2)}</h3>
+            <p>
+              Subtotal:
+              {new Intl.NumberFormat("en-IN", {
+                style: "currency",
+                currency: "INR",
+              }).format(subTotal)}
+            </p>
+            <p>GST (18%):{new Intl.NumberFormat("en-IN", {
+                style: "currency",
+                currency: "INR",
+              }).format(gstAmount)} </p>
+            <h3>
+              Total:
+              {new Intl.NumberFormat("en-IN", {
+                style: "currency",
+                currency: "INR",
+              }).format(finalTotal)}
+            </h3>
 
-            <button onClick={() => navigate("/checkout")}>
-              Proceed to Checkout
-            </button>
+            <Button className="bx-btn-prim"  onClick={() => navigate("/checkout")}>
+             <span> Proceed to Checkout</span>
+            </Button>
           </div>
         </>
       )}

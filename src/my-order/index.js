@@ -1,18 +1,18 @@
 import PageTitleArea from "../components/page-title-area/page-title-area";
-import CheckoutForm from "./checkout-form";
+import MyOrderList from "./my-order-list";
 import { Container } from "react-bootstrap";
 
-const CheckoutIndex = ({ PageName }) => {
+const MyOrderIndex = ({ PageName }) => {
   return (
     <>
       <PageTitleArea PageName={PageName} />
-      <section  className="bx-checkout-page">
+      <section className="bx-my-order-page">
         <Container>
-          <CheckoutForm />
+          <MyOrderList />
         </Container>
       </section>
     </>
   );
 };
 
-export default CheckoutIndex;
+export default MyOrderIndex;

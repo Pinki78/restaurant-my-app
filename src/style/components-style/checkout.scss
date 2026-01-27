@@ -1,0 +1,36 @@
+.bx-checkout-page {
+    padding: 60px 0;
+
+    h4 {
+        font-weight: 600;
+    }
+
+    .card {
+        border-radius: 10px;
+    }
+
+    button {
+        padding: 12px 20px;
+    }
+
+    .bx-btn-prim {
+        background: $color-orange2;
+        padding: 19px;
+        font-size: 16px;
+        line-height: 0;
+        height: unset;
+
+        &:hover {
+            color: #fff;
+        }
+
+        &::before {
+            background: $color-black1;
+        }
+
+        span {
+            position: relative;
+            z-index: 9;
+        }
+    }
+}
