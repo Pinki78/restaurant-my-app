@@ -5,7 +5,7 @@ import PageTitleArea from "../components/page-title-area/page-title-area";
 import HeadringButtonContainer from "../components/headring-button/headring-button";
 import { RiTeamFill } from "react-icons/ri";
 import WhyChooseUs from "../components/why-choose-us/why-choose-us";
-import TeamWrapper from "../team/team-componebts/team-wrapper";
+import TeamWrapper from "../team/team-component/team-wrapper";
 
 import OnlineReserve from "../home/home-component/online-reserve";
 import CounterBox from "../components/counter/counter";

@@ -73,7 +73,7 @@ const isMobileOrTablet = isMobile || isTablet;
                         <Offcanvas.Title>Offcanvas</Offcanvas.Title>
                       </Offcanvas.Header>
                       <Offcanvas.Body>
-                        <MenuList  isMobileOrTablet={isMobileOrTablet}  currentPath={location.pathname}  />
+                        <MenuList handleClose={handleClose} isMobileOrTablet={isMobileOrTablet}  currentPath={location.pathname}  />
                       </Offcanvas.Body>
                     </Offcanvas>
                   </>

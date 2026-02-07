@@ -1,5 +1,5 @@
 .bx-home-layout-root {
-    
+
     .bx-wave2 {
         .wave {
             background-size: auto;
@@ -12,7 +12,7 @@
         }
     }
 
-   
+
 
     .bx-services {
         .fluidBox {
@@ -36,8 +36,8 @@
         }
     }
 
-    .bx-testimonials-section{
-           margin-bottom:50px;
+    .bx-testimonials-section {
+        margin-bottom: 50px;
     }
 }
 
@@ -144,7 +144,7 @@
     margin-top: 0%;
     padding-top: 7rem;
     position: relative;
-    margin-bottom:50px;
+    margin-bottom: 50px;
     padding-bottom: 4rem;
 
     &::before {
@@ -238,6 +238,7 @@
 
         .bx-testi-items {
             position: relative;
+            margin-bottom: 0;
 
             &::before {
                 content: "";
@@ -272,17 +273,172 @@
 
     .bx-testi-items {
         .bx-testi-init {
-           padding: 34px;
+            padding: 34px;
         }
     }
 }
 
- .bx-booking-table-form {
-        padding: 72px 28px;
+.bx-booking-table-form {
+    padding: 72px 28px;
 
-        .bx-wave2 {
-            .wave {
-                margin: 0 auto;
+    .bx-wave2 {
+        .wave {
+            margin: 0 auto;
+        }
+    }
+}
+
+/***--@media--***/
+
+@media (max-width: 576px) {
+
+    .bx-section-margine {
+        margin-bottom: 0.5rem;
+    }
+
+    .bx-hero-page-section {
+        .bx-order-1 {
+            order: 2;
+        }
+
+        &::after {
+            background: transparent;
+        }
+
+        .bx-hero-info-content {
+            padding-right: 0rem;
+            padding-top: 1rem;
+            padding-bottom: 4rem;
+
+            h2 {
+                font-size: font-size(xl);
+            }
+
+            .bx-btn::after {
+                left: 8px;
+            }
+
+
+        }
+
+        .bx-info-service {
+            position: relative;
+            transform: none;
+            width: 100%;
+            left: 0;
+            padding-right: 0;
+        }
+
+        .bx-carousel-root {
+            transform: unset;
+            padding: 0;
+
+            &::before {
+                display: none;
+            }
+
+            .carousel-item {
+                height: 300px;
+
+                .view {
+                    img {}
+                }
             }
         }
     }
+
+    .bx-servicea-section {
+        padding-top: 20px;
+
+        .bx-service-items-list {
+            margin-bottom: 1px;
+            text-align: center;
+        }
+
+        .bx-services {
+            margin-bottom: 49px;
+        }
+    }
+
+    .bx-about-section {
+        padding-top: 3rem;
+
+    }
+
+    .bx-menu-silder-section {
+        margin-bottom: 0.5rem;
+    }
+
+    .bx-home-layout-root {
+        .bx-wave2 {
+            .wave {
+                background-size: 18%;
+            }
+        }
+
+        .bx-headring-our {
+            
+            .bx-wave2 .wave {
+                width: 52%;
+            }
+        }
+
+        .bx-Special-info-wrapper {
+            .bx-btn.bx-btn-2 {
+                margin-bottom: 27px;
+            }
+        }
+    }
+
+    .bx-menu-silder-section {
+        .bx-product-menu-wrap {
+            .bx-images {
+                height: 145px;
+            }
+        }
+    }
+
+    .bx-categories-root-list {
+        .bx-product-menu-wrap {
+            &::before {
+                width: 85%;
+            }
+
+            .bx-images {
+                height: 145px;
+            }
+
+            .bx-desc-listcategoreis {
+                h3 {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .bx-graphic-layer img {
+        height: 343px;
+    }
+
+    .bx-desc-listcategoreis {
+        padding: 10px 15px;
+    }
+
+    .bx-special-offer-section {
+        .bx-product-menu-wrap {
+            &::before {
+                width: 100%;
+            }
+        }
+    }
+
+
+    .bx-testimonials-section {
+        .bx-swiper-testimonia {
+            padding: 35px 0 4px;
+
+        }
+    }
+
+
+}

@@ -23,3 +23,26 @@
 
 
 }
+
+
+/***--@media--***/
+
+@media (max-width: 576px) {
+
+    .bx-quick-modal {
+        .modal-dialog{
+                max-width: 100%;
+        }
+
+        .bx-close-icon{
+            color: #fff;
+        }
+
+        .modal-body{
+                overflow-y: scroll;
+    height: 634px;
+        }
+    }
+
+}
+

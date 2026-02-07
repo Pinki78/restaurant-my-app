@@ -16,23 +16,50 @@ import CategoriesFeaturesList from "../components/categories-features/categories
 
 import SpecialOffer from "../components/special-offer/special-offer";
 import OnlineReserve from "./home-component/online-reserve";
-import GalleryWrapper from "../gallery/gallery-comp/gallery-wrapper";
-// import ReviewSilder from "./home-component/review-silder";
-// import { ButtonLink } from "../components/button-box/button-link";
+import GalleryWrapper from "../gallery/gallery-component/gallery-wrapper";
+
 import TestimoniaSilder from "./home-component/home-carousel/testimonia-silder";
 
-// import GoogleLogin from "../firebase/GoogleLogin";
-// import FacebookLoginButton from "../firebase/facebookLogin";
 import { FaMicroblog } from "react-icons/fa6";
 import BlogWrapper from "../blog/blog-component/blog-wrapper";
 import HeadringButtonContainer from "../components/headring-button/headring-button";
 import { useScrollAnimation } from "../assets/hooks/scroll-animation/scroll-animation";
 
+import { useEffect, useRef } from "react";
+import { useMediaQuery } from "react-responsive";
+import ServiceList from "../service/service-component/list-service";
+import { ButtonLink } from "../components/button-box/button-link";
+
 const HomeIndex = (props) => {
+  const [ref, animationClass] = useScrollAnimation(
+    props.animationClass || "animate__fadeInUp",
+  );
 
+  const isXs = useMediaQuery({ maxWidth: 480 });
+  const isSm = useMediaQuery({ minWidth: 600, maxWidth: 899 });
+  const isMd = useMediaQuery({ minWidth: 900, maxWidth: 1199 });
+  const isLg = useMediaQuery({ minWidth: 1200, maxWidth: 1535 });
+  const isXl = useMediaQuery({ minWidth: 1536 });
 
-const [ref, animationClass] = useScrollAnimation(props.animationClass || "animate__fadeInUp");
-  
+  const MediaQuery = isXs ? 2 : isSm ? 2 : isMd ? 3 : isLg ? 4 : isXl ? 3 : 3;
+
+  const ServiceactionsRef = useRef(null);
+  const ServiceacttextRef = useRef(null);
+
+  // Example: Do something when screen size changes
+  // useEffect(() => {
+  //   if (isXs) {
+  //     ServiceactionsRef.current?.scrollIntoView({ behavior: "smooth" });
+  //   } else if (isSm || isMd) {
+  //     ServiceacttextRef.current?.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // }, [isXs, isSm, isMd]);
+
+  useEffect(() => {
+    if (isXs && ServiceactionsRef.current && ServiceacttextRef.current) {
+      ServiceacttextRef.current.append(ServiceactionsRef.current); // or prepend
+    }
+  }, [isXs]);
 
   return (
     <>
@@ -43,16 +70,34 @@ const [ref, animationClass] = useScrollAnimation(props.animationClass || "animat
         <Container>
           <Row>
             <Col
-              xs={5}
+              xs={12}
               sm={5}
               md={7}
               lg={7}
               xxl={7}
-              className="align-content-center"
+              className="align-content-center  bx-order-1"
             >
-              <HeroInfo />
+              {/* <div ref={ServiceactionsRef}>
+                <HeroInfo  ServiceactionsRef={ServiceactionsRef} />
+              </div> */}
+              <HeroInfo
+                ServiceactionsRef={ServiceactionsRef}
+                limit={3}
+                isXs={isXs}
+              />
             </Col>
-            <Col xs={12} sm={12} md={5} lg={5} xxl={5} className="pe-0 p-xxl-0">
+
+            <Col
+              xs={12}
+              sm={12}
+              md={5}
+              lg={5}
+              xxl={5}
+              className="ps-0  pe-0 p-xxl-0 bx-order-2"
+            >
+              {/* <div ref={ServiceacttextRef}>
+                <CarouselFadeExample ServiceacttextRef={ServiceacttextRef} />
+              </div> */}
               <CarouselFadeExample />
             </Col>
           </Row>
@@ -73,17 +118,39 @@ const [ref, animationClass] = useScrollAnimation(props.animationClass || "animat
       </section>
       {/* --About End-- */}
 
+      {/* --service-- */}
+      {isXs ? (
+        <section
+          className="bx-servicea-section overflow-hidden bx-section-margine"
+          id="servicea-page-section"
+        >
+          <Container>
+            {/* <div className="" ref={ServiceacttextRef} limit={4}></div> */}
+            <ServiceList limit={4} Max_Length={50} />
+            <ButtonLink
+              PathUrl={"/service"}
+              ButtonName={"view More"}
+              ClassBtn={"bx-btn-1 "}
+            />
+          </Container>
+        </section>
+      ) : null}
+
+      {/* --service End-- */}
       {/* --Manu-- */}
 
       <section
         className="bx-menu-silder-section overflow-hidden bx-section-margine "
-                
         id="menu-silder-section"
       >
         <Container>
           <LcoListLayout Icon={<MdOutlineMenuBook />} IconText="Our Menu" />
 
-          <MenuListSilder ref={ref} animationClass='animate__fadeInDown' Max_Length={48} />
+          <MenuListSilder
+            ref={ref}
+            animationClass="animate__fadeInDown"
+            Max_Length={48}
+          />
         </Container>
       </section>
 
@@ -93,7 +160,7 @@ const [ref, animationClass] = useScrollAnimation(props.animationClass || "animat
 
       <section
         className="bx-categories-features-section overflow-hidden bx-section-margine animate__animated animate__fadeInUp"
-                style={{ animationDelay: "0.3s", animationDuration: "2s" }} 
+        style={{ animationDelay: "0.3s", animationDuration: "2s" }}
         id="category-menu-section"
       >
         <Container>
@@ -130,7 +197,7 @@ const [ref, animationClass] = useScrollAnimation(props.animationClass || "animat
         className="bx-reserve-section overflow-hidden bx-section-margine"
         id="reserve-section"
       >
-        <Container fluid className="pe-xxl-0  pe-1 ">
+        <Container fluid className="pe-xxl-0  pe-1 ps-0 ps-xxl-1">
           <OnlineReserve />
         </Container>
       </section>
@@ -152,7 +219,7 @@ const [ref, animationClass] = useScrollAnimation(props.animationClass || "animat
           />
           <GalleryWrapper
             limit="6"
-            col={{ xs: 12, sm: 12, md: 4, lg: 4, xl: 4, xxl: 4 }}
+            col={{ xs: 6, sm: 6, md: 4, lg: 4, xl: 4, xxl: 4 }}
           />
         </Container>
       </section>
@@ -174,7 +241,6 @@ const [ref, animationClass] = useScrollAnimation(props.animationClass || "animat
             PathUrl={"/testimonial"}
             ButtonName={"View All"}
             ClassBtn={"bx-btn-2"}
-            
           />
         </Container>
 
@@ -184,7 +250,8 @@ const [ref, animationClass] = useScrollAnimation(props.animationClass || "animat
         <TestimoniaSilder
           MAX_LENGTH={100}
           col={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12, xxl: 12 }}
-          ref={ref} animationClass='animate__fadeInDown'
+          ref={ref}
+          animationClass="animate__fadeInDown"
         />
       </section>
 
@@ -207,7 +274,7 @@ const [ref, animationClass] = useScrollAnimation(props.animationClass || "animat
             HeadringClass="bx-wave2"
           />
 
-          <BlogWrapper limit="3" MAX_LENGTH={100} />
+          <BlogWrapper limit={MediaQuery} MAX_LENGTH={100} />
         </Container>
       </section>
 

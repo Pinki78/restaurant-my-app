@@ -1,5 +1,6 @@
 .bx-product-list-wappe {
     display: flex;
+
     .bx-pro-text {
         width: 50%;
         margin-left: 19px;
@@ -13,5 +14,106 @@
         position: relative;
         bottom: 0;
         justify-content: left;
+    }
+}
+
+.offcanvas-body {
+    ul.bx-nav-dropdown {
+        // width: 100%;
+&.show{
+        width: 100%;
+        a{
+            &.show{
+background-color: #fe5f3f;
+             color: #fff;
+            }
+            
+              &::before {
+
+              }
+        }
+}
+        .dropdown-menu {
+            background: $color-black2;
+    position: relative;
+        padding-top: 0;
+            li {
+                width: 100%;
+                a{
+                     color: #fff;
+                }
+
+                &:hover{
+                    background: transparent;
+                }
+            }
+            div{
+                background: transparent;
+            }
+        }
+    }
+
+    ul.bx-nav-ul-item {
+        width: 100%;
+
+        li {
+            align-items: start;
+
+            &.bx-active {
+                a {
+                    color: #fff;
+
+                    &::before {
+                        content: "";
+                        background-color: #fe5f3f;
+                        position: absolute;
+                        left: 0;
+                        width: 100%;
+                        bottom: 0;
+                        height: 100%;
+                        z-index: 1;
+                        transition: all 0.3s ease-in-out;
+                    }
+                }
+            }
+
+            cursor: pointer;
+
+            a {
+                font-family: "Quicksand", sans-serif;
+                color: #353535;
+                text-decoration: none;
+                padding: 4px;
+                margin-right: 7px;
+                font-weight: 700;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    background-color: #fe5f3f;
+                    position: absolute;
+                    left: 0;
+                    bottom: 7px;
+                    width: 100%;
+                    height: 5px;
+                    z-index: 1;
+                    transition: all 0.3s ease-in-out;
+                }
+
+                span {
+                    z-index: 9;
+                    position: relative;
+                }
+
+                &:hover {
+                    color: #fff;
+
+                    &::before {
+                        bottom: 0;
+                        height: 100%;
+                    }
+                }
+            }
+        }
     }
 }

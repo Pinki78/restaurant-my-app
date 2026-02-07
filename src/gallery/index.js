@@ -1,4 +1,4 @@
-import GalleryWrapper from "./gallery-comp/gallery-wrapper";
+import GalleryWrapper from "./gallery-component/gallery-wrapper";
 import { Container } from "react-bootstrap";
 import PageTitleArea from "../components/page-title-area/page-title-area";
 

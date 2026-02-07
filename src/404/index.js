@@ -5,6 +5,11 @@ import { ButtonLink } from "../components/button-box/button-link";
 
 
 const Index404 = ({ PageName }) => {
+
+     const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
     <PageTitleArea PageName={PageName} />
@@ -25,6 +30,7 @@ const Index404 = ({ PageName }) => {
                   PathUrl='/'
                   ClassBtn='bx-btn-2'
                   ButtonName='Back To Homepage'
+                  onClick={scrollToTop()}
                   />
                 </div>
             </Col>

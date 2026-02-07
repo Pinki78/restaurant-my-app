@@ -78,3 +78,12 @@ li{
   justify-content: center;
   z-index: 9999;
 }
+
+.input-group .is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+.form-control.is-invalid + .invalid-feedback,
+.input-group .form-control.is-invalid ~ .invalid-feedback {
+  display: block !important;
+}

@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { fetchTestimonial } from "../../../redux-store/store-redux-componets/testimonialListStort";
-import TestimonialList from "../../../testimonials/testimonial-comp/testimonial-list";
+import TestimonialList from "../../../testimonials/testimonial-component/testimonial-list";
 import { useMediaQuery } from "react-responsive";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
@@ -10,9 +10,9 @@ import { Container, Row } from "react-bootstrap";
 
 const TestimoniaSilder = (props) => {
   const isMobileOrTablet = useMediaQuery({ maxWidth: 576, maxWidth: 991 });
-  const { col = {}, limit, PaginationHide, MAX_LENGTH, animationClass , ref } = props;
-  const location = useLocation();
-  const navigate = useNavigate();
+  const { col = {}, limit,  MAX_LENGTH, animationClass , ref } = props;
+  // const location = useLocation();
+  // const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { testimonialDataList, loading } = useSelector(

@@ -62,6 +62,18 @@ export const  HEADER_MANUS = [
 
         {
           id:getIdMenu("SubMenu" , "sub"),
+          pathNameSub:"Team",
+          pathUrlSub:"/team",
+        },
+
+        {
+          id:getIdMenu("SubMenu" , "sub"),
+          pathNameSub:"Category",
+          pathUrlSub:"/categorys",
+        },
+
+        {
+          id:getIdMenu("SubMenu" , "sub"),
           pathNameSub:"Service",
           pathUrlSub:"/service",
         },

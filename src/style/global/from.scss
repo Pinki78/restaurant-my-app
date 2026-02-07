@@ -1,8 +1,17 @@
-.was-validated :invalid~.invalid-feedback{
-        color: black;
+.was-validated :invalid~.invalid-feedback {
+color: black;
 }
 
-.invalid-feedback{
-        color: black;
-        text-align: left;
+.invalid-feedback {
+color: black;
+text-align: left;
+}
+
+.bx-login-form-group
+{
+    margin-bottom: 12px;
+}
+
+.bx-forgot:hover{
+    opacity: 0.7;
 }

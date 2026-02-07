@@ -13,21 +13,35 @@ import { useScrollAnimation } from "../../assets/hooks/scroll-animation/scroll-a
 //     year: "numeric",
 //   });
 
-const formatDate = (date) => {
-  if (!date) return "";
-  return new Date(date).toLocaleDateString("en-US", {
-    month: "short",
-    day: "2-digit",
-    year: "numeric",
-  });
-};
-
 const BlogList = (props) => {
   // Hook returns ref and animation class
-const [ref, animationClass] = useScrollAnimation(props.animationClass || "animate__fadeInUp");
+  const [ref, animationClass] = useScrollAnimation(
+    props.animationClass || "animate__fadeInUp",
+  );
+
+  const formatDate = (date) => {
+    if (!date) return "";
+    return new Date(date).toLocaleDateString("en-US", {
+      month: "short",
+      day: "2-digit",
+      year: "numeric",
+    });
+  };
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const slugify = (title = "") =>
+    title
+      .toString()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
 
   const { blogItem, productMenuCLass, MAX_LENGTH, col, index } = props;
   const MAX_LENGTH_TITLE = 20;
+
+  const getUrl = (id) => `/blog/${`${slugify(blogItem.title)}`}`;
 
   return (
     <>
@@ -50,7 +64,7 @@ const [ref, animationClass] = useScrollAnimation(props.animationClass || "animat
         >
           <div className="bx-post-card">
             <div className="bx-post-img">
-              <Link to={`/blog/${blogItem.id}`}>
+              <Link to={getUrl(blogItem.id)} onClick={scrollToTop}>
                 <Image
                   src={blogItem.blogImage}
                   alt={blogItem.title}
@@ -76,7 +90,7 @@ const [ref, animationClass] = useScrollAnimation(props.animationClass || "animat
                 </div>
 
                 <h2 className="bx-entry-title">
-                  <Link to={`/blog/${blogItem.id}`}>
+                  <Link to={getUrl(blogItem.id)} onClick={scrollToTop}>
                     {blogItem.title.length > MAX_LENGTH_TITLE
                       ? `${blogItem.title.substring(0, MAX_LENGTH_TITLE)}...`
                       : blogItem.title}

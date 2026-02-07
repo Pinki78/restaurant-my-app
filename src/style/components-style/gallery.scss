@@ -85,3 +85,24 @@ body.bx-home-layout-root {
         display: none !important;
     }
 }
+
+/***--@media--***/
+
+@media (max-width: 576px) {
+
+.bx-gallery-elementor{
+   .bx-images{
+        height: 181px;
+   }
+    h3{
+        font-size: 11px;
+        z-index: 9;
+                padding: 11px 13px;
+        padding-right: 14px;
+        &::before{
+            z-index: -1;
+                left: -43px;
+        }
+    }
+}
+}

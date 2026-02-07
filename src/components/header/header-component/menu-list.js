@@ -8,7 +8,7 @@ import DropdownList from "./dropdown-list";
 import { useDispatch } from "react-redux";
 import { setLoading } from "../../../redux-store/store-redux-componets/loadingSlice";
 
-const MenuList = ({ isMobileOrTablet, currentPath , }) => {
+const MenuList = ({ isMobileOrTablet, currentPath , handleClose}) => {
 
     const dispatch = useDispatch();
   const location = useLocation();
@@ -16,6 +16,7 @@ const MenuList = ({ isMobileOrTablet, currentPath , }) => {
   const scrollToTop = () => {
     dispatch(setLoading(true)); // trigger Redux loader
     window.scrollTo({ top: 0, behavior: "smooth" });
+    handleClose();
   };
 
   return (

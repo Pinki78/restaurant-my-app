@@ -1,8 +1,7 @@
-.bx-service-root
-{
+.bx-service-root {
     margin-top: 4rem;
 
-    .bx-services{
+    .bx-services {
         margin-bottom: 5rem;
     }
 }
@@ -35,6 +34,7 @@
         background-color: #fff;
         padding: 25px 20px 25px 42px;
     }
+
     .service-icon {
         color: #fff;
         background-color: $color-orange;
@@ -55,6 +55,7 @@
         letter-spacing: 0.5px;
         text-transform: capitalize;
         margin: 0 0 10px;
+        text-align: left;
     }
 
     .description {
@@ -62,7 +63,6 @@
         line-height: 25px;
         margin: 0;
         color: $color-black1;
+        text-align: left;
     }
 }
-
-

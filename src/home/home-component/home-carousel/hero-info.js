@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import ServiceList from "../../../service/service-component/list-service";
 import {ButtonLink} from "../../../components/button-box/button-link";
-const HeroInfo = () => {
+
+
+
+const HeroInfo = ({ServiceactionsRef , limit , isXs}) => {
+
   return (
     <>
       <div className="bx-hero-info-content">
@@ -30,9 +34,13 @@ const HeroInfo = () => {
         />
       </div>
 
-      <div className="bx-info-service">
-        <ServiceList limit={3} Max_Length={50} />
+    {!isXs && (
+      <div className="bx-info-service" ref={ServiceactionsRef}>
+        <ServiceList limit={limit} Max_Length={50} />
       </div>
+    )}
+
+      
     </>
   );
 };

@@ -312,4 +312,30 @@ span{
 
 
 /* Hover animation */
+.bx-social-media-btn
+{
+    display: flex;
+    align-items: center;
+    border-radius: 0;
+    color: $color-black2;
+        font-weight: 600;
+    font-size: 18px;
+    &:hover{
+        background: $color-orange;
+         color: $color-black2;
+    }
+    svg{
+        margin-right: 6px;
+    }
+}
 
+
+/***--@media--***/
+
+@media (max-width: 576px) {
+
+    .bx-btn{
+            padding: 8px 30px 9px;
+    }
+
+}

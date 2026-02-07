@@ -48,21 +48,22 @@
 // 
 //
 // 
+// 
+//  @import "components-style/.scss";
 // @import "components-style/.scss";
-// 
-//
-// 
-// 
-// 
-// 
-// 
-// 
+//  @import "components-style/.scss";
+//  @import "components-style/.scss";
+//  @import "components-style/.scss";
+//  @import "components-style/.scss";
+//  @import "components-style/.scss";
+//  
 // 
 // 
 //
 //
-
-
+@import "components-style/blog-details.scss";
+ @import "components-style/otp.scss";
+@import "components-style/forgot-password.scss";
 @import "components-style/my-order.scss";
  @import "components-style/checkout.scss";
 @import "components-style/cart.scss";

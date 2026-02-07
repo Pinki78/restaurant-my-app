@@ -20,30 +20,35 @@
     right: 0;
 }
 
-.bx-about-team-root{
-     margin-top: 50px;
-     .bx-wrapp-team-root{
+.bx-about-team-root {
+    margin-top: 50px;
+
+    .bx-wrapp-team-root {
         margin-top: 50px;
-     }
+    }
 }
 
 .bx-about-info-wrapper {
     opacity: 1;
     clear: both;
     position: relative;
+
     .bx-call {
         a {
             display: flex;
             align-items: center;
+
             svg {
                 font-size: 50px;
                 margin-right: 18px;
                 color: $color-orange;
             }
+
             h5 {
                 color: $color-black1;
                 font-size: 18px;
                 font-weight: 600;
+
                 span {
                     display: block;
                     font-size: 15px;
@@ -60,6 +65,7 @@
         font-size: font-size(xxl);
         margin: 19px 0;
     }
+
     ul {
         li {
             border: 0;
@@ -70,52 +76,54 @@
         }
     }
 
-    
+
 }
 
 .bx-listcheck-missvision {
-        ul {
-            li {
-                padding: 0;
-                padding: 0;
-                text-align: left;
-                justify-content: left;
-                margin-bottom: 15px;
+    ul {
+        li {
+            padding: 0;
+            padding: 0;
+            text-align: left;
+            justify-content: left;
+            margin-bottom: 15px;
 
-                svg {
-                    font-size: 17px;
-                    margin-right: 5px;
-                    color: $color-orange2;
-                }
-            }
-        }
-
-        .bx-our-mission-vision {
-            li {
-                @extend .bx-border-inline-double;
-                width: 100%;
-                display: block;
-                padding: 14px 18px;
-                border-radius: 20px;
-                span.bx-icon-list-icon,
-                .bx-icon-list-text {
-                    font-size: 23px;
-                }
-
-                svg {
-                    font-size: 36px;
-
-                    margin-left: 8px;
-                }
+            svg {
+                font-size: 17px;
+                margin-right: 5px;
+                color: $color-orange2;
             }
         }
     }
 
+    .bx-our-mission-vision {
+        li {
+            @extend .bx-border-inline-double;
+            width: 100%;
+            display: block;
+            padding: 14px 18px;
+            border-radius: 20px;
+
+            span.bx-icon-list-icon,
+            .bx-icon-list-text {
+                font-size: 23px;
+            }
+
+            svg {
+                font-size: 36px;
+
+                margin-left: 8px;
+            }
+        }
+    }
+}
+
 .bx-about-image-wrapper {
 
-   @extend .bx-round-card;
+    @extend .bx-round-card;
+
     .bx-bolle {
-       @include bx-bolle;
+        @include bx-bolle;
     }
 
     img {
@@ -126,4 +134,35 @@
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 115px;
     }
+}
+
+
+/***--@media--***/
+
+@media (max-width: 576px) {
+
+    .bx-about-image-wrapper{
+        min-height: auto;
+        img{
+                height: 301px;
+        }
+
+        .bx-bolle{
+                bottom: 0;
+        }
+    }
+    .bx-about-info-wrapper {
+        h2 {
+            font-size: font-size(xl);
+        }
+
+        .bx-call {
+            margin-bottom: 16px;
+        }
+
+        
+
+        
+    }
+
 }

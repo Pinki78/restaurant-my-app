@@ -23,6 +23,8 @@ export const auth = getAuth(app);
 // Providers
 export const googleProvider = new GoogleAuthProvider();
 export const facebookProvider = new FacebookAuthProvider();
-
+googleProvider.setCustomParameters({
+  prompt: "select_account",
+});
 // Firestore
 export const db = getFirestore(app); // ← initialize Firestore

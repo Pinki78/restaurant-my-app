@@ -2,20 +2,56 @@
     @extend .bx-border-inline-double;
     padding: 9px 18px;
     // width: 240px;
-        width: fit-content;
+    width: fit-content;
+
     svg {
         font-size: 25px;
         margin-right: 5px;
         color: $color-orange2;
     }
+
     span {
         font-weight: 500;
         font-size: 15px;
     }
 }
+
 .bx-section-headring {
     h2 {
         font-size: font-size(xl);
         margin: 19px 0;
     }
+}
+
+
+/***--@media--***/
+
+@media (max-width: 576px) {
+    .bx-section-headring {
+        h2 {
+            font-size: font-size(lg);
+
+        }
+    }
+
+    .bx-icon-list-layout {
+        padding: 6px 18px 7px;
+
+        svg {
+            font-size: 15px;
+
+        }
+
+        span {
+            font-size: 14px;
+        }
+    }
+
+.bx-headring-our {
+    width: 50%;
+
+   
+}
+
+
 }

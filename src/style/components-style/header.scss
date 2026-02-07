@@ -493,3 +493,15 @@
         top: 32px !important;
     }
 }
+.user-initials {
+  width: 36px;
+  height: 36px;
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+}

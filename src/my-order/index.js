@@ -1,5 +1,5 @@
 import PageTitleArea from "../components/page-title-area/page-title-area";
-import MyOrderList from "./my-order-list";
+import MyOrderList from "./my-order-component/my-order-list";
 import { Container } from "react-bootstrap";
 
 const MyOrderIndex = ({ PageName }) => {

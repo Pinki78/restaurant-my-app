@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchMenuList } from "../../redux-store/menuListItmes";
 import { useEffect } from "react";
 import SingleItem from "./single-item";
-import Menuwrapper from "../menu-componebts/menu-wrapper";
+import Menuwrapper from "../menu-component/menu-wrapper";
 
 const SingleProductInIndex = () => {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const SingleProductInIndex = () => {
   const { itemsMenuList, loading } = useSelector(
     (state) => state.ListReducermenu,
   );
-
+  
   const slugify = (title = "") =>
     title
       .toLowerCase()

@@ -22,6 +22,9 @@ const CarouselFadeExample = () => {
           ))}
         </Carousel>
       </div>
+      {/* <div className="" ></div> */}
+
+      
     </>
   );
 };

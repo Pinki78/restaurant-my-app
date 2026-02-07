@@ -1,9 +1,17 @@
-import React from 'react'
+import PageTitleArea from "../components/page-title-area/page-title-area";
+import { Container } from "react-bootstrap";
 
-const MyAccountIndex = () => {
+const MyAccountIndex = ({ PageName }) => {
   return (
-    <>MyAccountIndex</>
-  )
-}
+    <>
+      <PageTitleArea PageName={PageName} />
+      <section className="bx-my-account-page">
+        <Container>
+          
+        </Container>
+      </section>
+    </>
+  );
+};
 
 export default MyAccountIndex

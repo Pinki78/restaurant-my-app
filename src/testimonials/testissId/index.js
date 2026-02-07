@@ -3,10 +3,20 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PageTitleArea from "../../components/page-title-area/page-title-area";
 import { fetchTestimonial } from "../../redux-store/store-redux-componets/testimonialListStort";
+import TestissDetails from "./testiss-details";
+import { Container } from "react-bootstrap";
 
 const TestissIdIndex = () => {
   const { testissId } = useParams();
+    const testissSlug = testissId.toLowerCase();
   const dispatch = useDispatch();
+
+  
+  const slugify = (title = "") =>
+    title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
 
   const { testimonialDataList, loading } = useSelector(
     (state) => state.TestimonialReducermenu
@@ -17,11 +27,11 @@ const TestissIdIndex = () => {
   }, [dispatch]);
 
   const testisDetails = testimonialDataList.find(
-    (item) => String(item.id) === String(testissId)
+    (item) => slugify(item.title) === testissSlug,
   );
 
   useEffect(() => {
-    if (testisDetails?.title) {
+    if (testisDetails.title) {
       document.title = testisDetails.title;
     }
   }, [testisDetails]);
@@ -39,8 +49,12 @@ const TestissIdIndex = () => {
 
   return (
     <>
-      <PageTitleArea PageName={lowerCasetestis.title} />
-      <div>TestissIdIndex : {testissId}</div>
+      <PageTitleArea PageName={testisDetails.title} />
+      <section className="bx-section-testiss-details">
+      <Container >
+        <TestissDetails  items={testisDetails} />
+      </Container >
+      </section>
     </>
   );
 };

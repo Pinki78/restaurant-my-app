@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchMenuList } from "../../redux-store/menuListItmes";
-import MenuItems from "../../menus/menu-componebts/menu-items";
+import MenuItems from "../../menus/menu-component/menu-items";
 import SectionHeadrTitel from "../../components/seciton-headring/section-headring";
 import { useMediaQuery } from "react-responsive";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,10 +10,10 @@ import { Navigation, Autoplay } from "swiper/modules";
 
 
 const MenuListSilder = (props) => {
-  const { limit, Max_Length, PaginationHide , animationClass , ref} = props;
+  const { limit, Max_Length, animationClass , ref} = props;
   const isMobileOrTablet = useMediaQuery({ minWidth: 576, maxWidth: 991 });
   const dispatch = useDispatch();
-  const { itemsMenuList, loading } = useSelector(
+  const { itemsMenuList,  } = useSelector(
     (state) => state.ListReducermenu
   );
 
@@ -55,7 +55,7 @@ const MenuListSilder = (props) => {
             "--swiper-pagination-color": "#ff0000ff",
           }}
           breakpoints={{
-            0: { slidesPerView: 1 },
+            0: { slidesPerView: 2 },
             640: { slidesPerView: 2 },
             768: { slidesPerView: 3 },
             1024: { slidesPerView: 4 },

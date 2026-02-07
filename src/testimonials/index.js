@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
 import PageTitleArea from "../components/page-title-area/page-title-area";
-import TestimonialWroapper from "./testimonial-comp/testimonial-wroapper";
+import TestimonialWroapper from "./testimonial-component/testimonial-wroapper";
 
 
 

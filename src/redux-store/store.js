@@ -3,18 +3,20 @@ import { pageTitleReducer } from "./store-redux-componets/pageTitleSlice" // ✅
 import searchReducer from "./store-redux-componets/searchSlice"
 import  menuListReducer   from "./menuListItmes"
 import TestimonialListReducer   from "./store-redux-componets/testimonialListStort"
-
 import BlogsListReducer   from "./store-redux-componets/blogListStort"
-
 import TeamReducer from "./store-redux-componets/teamSlice"
-
 import faqListStort from './store-redux-componets/faqListStort'
 import cartStort from './store-redux-componets/cartSlice'
 import contactStort from './store-redux-componets/contactStort'
 import bookingFormStort from './store-redux-componets/bookingFormStort'
-import loadingSlice from "./store-redux-componets/loadingSlice";
-import wishlistSlice from "./store-redux-componets/wishlistSlice";
-import orderSlice from "./store-redux-componets/orderSlice";
+import loadingSlice from "./store-redux-componets/loadingSlice"
+import wishlistSlice from "./store-redux-componets/wishlistSlice"
+import orderSlice from "./store-redux-componets/orderSlice"
+import logInauthSlice from "./store-redux-componets/logInauthSlice"
+
+import forgotPasswordSlice from './store-redux-componets/forgotPasswordSlice'
+import otpSlice from './store-redux-componets/otpSlice'
+import registrationSlice from './store-redux-componets/registrationSlice'
 
 
 export const store = configureStore({
@@ -31,6 +33,10 @@ export const store = configureStore({
      bookingReducer:bookingFormStort ,
      loadingReducer:loadingSlice,
      wishlistReducer:wishlistSlice,
-     orderReducer:orderSlice
+     orderReducer:orderSlice,
+      loginReducer:logInauthSlice,
+      forgotPasswordReducer:forgotPasswordSlice,
+      otpReducer: otpSlice,
+     registrationReducer: registrationSlice,
   },
 });

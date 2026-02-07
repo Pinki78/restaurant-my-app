@@ -1,8 +1,8 @@
 import { Col, Container, Row } from "react-bootstrap";
 
 import PageTitleArea from "../components/page-title-area/page-title-area";
-import ContactInfo from "./contact-compent/contact-info";
-import ContactForm from "./contact-compent/contact-form";
+import ContactInfo from "./contact-component/contact-info";
+import ContactForm from "./contact-component/contact-form";
 
 const ContactIndex = ({ PageName }) => {
   return (

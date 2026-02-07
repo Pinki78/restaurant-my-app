@@ -1,7 +1,7 @@
 import { Container } from "react-bootstrap";
 import PageTitleArea from "../components/page-title-area/page-title-area";
 
-import TeamWrapper from "./team-componebts/team-wrapper";
+import TeamWrapper from "./team-component/team-wrapper";
 
 const TeamIndex = ({ PageName }) => {
   return (

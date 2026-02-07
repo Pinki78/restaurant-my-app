@@ -1,21 +1,37 @@
 import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "./firebase";
 import { Button } from "react-bootstrap";
-const GoogleLogin = () => {
-  const handleGoogleLogin = async () => {
-    try {
-      const result = await signInWithPopup(auth, googleProvider);
-      const user = result.user;
+import { useNavigate } from "react-router-dom";
 
-      console.log("User:", user);
-    } catch (error) {
+import { FcGoogle } from "react-icons/fc";
+
+const GoogleLogin = (props) => {
+
+  const {googleLoginClass} = props
+
+  const navigate = useNavigate();
+
+const handleGoogleLogin = async () => {
+  try {
+    const result = await signInWithPopup(auth, googleProvider);
+    const user = result.user;
+
+    if (user) {
+      navigate("/");
+    }
+  } catch (error) {
+    if (error.code === "auth/popup-closed-by-user") {
+      console.log("Popup closed by user");
+    } else {
       console.error(error);
     }
-  };
+  }
+};
+
 
   return (
-    <Button onClick={handleGoogleLogin}>
-      Sign in with Google
+    <Button onClick={handleGoogleLogin} className={`bx-social-media-btn ${googleLoginClass}`}>
+     <FcGoogle /> Sign in with Google
     </Button>
   );
 };

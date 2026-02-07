@@ -29,7 +29,7 @@ import Index404 from "./404";
 import GalleryIndex from "./gallery";
 import TestimonialsIndex from "./testimonials";
 import TestissIdIndex from "./testimonials/testissId";
-import CategoryIdIndex from "./menus/categoryId";
+import CategoryIdIndex from "./categorys/categoryId";
 import SingleProductInIndex from "./menus/single-product";
 import BlogsIndex from "./blog";
 import BlogsIndexId from "./blog/blogId";
@@ -43,10 +43,19 @@ import ContactIndex from "./contact";
 import WishlistIndex from "./wishlist";
 import ThankYouindex from "./think-you";
 import MyOrderIndex from "./my-order";
+import LoginIndex from "./login";
+import ForgotPasswordIndex from "./forgot-password";
+import ResetPasswordIndex from "./reset-password";
+import OtpIndex from "./otp";
+import RegistrationIndex from "./create-registration";
+import BlogCategoryIndex from "./blog/blogCategoryId";
+import BlogTagIndex from "./blog/blogTagId";
+import TeamIndexId from "./team/teamId";
+import CategoryIndex from "./categorys";
 
 // import OffersIndex from "./offers";
 // import ContactIndex from "./contact";
-// import LoginIndex from "./login";
+//
 // import RegisterIndex from "./register";
 
 function App() {
@@ -124,12 +133,26 @@ function App() {
             />
 
             <Route path="/menus/:id" element={<SingleProductInIndex />} />
+            <Route
+              path="/categorys"
+              element={
+                <PageTitle>
+                  <CategoryIndex />
+                </PageTitle>
+              }
+            />
+
             <Route path="/category/:categoryId" element={<CategoryIdIndex />} />
             <Route
               path="/testimonials/:testissId"
               element={<TestissIdIndex />}
             />
             <Route path="/blog/:blogId" element={<BlogsIndexId />} />
+            <Route
+              path="/blog/category/:blogCategoryId"
+              element={<BlogCategoryIndex />}
+            />
+            <Route path="/blog/tag/:blogTagId" element={<BlogTagIndex />} />
 
             <Route
               path="/404"
@@ -148,6 +171,7 @@ function App() {
                 </PageTitle>
               }
             />
+            <Route path="/team/:teamId" element={<TeamIndexId />} />
 
             <Route
               path="/faq"
@@ -212,7 +236,51 @@ function App() {
             />
 
             <Route
-              path="/thank-you"
+              path="/log-in"
+              element={
+                <PageTitle title="Log In">
+                  <LoginIndex />
+                </PageTitle>
+              }
+            />
+
+            <Route
+              path="/forgot-password"
+              element={
+                <PageTitle title="Forgot password">
+                  <ForgotPasswordIndex />
+                </PageTitle>
+              }
+            />
+            <Route
+              path="/otp"
+              element={
+                <PageTitle title="Otp">
+                  <OtpIndex />
+                </PageTitle>
+              }
+            />
+
+            <Route
+              path="/reset-password"
+              element={
+                <PageTitle title="Reset Password">
+                  <ResetPasswordIndex />
+                </PageTitle>
+              }
+            />
+
+            <Route
+              path="/create-registration"
+              element={
+                <PageTitle title="Registration">
+                  <RegistrationIndex />
+                </PageTitle>
+              }
+            />
+
+            <Route
+              path="/think-you"
               element={
                 <PageTitle title="Thank You">
                   <ThankYouindex />

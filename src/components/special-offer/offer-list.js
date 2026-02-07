@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useRef } from "react";
 import { fetchMenuList } from "../../redux-store/menuListItmes";
-import MenuItems from "../../menus/menu-componebts/menu-items";
-import { Row, Col, ListGroup, Image } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
+import MenuItems from "../../menus/menu-component/menu-items";
+import { Row, Col,  } from "react-bootstrap";
+import {useLocation } from "react-router-dom";
 
 const OfferList = (props) => {
 
@@ -14,7 +14,7 @@ const OfferList = (props) => {
 
  const isPage = location.pathname === "/offer";
 
-  const { itemsMenuList, loading } = useSelector(
+  const { itemsMenuList,  } = useSelector(
     (state) => state.ListReducermenu
   );
 
@@ -52,7 +52,7 @@ const OfferDisplay = limit
                 listMenu={foodItem}
                 limit={limit}
                 Max_Length={Max_Length}
-               isOfferPage
+                isOfferPage
                productMenuCLass='bx-product-list-wapper'
               />
             </Col>

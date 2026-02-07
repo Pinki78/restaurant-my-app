@@ -189,3 +189,19 @@ footer.bx-footer-main {
         }
     }
 }
+
+
+/***--@media--***/
+
+@media (max-width: 576px) {
+a.nav-logos{
+    img{
+        width: 100%;
+    }
+}
+
+
+    .bx-copyright-root ul.bx-inline-items{
+            justify-content: flex-start;
+    }
+}

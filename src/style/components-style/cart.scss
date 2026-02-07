@@ -29,16 +29,19 @@
 
     .bx-btn-prim {
         background: $color-orange2;
-    padding: 12px 9px;
-    font-size: 11px;
-    line-height: 0;
-    height: unset;
+        padding: 12px 9px;
+        font-size: 11px;
+        line-height: 0;
+        height: unset;
+
         &:hover {
             color: #fff;
         }
+
         &::before {
             background: $color-black1;
         }
+
         span {
             position: relative;
             z-index: 9;
@@ -87,12 +90,15 @@
         background: $color-orange2;
         padding: 9px;
         width: 100%;
+
         &:hover {
             color: #fff;
         }
+
         &::before {
             background: $color-black1;
         }
+
         span {
             position: relative;
             z-index: 9;
@@ -116,7 +122,7 @@
 
         td {
             display: flex;
-            justify-content: space-between;
+            justify-content:flex-start;
             padding: 8px 0;
             border: none;
 
